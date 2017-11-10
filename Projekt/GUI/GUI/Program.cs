@@ -47,10 +47,10 @@ namespace GUI
                 double flurFlaeche = rd.NextDouble() * rd.Next(50, 100);
                 double sanitaerraumFlaeche = rd.NextDouble() * rd.Next(50, 100);
 
-                String bueroNummer = rd.Next(1, 75).ToString() + "a";
-                String seminarraumNummer = rd.Next(1, 75).ToString() + "b";
-                String flurNummer = rd.Next(1, 75).ToString() + "c";
-                String sanitaerraumNummer = rd.Next(1, 75).ToString() + "d";
+                String bueroNummer = rd.Next(1, 75).ToString() + "a [Büro]";
+                String seminarraumNummer = rd.Next(1, 75).ToString() + "b [Seminarraum]";
+                String flurNummer = rd.Next(1, 75).ToString() + "c [Flur]";
+                String sanitaerraumNummer = rd.Next(1, 75).ToString() + "d [Sanitärraum]";
 
 
                 String bueroTypRaumName = typRaumlist[rd.Next(0, 5)];

@@ -8,9 +8,9 @@ namespace Klassen
 {
 
     [Serializable]
-    public class Sportraum : Raum
+    public class Sportraum : Bildung
     {
-        public Sportraum(double flaeche, double brandgefahr, String bezeichnung, String typeRaum) : base(flaeche, brandgefahr, bezeichnung, typeRaum) { }
+        public Sportraum(double flaeche, double brandgefahr, String bezeichnung) : base(flaeche, brandgefahr, bezeichnung) { }
 
     }
 }

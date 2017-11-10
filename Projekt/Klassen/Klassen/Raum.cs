@@ -14,11 +14,12 @@ namespace Klassen
         protected String bezeichung;
         protected Feuerloecher feuerloecher;
         protected String typRaum;
+        private string bezeichnung;
 
         //Properties der Klasse
         public double Flaeche { get { return raumflaeche; } set { raumflaeche = value; } }
         public double Brandgefahr { get { return brandgefahr; } set { brandgefahr = value; } }
-        public String Bezeichung { get { return "Raum " + bezeichung; } set { bezeichung = value; } }
+        public String Bezeichung { get { return bezeichung; } set { bezeichung = value; } }
         public String TypRaume { get { return typRaum; } set { typRaum = value; } }
 
 
@@ -37,7 +38,7 @@ namespace Klassen
         {
             this.raumflaeche = _raum.Flaeche;
             this.brandgefahr = _raum.Brandgefahr;
-            this.bezeichung = _raum.Bezeichung.Split(' ')[_raum.Bezeichung.Split(' ').Length - 1]; ;
+            this.bezeichung = _raum.Bezeichung;
             this.typRaum = _raum.TypRaume;
         }
 
@@ -50,5 +51,11 @@ namespace Klassen
             this.typRaum = _typRaum;
         }
 
+        public Raum(double flaeche, double brandgefahr, string bezeichnung)
+        {
+            this.raumflaeche = flaeche;
+            this.brandgefahr = brandgefahr;
+            this.bezeichnung = bezeichnung;
+        }
     }
 }

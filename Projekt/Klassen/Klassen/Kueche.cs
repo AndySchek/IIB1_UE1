@@ -8,9 +8,9 @@ namespace Klassen
 {
 
     [Serializable]
-    public class Kueche : Raum
+    public class Kueche : Wohnung
     {
-        public Kueche(double flaeche, double brandgefahr, String bezeichnung, String typeRaum) : base(flaeche, brandgefahr, bezeichnung, typeRaum) { }
+        public Kueche(double flaeche, double brandgefahr, String bezeichnung) : base(flaeche, brandgefahr, bezeichnung) { }
 
     }
 }

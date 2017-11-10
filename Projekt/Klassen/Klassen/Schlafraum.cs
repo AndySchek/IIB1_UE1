@@ -8,9 +8,9 @@ namespace Klassen
 {
 
     [Serializable]
-    public class Flur : Bildung
+    public class Schlafraum : Wohnung
     {
-        public Flur(double flaeche, double brandgefahr, String bezeichnung) : base(flaeche, brandgefahr, bezeichnung) { }
+        public Schlafraum(double flaeche, double brandgefahr, String bezeichnung) : base(flaeche, brandgefahr, bezeichnung) { }
 
     }
 }

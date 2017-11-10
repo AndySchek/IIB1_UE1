@@ -14,32 +14,25 @@ namespace GUI
     public partial class FormMain : Form
     {
         private BindingList<Raum> raeume;
-        private List<String> typRaum;
 
-        public FormMain(BindingList<Raum> _raeume, List<String> _typRaum)
+        public FormMain(BindingList<Raum> _raeume)
         {
             InitializeComponent();
             this.raeume = _raeume;
-            this.typRaum = _typRaum;
             fuelleListe();
         }
 
         private void fuelleListe()
         {
+
             comboBoxTypRaum.Items.Add("Alle");
-            foreach (var typ in typRaum)
+            foreach (Raum r in raeume)
             {
-                comboBoxTypRaum.Items.Add(typ);
+                if (comboBoxTypRaum.Items.IndexOf(r.TypRaume) == -1)
+                    comboBoxTypRaum.Items.Add(r.TypRaume);
             }
 
             comboBoxTypRaum.SelectedIndex = 0;
-
-            //comboBoxTypRaum.DataSource = typRaum;
-            //listBoxRaum.DisplayMember = "TypRaum";
-
-            //listBoxRaum.DataSource = raeume;
-            //listBoxRaum.DisplayMember = "Bezeichung";
-
           
         }
 

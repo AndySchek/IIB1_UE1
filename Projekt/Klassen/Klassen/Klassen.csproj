@@ -44,6 +44,9 @@
     <Compile Include="Feuerloecher.cs" />
     <Compile Include="Flur.cs" />
     <Compile Include="Sanitaerraum.cs" />
+    <Compile Include="Schlafzimmer.cs" />
+    <Compile Include="Kueche.cs" />
+    <Compile Include="Sportraum.cs" />
     <Compile Include="Seminarraum.cs" />
     <Compile Include="Raum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -59,6 +59,7 @@
             this.buttonRaumDetail.TabIndex = 7;
             this.buttonRaumDetail.Text = "Details";
             this.buttonRaumDetail.UseVisualStyleBackColor = true;
+            this.buttonRaumDetail.Click += new System.EventHandler(this.buttonRaumDetail_Click);
             // 
             // comboBoxTypRaum
             // 

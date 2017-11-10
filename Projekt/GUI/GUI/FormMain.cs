@@ -55,7 +55,7 @@ namespace GUI
             {
                 foreach (Raum r in raeume)
                 {
-                    listBoxRaum.Items.Add(r.Bezeichung);
+                    listBoxRaum.Items.Add(r);
                 }
             }
 
@@ -66,10 +66,17 @@ namespace GUI
 
                     if (r.TypRaume.Equals(typ))
                     {
-                        listBoxRaum.Items.Add(r.Bezeichung);
+                        listBoxRaum.Items.Add(r);
                     }
                 }
             }
+            listBoxRaum.DisplayMember = "Bezeichung";
+        }
+
+        private void buttonRaumDetail_Click(object sender, EventArgs e)
+        {
+            FormRaum formRaum = new FormRaum((Raum)listBoxRaum.SelectedItem, this);
+            formRaum.ShowDialog();
         }
     }
 }

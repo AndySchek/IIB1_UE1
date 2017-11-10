@@ -13,11 +13,13 @@ namespace Klassen
         protected double brandgefahr;
         protected String bezeichung;
         protected Feuerloecher feuerloecher;
+        protected String typRaum;
 
         //Properties der Klasse
         public double Flaeche { get { return raumflaeche; } set { raumflaeche = value; } }
         public double Brandgefahr { get { return brandgefahr; } set { brandgefahr = value; } }
-        public String Bezeichung { get { return bezeichung; } set { bezeichung = value; } }
+        public String Bezeichung { get { return "Raum " + bezeichung; } set { bezeichung = value; } }
+        public String TypRaume { get { return typRaum; } set { typRaum = value; } }
 
 
 
@@ -27,6 +29,7 @@ namespace Klassen
             raumflaeche = 0;
             brandgefahr = 0;
             bezeichung = "";
+            typRaum = "";
         }
 
         //Allgemeiner Konstruktor1
@@ -34,15 +37,17 @@ namespace Klassen
         {
             this.raumflaeche = _raum.Flaeche;
             this.brandgefahr = _raum.Brandgefahr;
-            this.bezeichung = _raum.Bezeichung;
+            this.bezeichung = _raum.Bezeichung.Split(' ')[_raum.Bezeichung.Split(' ').Length - 1]; ;
+            this.typRaum = _raum.TypRaume;
         }
 
         //Allgemeiner Konstruktor2
-        public Raum(double _flaeche, double _brandgefahr, String _bezeichnung)
+        public Raum(double _flaeche, double _brandgefahr, String _bezeichnung, String _typRaum)
         {
             this.raumflaeche = _flaeche;
             this.brandgefahr = _brandgefahr;
             this.bezeichung = _bezeichnung;
+            this.typRaum = _typRaum;
         }
 
     }

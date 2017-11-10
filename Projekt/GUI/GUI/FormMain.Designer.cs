@@ -28,57 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonGeboedeArbeit = new System.Windows.Forms.Button();
-            this.buttonGeboedeWohnung = new System.Windows.Forms.Button();
-            this.buttonGeboedeBildung = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.listBoxRaum = new System.Windows.Forms.ListBox();
+            this.buttonRaumDetail = new System.Windows.Forms.Button();
+            this.comboBoxTypRaum = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // buttonGeboedeArbeit
-            // 
-            this.buttonGeboedeArbeit.Location = new System.Drawing.Point(110, 61);
-            this.buttonGeboedeArbeit.Name = "buttonGeboedeArbeit";
-            this.buttonGeboedeArbeit.Size = new System.Drawing.Size(180, 40);
-            this.buttonGeboedeArbeit.TabIndex = 0;
-            this.buttonGeboedeArbeit.Text = "Büro / Office";
-            this.buttonGeboedeArbeit.UseVisualStyleBackColor = true;
-            // 
-            // buttonGeboedeWohnung
-            // 
-            this.buttonGeboedeWohnung.Location = new System.Drawing.Point(110, 107);
-            this.buttonGeboedeWohnung.Name = "buttonGeboedeWohnung";
-            this.buttonGeboedeWohnung.Size = new System.Drawing.Size(180, 40);
-            this.buttonGeboedeWohnung.TabIndex = 3;
-            this.buttonGeboedeWohnung.Text = "Wohnung / Haus";
-            this.buttonGeboedeWohnung.UseVisualStyleBackColor = true;
-            // 
-            // buttonGeboedeBildung
-            // 
-            this.buttonGeboedeBildung.Location = new System.Drawing.Point(110, 153);
-            this.buttonGeboedeBildung.Name = "buttonGeboedeBildung";
-            this.buttonGeboedeBildung.Size = new System.Drawing.Size(180, 40);
-            this.buttonGeboedeBildung.TabIndex = 4;
-            this.buttonGeboedeBildung.Text = "Universität / Schule";
-            this.buttonGeboedeBildung.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(96, 30);
+            this.label1.Location = new System.Drawing.Point(9, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 13);
+            this.label1.Size = new System.Drawing.Size(143, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Bitte wählen Sie einen Typ des Geböudes";
+            this.label1.Text = "Bitte wählen Sie einen Raum";
+            // 
+            // listBoxRaum
+            // 
+            this.listBoxRaum.FormattingEnabled = true;
+            this.listBoxRaum.Location = new System.Drawing.Point(12, 64);
+            this.listBoxRaum.Name = "listBoxRaum";
+            this.listBoxRaum.Size = new System.Drawing.Size(227, 290);
+            this.listBoxRaum.TabIndex = 6;
+            // 
+            // buttonRaumDetail
+            // 
+            this.buttonRaumDetail.Location = new System.Drawing.Point(245, 35);
+            this.buttonRaumDetail.Name = "buttonRaumDetail";
+            this.buttonRaumDetail.Size = new System.Drawing.Size(119, 23);
+            this.buttonRaumDetail.TabIndex = 7;
+            this.buttonRaumDetail.Text = "Details";
+            this.buttonRaumDetail.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxTypRaum
+            // 
+            this.comboBoxTypRaum.FormattingEnabled = true;
+            this.comboBoxTypRaum.Location = new System.Drawing.Point(12, 37);
+            this.comboBoxTypRaum.Name = "comboBoxTypRaum";
+            this.comboBoxTypRaum.Size = new System.Drawing.Size(227, 21);
+            this.comboBoxTypRaum.TabIndex = 8;
+            this.comboBoxTypRaum.SelectedIndexChanged += new System.EventHandler(this.comboBoxTypRaum_SelectedIndexChanged);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 234);
+            this.ClientSize = new System.Drawing.Size(376, 365);
+            this.Controls.Add(this.comboBoxTypRaum);
+            this.Controls.Add(this.buttonRaumDetail);
+            this.Controls.Add(this.listBoxRaum);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonGeboedeBildung);
-            this.Controls.Add(this.buttonGeboedeWohnung);
-            this.Controls.Add(this.buttonGeboedeArbeit);
             this.Name = "FormMain";
             this.Text = "Willcommen bei der Brandschutzplanung";
             this.Load += new System.EventHandler(this.FormMain_Load);
@@ -88,11 +87,10 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonGeboedeArbeit;
-        private System.Windows.Forms.Button buttonGeboedeWohnung;
-        private System.Windows.Forms.Button buttonGeboedeBildung;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox listBoxRaum;
+        private System.Windows.Forms.Button buttonRaumDetail;
+        private System.Windows.Forms.ComboBox comboBoxTypRaum;
     }
 }
 

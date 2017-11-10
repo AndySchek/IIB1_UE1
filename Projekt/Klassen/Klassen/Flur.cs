@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Klassen
 {
-    class Flur : Raum
+
+    [Serializable]
+    public class Flur : Raum
     {
+        public Flur(double flaeche, double brandgefahr, String bezeichnung, String typeRaum) : base(flaeche, brandgefahr, bezeichnung, typeRaum) { }
+
     }
 }

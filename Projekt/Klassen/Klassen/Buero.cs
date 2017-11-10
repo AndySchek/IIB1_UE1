@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace Klassen
 {
-    class Buero : Raum
+
+    [Serializable]
+    public class Buero : Raum
     {
+
+        public Buero() : base() {  }
+        public Buero(Raum r) : base(r) { }
+        public Buero(double flaeche, double brandgefahr, String bezeichnung, String typeRaum) : base(flaeche, brandgefahr, bezeichnung, typeRaum) {  }
+
     }
 }

@@ -43,6 +43,7 @@
     <Compile Include="Buero.cs" />
     <Compile Include="Feuerloecher.cs" />
     <Compile Include="Flur.cs" />
+    <Compile Include="Sanitaerraum.cs" />
     <Compile Include="Seminarraum.cs" />
     <Compile Include="Raum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

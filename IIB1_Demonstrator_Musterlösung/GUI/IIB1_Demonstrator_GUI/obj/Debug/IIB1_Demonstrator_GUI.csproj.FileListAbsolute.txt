@@ -53,3 +53,19 @@ C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockü
 C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.exe
 C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.pdb
 C:\Users\igora\OneDrive\Das Studium\Informatik im Bau- und Umweltwesen 1\Blockübung\Projekt\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csprojResolveAssemblyReference.cache
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe.config
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.exe
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator_GUI.pdb
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.dll
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.pdb
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.dll.config
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\bin\Debug\IIB1_Demonstrator.exe.config
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csprojResolveAssemblyReference.cache
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormFenster.resources
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormRaum.resources
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Forms.FormMain.resources
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.Properties.Resources.resources
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csproj.GenerateResource.Cache
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.csproj.CoreCompileInputs.cache
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.exe
+C:\Users\igora\source\Visual Studio\IIB1_UE1\IIB1_Demonstrator_Musterlösung\GUI\IIB1_Demonstrator_GUI\obj\Debug\IIB1_Demonstrator_GUI.pdb

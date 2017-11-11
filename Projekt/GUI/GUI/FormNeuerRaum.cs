@@ -18,8 +18,10 @@ namespace GUI
         {
             InitializeComponent();
             this.Owner = _parent;
+            textBoxRaumBezeichnung.Text = "Raum";
+            textBoxRaumFlaeche.Text = "0,0";
             comboBoxRaumNutzungsart.SelectedIndex = 0;
-            buttonNeuerRaum.Enabled = false;
+            buttonNeuerRaum.Enabled = true;
 
         }
 

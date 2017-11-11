@@ -34,11 +34,14 @@
             this.comboBoxTypRaum = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.speichernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.speihernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ladenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.speichernToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ladenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.speihernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ladenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonabbrechen = new System.Windows.Forms.Button();
+            this.buttonLoeschenRaum = new System.Windows.Forms.Button();
+            this.buttonErstellenRaum = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +64,7 @@
             // 
             // buttonRaumDetail
             // 
-            this.buttonRaumDetail.Location = new System.Drawing.Point(245, 50);
+            this.buttonRaumDetail.Location = new System.Drawing.Point(248, 50);
             this.buttonRaumDetail.Name = "buttonRaumDetail";
             this.buttonRaumDetail.Size = new System.Drawing.Size(119, 23);
             this.buttonRaumDetail.TabIndex = 7;
@@ -94,16 +97,6 @@
             this.speichernToolStripMenuItem.Name = "speichernToolStripMenuItem";
             this.speichernToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
-            // speihernToolStripMenuItem
-            // 
-            this.speihernToolStripMenuItem.Name = "speihernToolStripMenuItem";
-            this.speihernToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // ladenToolStripMenuItem
-            // 
-            this.ladenToolStripMenuItem.Name = "ladenToolStripMenuItem";
-            this.ladenToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
             // dateiToolStripMenuItem
             // 
             this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -116,22 +109,65 @@
             // speichernToolStripMenuItem1
             // 
             this.speichernToolStripMenuItem1.Name = "speichernToolStripMenuItem1";
-            this.speichernToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.speichernToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.speichernToolStripMenuItem1.Text = "Speichern";
             this.speichernToolStripMenuItem1.Click += new System.EventHandler(this.speichernToolStripMenuItem1_Click);
             // 
             // ladenToolStripMenuItem1
             // 
             this.ladenToolStripMenuItem1.Name = "ladenToolStripMenuItem1";
-            this.ladenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.ladenToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
             this.ladenToolStripMenuItem1.Text = "Laden";
             this.ladenToolStripMenuItem1.Click += new System.EventHandler(this.ladenToolStripMenuItem1_Click);
+            // 
+            // speihernToolStripMenuItem
+            // 
+            this.speihernToolStripMenuItem.Name = "speihernToolStripMenuItem";
+            this.speihernToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // ladenToolStripMenuItem
+            // 
+            this.ladenToolStripMenuItem.Name = "ladenToolStripMenuItem";
+            this.ladenToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // buttonabbrechen
+            // 
+            this.buttonabbrechen.Location = new System.Drawing.Point(248, 346);
+            this.buttonabbrechen.Name = "buttonabbrechen";
+            this.buttonabbrechen.Size = new System.Drawing.Size(119, 23);
+            this.buttonabbrechen.TabIndex = 10;
+            this.buttonabbrechen.Text = "Schliessen";
+            this.buttonabbrechen.UseVisualStyleBackColor = true;
+            this.buttonabbrechen.Click += new System.EventHandler(this.buttonabbrechen_Click);
+            // 
+            // buttonLoeschenRaum
+            // 
+            this.buttonLoeschenRaum.Location = new System.Drawing.Point(248, 108);
+            this.buttonLoeschenRaum.Name = "buttonLoeschenRaum";
+            this.buttonLoeschenRaum.Size = new System.Drawing.Size(119, 23);
+            this.buttonLoeschenRaum.TabIndex = 11;
+            this.buttonLoeschenRaum.Text = "Löschen";
+            this.buttonLoeschenRaum.UseVisualStyleBackColor = true;
+            this.buttonLoeschenRaum.Click += new System.EventHandler(this.buttonLoeschenRaum_Click);
+            // 
+            // buttonErstellenRaum
+            // 
+            this.buttonErstellenRaum.Location = new System.Drawing.Point(248, 79);
+            this.buttonErstellenRaum.Name = "buttonErstellenRaum";
+            this.buttonErstellenRaum.Size = new System.Drawing.Size(119, 23);
+            this.buttonErstellenRaum.TabIndex = 12;
+            this.buttonErstellenRaum.Text = "Erstellen";
+            this.buttonErstellenRaum.UseVisualStyleBackColor = true;
+            this.buttonErstellenRaum.Click += new System.EventHandler(this.buttonErstellenRaum_Click);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 383);
+            this.Controls.Add(this.buttonErstellenRaum);
+            this.Controls.Add(this.buttonLoeschenRaum);
+            this.Controls.Add(this.buttonabbrechen);
             this.Controls.Add(this.comboBoxTypRaum);
             this.Controls.Add(this.buttonRaumDetail);
             this.Controls.Add(this.listBoxRaum);
@@ -160,6 +196,9 @@
         private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem speichernToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ladenToolStripMenuItem1;
+        private System.Windows.Forms.Button buttonabbrechen;
+        private System.Windows.Forms.Button buttonLoeschenRaum;
+        private System.Windows.Forms.Button buttonErstellenRaum;
     }
 }
 

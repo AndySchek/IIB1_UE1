@@ -8,10 +8,13 @@ namespace Klassen
 {
 
     [Serializable]
-    public abstract class Wohnung : Raum
+    public class Wohnung : Raum
     {
 
         private String typRaum = "Wohnung";
+
+        public Wohnung() : base() { TypRaume = typRaum; }
+        public Wohnung(Raum raum) : base(raum) { TypRaume = typRaum; }
 
         public Wohnung(double flaeche, double brandgefahr, string bezeichnung)
         {

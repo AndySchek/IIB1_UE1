@@ -53,6 +53,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNeuerRaum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNeuerRaum.Designer.cs">
+      <DependentUpon>FormNeuerRaum.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormRaum.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNeuerRaum.resx">
+      <DependentUpon>FormNeuerRaum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRaum.resx">
       <DependentUpon>FormRaum.cs</DependentUpon>

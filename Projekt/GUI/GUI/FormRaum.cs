@@ -59,5 +59,39 @@ namespace GUI
             //listBoxFenster.DisplayMember = "Bezeichung";
         }
 
+        private void buttonAenderungsSpeichern_Click(object sender, EventArgs e)
+        {
+            raum.Bezeichung = textBoxRaumBezeichnung.Text;
+
+            int art = 0;
+            if (raum.TypRaume.Equals("Bueroarbeit"))
+                art = 1;
+            else if (raum.TypRaume.Equals("Bildung"))
+                art = 2;
+
+            int t = comboBoxRaumNutzungsart.SelectedIndex;
+
+            if (t != art)
+            {
+                switch (t)
+                {
+                    case 0:
+                        Wohnung neuerWohnungRaum = new Wohnung(raum);
+                        raum = neuerWohnungRaum;
+                        break;
+                    case 1:
+                        Bueroarbeit neuerBueroarbeitRaum = new Bueroarbeit(raum);
+                        raum = neuerBueroarbeitRaum;
+                        break;
+                    case 2:
+                        Bildung neuerBildungRaum = new Bildung(raum);
+                        raum = neuerBildungRaum;
+                        break;
+                }
+            }
+
+            ((FormMain)Owner).raumAenderung(raum);
+        
+        }
     }
 }

@@ -38,6 +38,7 @@
             this.textBoxRaumBrandlast = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxRaumNutzungsart = new System.Windows.Forms.ComboBox();
+            this.buttonAenderungsSpeichern = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelBezeichnung
@@ -127,11 +128,22 @@
             this.comboBoxRaumNutzungsart.Size = new System.Drawing.Size(100, 21);
             this.comboBoxRaumNutzungsart.TabIndex = 9;
             // 
+            // buttonAenderungsSpeichern
+            // 
+            this.buttonAenderungsSpeichern.Location = new System.Drawing.Point(15, 189);
+            this.buttonAenderungsSpeichern.Name = "buttonAenderungsSpeichern";
+            this.buttonAenderungsSpeichern.Size = new System.Drawing.Size(188, 23);
+            this.buttonAenderungsSpeichern.TabIndex = 10;
+            this.buttonAenderungsSpeichern.Text = "Änderung speichern";
+            this.buttonAenderungsSpeichern.UseVisualStyleBackColor = true;
+            this.buttonAenderungsSpeichern.Click += new System.EventHandler(this.buttonAenderungsSpeichern_Click);
+            // 
             // FormRaum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 363);
+            this.Controls.Add(this.buttonAenderungsSpeichern);
             this.Controls.Add(this.comboBoxRaumNutzungsart);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBoxRaumBrandlast);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.TextBox textBoxRaumBrandlast;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxRaumNutzungsart;
+        private System.Windows.Forms.Button buttonAenderungsSpeichern;
     }
 }

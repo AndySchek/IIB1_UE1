@@ -8,12 +8,13 @@ namespace Klassen
 {
 
     [Serializable]
-    public abstract class Bildung : Raum
+    public class Bildung : Raum
     {
-        //public Wohnung(double flaeche, double brandgefahr, String bezeichnung) : base(flaeche, brandgefahr, bezeichnung) { }
 
         private String typRaum = "Bildung";
-        //private string bezeichnung;
+
+        public Bildung() : base() { TypRaume = typRaum; }
+        public Bildung(Raum raum) : base(raum) { TypRaume = typRaum; }
 
         public Bildung(double flaeche, double brandgefahr, string bezeichnung)
         {

@@ -8,10 +8,13 @@ namespace Klassen
 {
 
     [Serializable]
-    public abstract class Bueroarbeit : Raum
+    public class Bueroarbeit : Raum
     {
 
         private String typRaum = "Büroarbeit";
+
+        public Bueroarbeit() : base() { TypRaume = typRaum; }
+        public Bueroarbeit(Raum raum) : base(raum) { TypRaume = typRaum; }
 
         public Bueroarbeit(double flaeche, double brandgefahr, string bezeichnung)
         {

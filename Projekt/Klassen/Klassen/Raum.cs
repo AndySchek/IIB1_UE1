@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Klassen
 {
+    [Serializable]
     public class Raum
     {
         //Attribute der Klasse

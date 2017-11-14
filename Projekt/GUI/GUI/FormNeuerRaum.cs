@@ -44,7 +44,7 @@ namespace GUI
             raum.Loeschmitteleinheiten = raum.countLoeschmitteleinheiten(raum.Flaeche);
 
             int t = comboBoxRaumNutzungsart.SelectedIndex;
-
+            /*
             switch (t)
             {
                 case 0:
@@ -60,6 +60,7 @@ namespace GUI
                     raum = neuerBildungRaum;
                     break;
             }
+            */
 
            ((FormMain)Owner).raumErstellen(raum);
 

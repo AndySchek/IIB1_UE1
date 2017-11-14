@@ -26,7 +26,7 @@ namespace GUI
         {
             textBoxRaumBezeichnung.Text = raum.Bezeichung;
             textBoxRaumFlaeche.Text = Math.Round(raum.Flaeche, 2).ToString();
-            textBoxRaumBrandgefahr.Text = Math.Round(raum.Brandgefahr,2).ToString();
+            //textBoxRaumBrandgefahr.Text = Math.Round(raum.Brandgefahr,2).ToString();
             textBoxLoeschmeiiteleinheiten.Text = raum.Loeschmitteleinheiten.ToString();
 
             String typ = raum.TypRaume;
@@ -45,6 +45,7 @@ namespace GUI
 
             }
 
+            /*
             foreach (Loeschvermoegen l in raum.Feuerloecher.LoeschvermoegenList)
             {
                 if (comboBoxLoeschvermoegen.Items.IndexOf(l.nameLoeschvermoegen) == -1)
@@ -57,6 +58,7 @@ namespace GUI
             textBoxLE.Text = Convert.ToString(raum.Feuerloecher.Loeschvermoegen.countLoeschmitteleinheiten);
 
             rechnungCountFeuerloescher();
+            */
 
         }
 
@@ -65,7 +67,7 @@ namespace GUI
             raum.Bezeichung = textBoxRaumBezeichnung.Text;
             raum.Flaeche = Convert.ToDouble(textBoxRaumFlaeche.Text);
             raum.Loeschmitteleinheiten = Convert.ToInt16(textBoxLoeschmeiiteleinheiten.Text);
-            raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen = comboBoxLoeschvermoegen.Text;
+            //raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen = comboBoxLoeschvermoegen.Text;
 
             int art = 0;
             if (raum.TypRaume.Equals("Bueroarbeit"))
@@ -74,7 +76,7 @@ namespace GUI
                 art = 2;
 
             int t = comboBoxRaumNutzungsart.SelectedIndex;
-
+            /*
             if (t != art)
             {
                 switch (t)
@@ -93,6 +95,7 @@ namespace GUI
                         break;
                 }
             }
+            */
 
             ((FormMain)Owner).raumAenderung(raum);
         
@@ -153,6 +156,8 @@ namespace GUI
         {
             String loeschvermoegen = (String)comboBoxLoeschvermoegen.SelectedItem;
             int countLoeschmitteleinheiten = 0;
+
+            /*
             foreach (Loeschvermoegen l in raum.Feuerloecher.LoeschvermoegenList)
             {
                 if (loeschvermoegen.Equals(l.nameLoeschvermoegen))
@@ -163,6 +168,7 @@ namespace GUI
                 }
             }
             rechnungCountFeuerloescher();
+            */
 
         }
 

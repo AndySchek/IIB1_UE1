@@ -12,14 +12,7 @@ namespace GUI
     static class Program
     {
         private static BindingList<Raum> raeume = new BindingList<Raum>();
-
-        private static BindingList<Wohnung> wohnungRaeme = new BindingList<Wohnung>();
-        private static BindingList<Bueroarbeit> bueroRaeme = new BindingList<Bueroarbeit>();
-        private static BindingList<Bildung> bildungRaeme = new BindingList<Bildung>();
-        private static List<Loeschvermoegen> loeschvermoegen = new List<Loeschvermoegen>();
-        
-
-        private static List<String> typRaumlist = new List<String>();
+        private static List<Feuerloecher> feuerlocherList = new List<Feuerloecher>();
 
         /// <summary>
         /// The main entry point for the application.
@@ -27,151 +20,94 @@ namespace GUI
         [STAThread]
         static void Main()
         {
-            
-            createWohnungRaume();
-            createBueroRaume();
-            createBildungRaume();
-            addRaume();
+            createFeuerloecher();
+            createRaume();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain(raeume, loeschvermoegen));
+            Application.Run(new FormMain(raeume));
         }
 
-        private static Feuerloecher createFeuerloecher()
+        private static void createFeuerloecher()
         {
-            Random rd = new Random((int)DateTime.Now.Ticks);
-            Feuerloecher feuerloecher = new Feuerloecher();
-            int i = rd.Next(0, 10);
-            feuerloecher.Loeschvermoegen = feuerloecher.LoeschvermoegenList[i];
-            return feuerloecher;
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "5A/21B", Loescheinheit = 1, Preis = 20 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "8A/34B", Loescheinheit = 2, Preis = 40 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "55B", Loescheinheit = 3, Preis = 100 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "13A/70B", Loescheinheit = 4, Preis = 150 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "89B", Loescheinheit = 5, Preis = 200 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "21A/113B", Loescheinheit = 6, Preis = 250 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "27A/144B", Loescheinheit = 9, Preis = 350 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "34A", Loescheinheit = 10, Preis = 400 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "43A / 183B", Loescheinheit = 12, Preis = 500 });
+            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "55A/233B", Loescheinheit = 15, Preis = 700 });
 
         }
 
-        private static void createWohnungRaume()
+        private static Feuerloecher empfangFeuerlocher()
         {
-            Random rd = new Random();
-            double kuecheFlaeche = (rd.NextDouble() + 1 ) * rd.Next(10, 50);
-            double schlafraumFlaeche = (rd.NextDouble() + 1) * rd.Next(20, 50);
-            double speiseraumFlaeche = (rd.NextDouble() + 1) * rd.Next(10, 30);
-            double wohnraumFlaeche = (rd.NextDouble() + 1) * rd.Next(20, 70);
 
-            Feuerloecher kuechefeuerloecher = createFeuerloecher();
-            Feuerloecher schlafraumfeuerloecher = createFeuerloecher();
-            Feuerloecher speiseraumfeuerloecher = createFeuerloecher();
-            Feuerloecher wohnraumfeuerloecher = createFeuerloecher();
-
-            Wohnung kueche = new Wohnung(kuecheFlaeche, 10, "Küche", kuechefeuerloecher);
-            Wohnung schlafraum = new Wohnung(schlafraumFlaeche, 10, "Schlafraum", schlafraumfeuerloecher);
-            Wohnung speiseraum = new Wohnung(speiseraumFlaeche, 10, "Speiseraum", speiseraumfeuerloecher);
-            Wohnung wohnraum = new Wohnung(wohnraumFlaeche, 10, "Wohnraum", wohnraumfeuerloecher);
-
-            wohnungRaeme.Add(kueche);
-            wohnungRaeme.Add(schlafraum);
-            wohnungRaeme.Add(speiseraum);
-            wohnungRaeme.Add(wohnraum);
-
+            return feuerlocherList[new Random().Next(1, feuerlocherList.Count)];
         }
 
-        private static void createBueroRaume()
+        private static void createRaume()
         {
             Random rd = new Random();
-            double bueroFlaeche = (rd.NextDouble() + 1) * rd.Next(50, 100);
-            double grossraumbueroFlaeche = (rd.NextDouble() + 1) * rd.Next(50, 150);
-            double besprechungsraumFlaeche = (rd.NextDouble() + 1) * rd.Next(10, 30);
-            double konstruktionsraumFlaeche = (rd.NextDouble() + 1) * rd.Next(20, 500);
-            double zeichenraumFlaeche = (rd.NextDouble() + 1) * rd.Next(10, 30);
-            double buerogeraeteraumFlaeche = (rd.NextDouble() + 1) * rd.Next(20, 70);
-
-
-            Feuerloecher buerofeuerloecher = createFeuerloecher();
-            Feuerloecher grossraumbuerofeuerloecher = createFeuerloecher();
-            Feuerloecher besprechungsraumfeuerloecher = createFeuerloecher();
-            Feuerloecher konstruktionsraumfeuerloecher = createFeuerloecher();
-            Feuerloecher zeichenraumfeuerloecher = createFeuerloecher();
-            Feuerloecher buerogeraeteraumfeuerloecher = createFeuerloecher();
-
-            Bueroarbeit buero = new Bueroarbeit(bueroFlaeche, 10, "Büroraum", buerofeuerloecher);
-            Bueroarbeit grossraumbuero = new Bueroarbeit(grossraumbueroFlaeche, 10, "Großraumbüro", grossraumbuerofeuerloecher);
-            Bueroarbeit besprechungsraum = new Bueroarbeit(besprechungsraumFlaeche, 10, "Besprechungsraum", besprechungsraumfeuerloecher);
-            Bueroarbeit konstruktionsraum = new Bueroarbeit(konstruktionsraumFlaeche, 10, "Konstruktionsraum", konstruktionsraumfeuerloecher);
-            Bueroarbeit zeichenraum = new Bueroarbeit(zeichenraumFlaeche, 10, "Zeichenraum", zeichenraumfeuerloecher);
-            Bueroarbeit buerogeraeteraum = new Bueroarbeit(buerogeraeteraumFlaeche, 10, "Bürogeräteräume", buerogeraeteraumfeuerloecher);
-
-            bueroRaeme.Add(buero);
-            bueroRaeme.Add(grossraumbuero);
-            bueroRaeme.Add(besprechungsraum);
-            bueroRaeme.Add(konstruktionsraum);
-            bueroRaeme.Add(zeichenraum);
-            bueroRaeme.Add(buerogeraeteraum);
-        }
-
-        private static void createBildungRaume()
-        {
-            Random rd = new Random();
-          
-            double seminarraumFlaeche = (rd.NextDouble() + 1) * rd.Next(30, 100);
-            double flurFlaeche = (rd.NextDouble() + 1) * rd.Next(10, 50);
-            double sanitaerraumFlaeche = (rd.NextDouble() + 1) * rd.Next(10, 70);
-            double sportraumFlaeche = (rd.NextDouble() + 1) * rd.Next(50, 200);
-            double unterrichtsraumFlaeche = (rd.NextDouble() + 1) * rd.Next(20, 100);
-            double uebungsraumFlaeche = (rd.NextDouble() + 1) * rd.Next(20, 100);
-            double hoersaalFlaeche = (rd.NextDouble() + 1) * rd.Next(100, 200);
-            double bibliotheksraumFlaeche = (rd.NextDouble() + 1) * rd.Next(50, 200);
-
-            Feuerloecher seminarraumfeuerloecher = createFeuerloecher();
-            Feuerloecher flurfeuerloecher = createFeuerloecher();
-            Feuerloecher sanitaerraumfeuerloecher = createFeuerloecher();
-            Feuerloecher sportraumfeuerloecher = createFeuerloecher();
-            Feuerloecher unterrichtsraumfeuerloecher = createFeuerloecher();
-            Feuerloecher uebungsraumfeuerloecher = createFeuerloecher();
-            Feuerloecher hoersaalfeuerloecher = createFeuerloecher();
-            Feuerloecher bibliotheksraumfeuerloecher = createFeuerloecher();
-
-            Bildung seminarraum = new Bildung(seminarraumFlaeche, 10, "Seminarraum", seminarraumfeuerloecher);
-            Bildung flur = new Bildung(flurFlaeche, 10, "Flur", flurfeuerloecher);
-            Bildung sanitaerraum = new Bildung(sanitaerraumFlaeche, 10, "Sanitärraum", sanitaerraumfeuerloecher);
-            Bildung sportraum = new Bildung(sportraumFlaeche, 10, "Sportraum", sportraumfeuerloecher);
-            Bildung unterrichtsraum = new Bildung(unterrichtsraumFlaeche, 10, "Unterrichtsraum", unterrichtsraumfeuerloecher);
-            Bildung uebungsraum = new Bildung(uebungsraumFlaeche, 10, "Übungsraum", uebungsraumfeuerloecher);
-            Bildung hoersaal = new Bildung(hoersaalFlaeche, 10, "Hörsaal", hoersaalfeuerloecher);
-            Bildung bibliotheksraum = new Bildung(bibliotheksraumFlaeche, 10, "Bibliotheksraum", bibliotheksraumfeuerloecher);
-
-
-            bildungRaeme.Add(seminarraum);
-            bildungRaeme.Add(flur);
-            bildungRaeme.Add(sanitaerraum);
-            bildungRaeme.Add(sportraum);
-            bildungRaeme.Add(unterrichtsraum);
-            bildungRaeme.Add(uebungsraum);
-            bildungRaeme.Add(hoersaal);
-            bildungRaeme.Add(bibliotheksraum);    
-            
-        }
-
-
-
-        private static void addRaume()
-        {
-            foreach(Raum r in wohnungRaeme)
+            for (int i=0; i<=4; i++)
             {
-                raeume.Add(r);
-            }
-            
+                double bueroFlaeche = (rd.NextDouble() + 1) * rd.Next(30, 100);
+                double flurFlaeche = (rd.NextDouble() + 1) * rd.Next(30, 100);
+                double seminarraumFlaeche = (rd.NextDouble() + 1) * rd.Next(50, 100);
+                double satinaerramFlaeche = (rd.NextDouble() + 1) * rd.Next(20, 70);
 
-            foreach (Raum r in bueroRaeme)
-            {
-                raeume.Add(r);
+                String bezeichnungBueroRaum = rd.Next(1, 75).ToString() + "a";
+                String bezeichnungFlurRaum = rd.Next(1, 75).ToString() + "b";
+                String bezeichnungSeminarRaum = rd.Next(1, 75).ToString() + "c";
+                String bezeichnunSanitaerRaum = rd.Next(1, 75).ToString() + "d";
+
+                int bueroFeuerloecher = rd.Next(1, 5);
+                int flurFeuerloecher = rd.Next(1, 5);
+                int seminarraumFeuerloecher = rd.Next(1, 5);
+                int sanitaerraumFeuerloecher = rd.Next(1, 5);
+
+                BindingList<Feuerloecher> bueroFeuerlocherListe = new BindingList<Feuerloecher>();
+                BindingList<Feuerloecher> flurFeuerlocherListe = new BindingList<Feuerloecher>();
+                BindingList<Feuerloecher> seminarraumFeuerlocherListe = new BindingList<Feuerloecher>();
+                BindingList<Feuerloecher> sanitaerraumFeuerlocherListe = new BindingList<Feuerloecher>();
+
+
+                for(int j = 0; j < bueroFeuerloecher; j++)
+                {
+                    bueroFeuerlocherListe.Add(empfangFeuerlocher());
+                }
+
+                for (int j = 0; j < flurFeuerloecher; j++)
+                {
+                    flurFeuerlocherListe.Add(empfangFeuerlocher());
+                }
+
+                for (int j = 0; j < seminarraumFeuerloecher; j++)
+                {
+                    seminarraumFeuerlocherListe.Add(empfangFeuerlocher());
+                }
+
+                for (int j = 0; j < sanitaerraumFeuerloecher; j++)
+                {
+                    sanitaerraumFeuerlocherListe.Add(empfangFeuerlocher());
+                }
+
+                //Raum raum = new Raum();
+                Buero buero = new Buero(bueroFlaeche, bezeichnungBueroRaum, bueroFeuerlocherListe);
+                Flur flur = new Flur(flurFlaeche, bezeichnungFlurRaum, flurFeuerlocherListe);
+                Seminarraum seminarraum = new Seminarraum(seminarraumFlaeche, bezeichnungSeminarRaum, seminarraumFeuerlocherListe);
+                Sanitaerraum sanitaerraum = new Sanitaerraum(satinaerramFlaeche, bezeichnunSanitaerRaum, sanitaerraumFeuerlocherListe);
+
+                raeume.Add(buero);
+                raeume.Add(flur);
+                raeume.Add(seminarraum);
+                raeume.Add(sanitaerraum);
+
             }
 
-
-            foreach (Raum r in bildungRaeme)
-            {
-                raeume.Add(r);
-            }
-            
-
         }
-
 
     }
 }

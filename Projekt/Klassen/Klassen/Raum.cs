@@ -11,63 +11,53 @@ namespace Klassen
     public class Raum
     {
         //Attribute der Klasse
-        protected double raumflaeche;
-        protected double brandgefahr;
         protected String bezeichung;
+        protected double raumflaeche;
         protected String typRaum;
-        protected Feuerloecher feuerloescher;
+        protected double brandlast;
+        protected BindingList<Feuerloecher> feuerloescherList;
         protected int loeschmitteleinheiten;
+        //protected double brandgefahr;
 
         //Properties der Klasse
+        public String Bezeichung { get { return "Raum " + bezeichung; } set { bezeichung = value; } }
         public double Flaeche { get { return raumflaeche; } set { raumflaeche = value; } }
-        public double Brandgefahr { get { return brandgefahr; } set { brandgefahr = value; } }
-        public String Bezeichung { get { return bezeichung; } set { bezeichung = value; } }
         public String TypRaume { get { return typRaum; } set { typRaum = value; } }
-        public Feuerloecher Feuerloecher { get { return feuerloescher; } set { feuerloescher = value; } }
+        public double Brandlast { get { return brandlast; } set { brandlast = value; } }
+        public BindingList<Feuerloecher > FeuerloecherList { get { return feuerloescherList; } set { feuerloescherList = value; } }
         public int Loeschmitteleinheiten { get { return loeschmitteleinheiten; } set { loeschmitteleinheiten = value; } }
-
-
 
         //Standard Konstruktor
         public Raum()
         {
             raumflaeche = 0;
-            brandgefahr = 0;
+            //brandgefahr = 0;
             bezeichung = "";
             typRaum = "";
-            feuerloescher = new Feuerloecher();
+            feuerloescherList = new BindingList<Feuerloecher>();
             loeschmitteleinheiten = 0;
         }
 
         //Allgemeiner Konstruktor1
         public Raum(Raum _raum)
         {
-            this.raumflaeche = _raum.Flaeche;
-            this.brandgefahr = _raum.Brandgefahr;
             this.bezeichung = _raum.Bezeichung;
+            this.raumflaeche = _raum.Flaeche;
+            //this.brandgefahr = _raum.Brandgefahr;
             this.typRaum = _raum.TypRaume;
-            this.feuerloescher = _raum.Feuerloecher;
+            this.brandlast = _raum.Brandlast;
+            this.feuerloescherList = _raum.FeuerloecherList;
             this.loeschmitteleinheiten = _raum.loeschmitteleinheiten;
         }
 
         //Allgemeiner Konstruktor2
-        public Raum(double _flaeche, double _brandgefahr, String _bezeichnung, String _typRaum)
+        public Raum(double _flaeche, String _bezeichnung, BindingList<Feuerloecher> _feuerloecher)
         {
-            this.raumflaeche = _flaeche;
-            this.brandgefahr = _brandgefahr;
             this.bezeichung = _bezeichnung;
-            this.typRaum = _typRaum;
+            this.raumflaeche = _flaeche;
             this.loeschmitteleinheiten = countLoeschmitteleinheiten(_flaeche);
-            //this.feuerloescherListe = _feuerloecherListe;
-        }
+            this.feuerloescherList = _feuerloecher;
 
-        public Raum(double _flaeche, double _brandgefahr, string _bezeichnung, Feuerloecher _feuerloecher)
-        {
-            this.raumflaeche = _flaeche;
-            this.brandgefahr = _brandgefahr;
-            this.bezeichung = _bezeichnung;
-            this.loeschmitteleinheiten = countLoeschmitteleinheiten(_flaeche);
-            this.feuerloescher = _feuerloecher;
         }
 
         public int countLoeschmitteleinheiten(double raumFlaeshe)

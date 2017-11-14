@@ -46,18 +46,6 @@ namespace GUI
 
             }
 
-            //comboBoxRaumNutzungsart.SelectedIndex = t;
-            //comboBoxRaumNutzungsart.Items.Add(raum.TypRaume);
-
-
-            //textBoxGrenzwert.Text = Math.Round(r.GrenzwertRatio, 2).ToString();
-            //textBoxFensterFlaeche.Text = Math.Round(r.fensterFlaeche(), 2).ToString();
-            //int art = 0;
-            //if (r is Wohnen)
-            //    art = 1;
-            //comboBoxRaumTyp.SelectedIndex = art;
-            //listBoxFenster.DataSource = r.FensterListe;
-            //listBoxFenster.DisplayMember = "Bezeichung";
         }
 
         private void buttonAenderungsSpeichern_Click(object sender, EventArgs e)
@@ -99,12 +87,46 @@ namespace GUI
 
         private void textBoxRaumFlaeche_TextChanged(object sender, EventArgs e)
         {
+            buttonAnderungEnabled();
+            int max = 2147483632;
             if (textBoxRaumFlaeche.Text != "")
             {
                 double change = Convert.ToDouble(textBoxRaumFlaeche.Text);
-                textBoxLoeschmeiiteleinheiten.Text = Convert.ToString(raum.countLoeschmitteleinheiten(change));
+
+                if (change > max) textBoxLoeschmeiiteleinheiten.Text = "Error";
+                else
+                {
+                    textBoxLoeschmeiiteleinheiten.Text = Convert.ToString(raum.countLoeschmitteleinheiten(change));
+                }
             }
-            else textBoxLoeschmeiiteleinheiten.Text = "0";
+            else
+            {
+                textBoxLoeschmeiiteleinheiten.Text = "0";
+            }
+
+
+        }
+
+        private void textBoxRaumBezeichnung_TextChanged(object sender, EventArgs e)
+        {
+            buttonAnderungEnabled();
+        }
+
+        private void buttonAnderungEnabled()
+        {
+
+            if ((textBoxRaumBezeichnung.TextLength > 0) && (textBoxRaumFlaeche.TextLength > 0)) buttonAenderungsSpeichern.Enabled = true;
+            else buttonAenderungsSpeichern.Enabled = false;
+
+        }
+
+        private void textBoxRaumFlaeche_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

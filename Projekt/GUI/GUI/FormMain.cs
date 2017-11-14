@@ -68,6 +68,7 @@ namespace GUI
         {
             raeume.Add(raum);
             listBoxUpdate();
+            comboBoxTypRaum.SelectedIndex = 0;
             listBoxRaum.SelectedItem = raum;
         }
 
@@ -151,8 +152,13 @@ namespace GUI
 
         private void buttonErstellenRaum_Click(object sender, EventArgs e)
         {
-            FormNeuerRaum formNeuerRaum = new FormNeuerRaum(this);
+            FormNeuerRaum formNeuerRaum = new FormNeuerRaum(comboBoxTypRaum.SelectedIndex-1, this);
             formNeuerRaum.ShowDialog();
+        }
+
+        public static implicit operator int(FormMain v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

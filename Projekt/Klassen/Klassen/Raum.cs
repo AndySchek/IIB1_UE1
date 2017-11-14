@@ -70,7 +70,7 @@ namespace Klassen
 
         public int countLoeschmitteleinheiten(double raumFlaeshe)
         {
-            //return 10;
+
             int LE = 6;
             if (raumFlaeshe <= 50) return LE;
             LE += 3;
@@ -80,8 +80,10 @@ namespace Klassen
             {
                 if (raumFlaeshe <= k) return LE;
             }
+            LE += 3;
             for (int k = 1250; ; k += 250, LE += 6)
             {
+
                 if (raumFlaeshe <= k) return LE;
             }
         }

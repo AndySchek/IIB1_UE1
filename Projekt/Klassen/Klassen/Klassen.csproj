@@ -40,35 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Buerogeraeteraum.cs" />
-    <Compile Include="Bibliotheksraum.cs" />
     <Compile Include="Loeschvermoegen.cs" />
-    <Compile Include="Hoersaal.cs" />
-    <Compile Include="Uebungsraum.cs" />
-    <Compile Include="Unterrichtsraum.cs" />
-    <Compile Include="Zeichenraum.cs" />
-    <Compile Include="Konstruktionsraum.cs" />
-    <Compile Include="Besprechungsraum.cs" />
-    <Compile Include="Grossraumbuero.cs" />
-    <Compile Include="Buero.cs" />
     <Compile Include="Feuerloecher.cs" />
-    <Compile Include="Flur.cs" />
-    <Compile Include="Speiseraum.cs" />
-    <Compile Include="Wohnraum.cs" />
-    <Compile Include="Sanitaerraum.cs" />
-    <Compile Include="Schlafraum.cs" />
-    <Compile Include="Kueche.cs" />
     <Compile Include="Bueroarbeit.cs" />
     <Compile Include="Bildung.cs" />
     <Compile Include="Wohnung.cs" />
-    <Compile Include="Sportraum.cs" />
-    <Compile Include="Seminarraum.cs" />
     <Compile Include="Raum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,22 +13,23 @@ namespace GUI
 {
     public partial class FormNeuerRaum : Form
     {
+        
         //private Raum raum;
-        public FormNeuerRaum(FormMain _parent)
+        public FormNeuerRaum(int _index, FormMain _parent)
         {
             InitializeComponent();
             this.Owner = _parent;
             textBoxRaumBezeichnung.Text = "Raum";
             textBoxRaumFlaeche.Text = "0,0";
-            comboBoxRaumNutzungsart.SelectedIndex = 0;
+            if (_index == -1) _index = 0;
+            comboBoxRaumNutzungsart.SelectedIndex = _index;
             buttonNeuerRaum.Enabled = true;
-
+            
         }
 
         private void buttonNeuerRaum_Click(object sender, EventArgs e)
         {
             Raum raum = new Raum();
-
             raum.Bezeichung = textBoxRaumBezeichnung.Text;
 
             try
@@ -39,6 +40,8 @@ namespace GUI
             {
                 raum.Flaeche = 0.0;
             }
+
+            raum.Loeschmitteleinheiten = raum.countLoeschmitteleinheiten(raum.Flaeche);
 
             int t = comboBoxRaumNutzungsart.SelectedIndex;
 
@@ -69,8 +72,6 @@ namespace GUI
             {
                 e.Handled = true;
             }
-
-
         }
 
         private void textBoxRaumBezeichnung_TextChanged(object sender, EventArgs e)
@@ -81,18 +82,22 @@ namespace GUI
         private void textBoxRaumFlaeche_TextChanged(object sender, EventArgs e)
         {
             buttonNeuerRaumEnabled();
+            int max = 2147483632;
+            if (textBoxRaumFlaeche.Text != "")
+            {
+                double change = Convert.ToDouble(textBoxRaumFlaeche.Text);
+
+                if (change > max) textBoxRaumFlaeche.Text = "2147483632";
+            }
+
         }
 
         private void buttonNeuerRaumEnabled()
         {
-            //String s1 = textBoxRaumBezeichnung.Text.Trim();
-            //String s2 = textBoxRaumFlaeche.Text.Trim();
          
             if ((textBoxRaumBezeichnung.TextLength > 0) && (textBoxRaumFlaeche.TextLength > 0)) buttonNeuerRaum.Enabled = true;
             else buttonNeuerRaum.Enabled = false;
 
-            //if ((s1 != "") && (s2 != "")) buttonNeuerRaum.Enabled = true;
-            //else buttonNeuerRaum.Enabled = false;
         }
     }
 }

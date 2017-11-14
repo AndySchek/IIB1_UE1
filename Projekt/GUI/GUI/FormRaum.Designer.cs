@@ -58,6 +58,7 @@
             this.textBoxRaumBezeichnung.Name = "textBoxRaumBezeichnung";
             this.textBoxRaumBezeichnung.Size = new System.Drawing.Size(100, 20);
             this.textBoxRaumBezeichnung.TabIndex = 1;
+            this.textBoxRaumBezeichnung.TextChanged += new System.EventHandler(this.textBoxRaumBezeichnung_TextChanged);
             // 
             // label1
             // 
@@ -84,6 +85,7 @@
             this.textBoxRaumFlaeche.Size = new System.Drawing.Size(100, 20);
             this.textBoxRaumFlaeche.TabIndex = 4;
             this.textBoxRaumFlaeche.TextChanged += new System.EventHandler(this.textBoxRaumFlaeche_TextChanged);
+            this.textBoxRaumFlaeche.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxRaumFlaeche_KeyPress);
             // 
             // textBoxRaumBrandgefahr
             // 

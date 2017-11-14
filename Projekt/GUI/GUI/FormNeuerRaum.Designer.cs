@@ -95,7 +95,7 @@
             // 
             // buttonNeuerRaum
             // 
-            this.buttonNeuerRaum.Location = new System.Drawing.Point(15, 85);
+            this.buttonNeuerRaum.Location = new System.Drawing.Point(12, 85);
             this.buttonNeuerRaum.Name = "buttonNeuerRaum";
             this.buttonNeuerRaum.Size = new System.Drawing.Size(223, 23);
             this.buttonNeuerRaum.TabIndex = 16;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Klassen
 {
     [Serializable]
-    public class Feuerloecher
+    public class Feuerloescher
     {
         private double preis;
         private double loeschmittelkapazitaet;
@@ -22,7 +22,7 @@ namespace Klassen
 
 
         //Standard Konstruktor
-        public Feuerloecher()
+        public Feuerloescher()
         {
             preis = 0;
             loeschmittelkapazitaet = 0;
@@ -39,13 +39,13 @@ namespace Klassen
         }
 
         //Allgemeiner Konstruktor2
-        public Feuerloecher(double _preis, double _loeschmittelkapazitaet)
+        public Feuerloescher(double _preis, double _loeschmittelkapazitaet)
         {
             this.preis = _preis;
             this.loeschmittelkapazitaet = _loeschmittelkapazitaet;
         }
 
-        public Feuerloecher(Loeschvermoegen _loeschvermoegen)
+        public Feuerloescher(Loeschvermoegen _loeschvermoegen)
         {
             this.loeschvermoegen = _loeschvermoegen;
         }

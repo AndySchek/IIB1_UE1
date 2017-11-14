@@ -51,7 +51,7 @@ namespace GUI
                     comboBoxLoeschvermoegen.Items.Add(l.nameLoeschvermoegen);
             }
 
-            String losch = raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen;
+            //String losch = raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen;
 
             comboBoxLoeschvermoegen.SelectedIndex = comboBoxLoeschvermoegen.Items.IndexOf(raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen);
             textBoxLE.Text = Convert.ToString(raum.Feuerloecher.Loeschvermoegen.countLoeschmitteleinheiten);

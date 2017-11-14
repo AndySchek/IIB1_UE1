@@ -23,6 +23,7 @@ namespace GUI
             textBoxRaumFlaeche.Text = "0,0";
             if (_index == -1) _index = 0;
             comboBoxRaumNutzungsart.SelectedIndex = _index;
+            
             buttonNeuerRaum.Enabled = true;
             
         }
@@ -42,6 +43,7 @@ namespace GUI
             }
 
             raum.Loeschmitteleinheiten = raum.countLoeschmitteleinheiten(raum.Flaeche);
+            //raum.Feuerloecher.Loeschvermoegen.
 
             int t = comboBoxRaumNutzungsart.SelectedIndex;
 
@@ -60,6 +62,7 @@ namespace GUI
                     raum = neuerBildungRaum;
                     break;
             }
+
 
            ((FormMain)Owner).raumErstellen(raum);
 

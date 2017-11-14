@@ -35,6 +35,8 @@
             this.textBoxRaumBezeichnung = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonNeuerRaum = new System.Windows.Forms.Button();
+            this.comboBoxLoeschvermoegen = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // comboBoxRaumNutzungsart
@@ -95,7 +97,7 @@
             // 
             // buttonNeuerRaum
             // 
-            this.buttonNeuerRaum.Location = new System.Drawing.Point(12, 85);
+            this.buttonNeuerRaum.Location = new System.Drawing.Point(12, 120);
             this.buttonNeuerRaum.Name = "buttonNeuerRaum";
             this.buttonNeuerRaum.Size = new System.Drawing.Size(223, 23);
             this.buttonNeuerRaum.TabIndex = 16;
@@ -103,11 +105,30 @@
             this.buttonNeuerRaum.UseVisualStyleBackColor = true;
             this.buttonNeuerRaum.Click += new System.EventHandler(this.buttonNeuerRaum_Click);
             // 
+            // comboBoxLoeschvermoegen
+            // 
+            this.comboBoxLoeschvermoegen.FormattingEnabled = true;
+            this.comboBoxLoeschvermoegen.Location = new System.Drawing.Point(138, 85);
+            this.comboBoxLoeschvermoegen.Name = "comboBoxLoeschvermoegen";
+            this.comboBoxLoeschvermoegen.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxLoeschvermoegen.TabIndex = 18;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 88);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Löschvermögen";
+            // 
             // FormNeuerRaum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Controls.Add(this.comboBoxLoeschvermoegen);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.buttonNeuerRaum);
             this.Controls.Add(this.comboBoxRaumNutzungsart);
             this.Controls.Add(this.label4);
@@ -130,5 +151,7 @@
         private System.Windows.Forms.TextBox textBoxRaumBezeichnung;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonNeuerRaum;
+        private System.Windows.Forms.ComboBox comboBoxLoeschvermoegen;
+        private System.Windows.Forms.Label label6;
     }
 }

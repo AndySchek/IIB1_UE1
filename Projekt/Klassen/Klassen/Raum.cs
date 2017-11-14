@@ -15,7 +15,7 @@ namespace Klassen
         protected double brandgefahr;
         protected String bezeichung;
         protected String typRaum;
-        protected Feuerloescher feuerloescher;
+        protected Feuerloecher feuerloescher;
         protected int loeschmitteleinheiten;
 
         //Properties der Klasse
@@ -23,7 +23,7 @@ namespace Klassen
         public double Brandgefahr { get { return brandgefahr; } set { brandgefahr = value; } }
         public String Bezeichung { get { return bezeichung; } set { bezeichung = value; } }
         public String TypRaume { get { return typRaum; } set { typRaum = value; } }
-        public Feuerloescher Feuerloescher { get { return feuerloescher; } set { feuerloescher = value; } }
+        public Feuerloecher Feuerloecher { get { return feuerloescher; } set { feuerloescher = value; } }
         public int Loeschmitteleinheiten { get { return loeschmitteleinheiten; } set { loeschmitteleinheiten = value; } }
 
 
@@ -35,18 +35,18 @@ namespace Klassen
             brandgefahr = 0;
             bezeichung = "";
             typRaum = "";
-            feuerloescher = new Feuerloescher();
+            feuerloescher = new Feuerloecher();
             loeschmitteleinheiten = 0;
         }
 
-        //Allgemeiner Konstruktor1 mit Übergabe eines Raumes
+        //Allgemeiner Konstruktor1
         public Raum(Raum _raum)
         {
             this.raumflaeche = _raum.Flaeche;
             this.brandgefahr = _raum.Brandgefahr;
             this.bezeichung = _raum.Bezeichung;
             this.typRaum = _raum.TypRaume;
-            this.feuerloescher = _raum.Feuerloescher;
+            this.feuerloescher = _raum.Feuerloecher;
             this.loeschmitteleinheiten = _raum.loeschmitteleinheiten;
         }
 
@@ -61,13 +61,13 @@ namespace Klassen
             //this.feuerloescherListe = _feuerloecherListe;
         }
 
-        public Raum(double _flaeche, double _brandgefahr, string _bezeichnung, Feuerloescher _feuerloescher)
+        public Raum(double _flaeche, double _brandgefahr, string _bezeichnung, Feuerloecher _feuerloecher)
         {
             this.raumflaeche = _flaeche;
             this.brandgefahr = _brandgefahr;
             this.bezeichung = _bezeichnung;
             this.loeschmitteleinheiten = countLoeschmitteleinheiten(_flaeche);
-            this.feuerloescher = _feuerloescher;
+            this.feuerloescher = _feuerloecher;
         }
 
         public int countLoeschmitteleinheiten(double raumFlaeshe)

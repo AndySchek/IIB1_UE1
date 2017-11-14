@@ -15,7 +15,7 @@ namespace Klassen
 
         public Wohnung() : base() { TypRaume = typRaum; }
         public Wohnung(Raum raum) : base(raum) { TypRaume = typRaum; }
-        public Wohnung(double flaeche, double brandgefahr, String bezeichnung, Feuerloescher feuerloescher) : base(flaeche, brandgefahr, bezeichnung, feuerloescher) { TypRaume = typRaum; }
+        public Wohnung(double flaeche, double brandgefahr, String bezeichnung, Feuerloecher feuerloecher) : base(flaeche, brandgefahr, bezeichnung, feuerloecher) { TypRaume = typRaum; }
 
 
     }

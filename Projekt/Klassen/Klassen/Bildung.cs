@@ -16,6 +16,14 @@ namespace Klassen
         public Bildung() : base() { TypRaume = typRaum; }
         public Bildung(Raum raum) : base(raum) { TypRaume = typRaum; }
         public Bildung(double flaeche, double brandgefahr, String bezeichnung, Feuerloecher feuerloecher) : base(flaeche, brandgefahr, bezeichnung, feuerloecher) { TypRaume = typRaum; }
+        /*public Bildung(double flaeche, double brandgefahr, string bezeichnung)
+        {
+            Flaeche = flaeche;
+            Brandgefahr = brandgefahr;
+            Bezeichung = bezeichnung;
+            TypRaume = typRaum;
+        }
+        */
 
     }
 }

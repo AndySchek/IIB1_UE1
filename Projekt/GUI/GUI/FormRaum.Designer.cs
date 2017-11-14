@@ -41,6 +41,12 @@
             this.buttonAenderungsSpeichern = new System.Windows.Forms.Button();
             this.textBoxLoeschmeiiteleinheiten = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxLoeschvermoegen = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxCountFeuerloescher = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxLE = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelBezeichnung
@@ -98,7 +104,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 182);
+            this.label3.Location = new System.Drawing.Point(12, 302);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 6;
@@ -106,7 +112,7 @@
             // 
             // textBoxRaumBrandlast
             // 
-            this.textBoxRaumBrandlast.Location = new System.Drawing.Point(130, 175);
+            this.textBoxRaumBrandlast.Location = new System.Drawing.Point(130, 295);
             this.textBoxRaumBrandlast.Name = "textBoxRaumBrandlast";
             this.textBoxRaumBrandlast.ReadOnly = true;
             this.textBoxRaumBrandlast.Size = new System.Drawing.Size(100, 20);
@@ -115,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 147);
+            this.label4.Location = new System.Drawing.Point(12, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 8;
@@ -128,16 +134,16 @@
             "Wohnung",
             "Büroarbeit",
             "Bildung"});
-            this.comboBoxRaumNutzungsart.Location = new System.Drawing.Point(130, 140);
+            this.comboBoxRaumNutzungsart.Location = new System.Drawing.Point(130, 104);
             this.comboBoxRaumNutzungsart.Name = "comboBoxRaumNutzungsart";
             this.comboBoxRaumNutzungsart.Size = new System.Drawing.Size(100, 21);
             this.comboBoxRaumNutzungsart.TabIndex = 9;
             // 
             // buttonAenderungsSpeichern
             // 
-            this.buttonAenderungsSpeichern.Location = new System.Drawing.Point(15, 228);
+            this.buttonAenderungsSpeichern.Location = new System.Drawing.Point(15, 328);
             this.buttonAenderungsSpeichern.Name = "buttonAenderungsSpeichern";
-            this.buttonAenderungsSpeichern.Size = new System.Drawing.Size(188, 23);
+            this.buttonAenderungsSpeichern.Size = new System.Drawing.Size(215, 23);
             this.buttonAenderungsSpeichern.TabIndex = 10;
             this.buttonAenderungsSpeichern.Text = "Änderung speichern";
             this.buttonAenderungsSpeichern.UseVisualStyleBackColor = true;
@@ -145,26 +151,85 @@
             // 
             // textBoxLoeschmeiiteleinheiten
             // 
-            this.textBoxLoeschmeiiteleinheiten.Location = new System.Drawing.Point(130, 105);
+            this.textBoxLoeschmeiiteleinheiten.Location = new System.Drawing.Point(130, 135);
             this.textBoxLoeschmeiiteleinheiten.Name = "textBoxLoeschmeiiteleinheiten";
             this.textBoxLoeschmeiiteleinheiten.ReadOnly = true;
             this.textBoxLoeschmeiiteleinheiten.Size = new System.Drawing.Size(100, 20);
             this.textBoxLoeschmeiiteleinheiten.TabIndex = 12;
+            this.textBoxLoeschmeiiteleinheiten.TextChanged += new System.EventHandler(this.textBoxLoeschmeiiteleinheiten_TextChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 108);
+            this.label5.Location = new System.Drawing.Point(12, 138);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "Löschmitteleinheiten";
             // 
+            // comboBoxLoeschvermoegen
+            // 
+            this.comboBoxLoeschvermoegen.FormattingEnabled = true;
+            this.comboBoxLoeschvermoegen.Location = new System.Drawing.Point(130, 165);
+            this.comboBoxLoeschvermoegen.Name = "comboBoxLoeschvermoegen";
+            this.comboBoxLoeschvermoegen.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxLoeschvermoegen.TabIndex = 14;
+            this.comboBoxLoeschvermoegen.SelectedIndexChanged += new System.EventHandler(this.comboBoxLoeschvermoegen_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 172);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Löschvermögen";
+            // 
+            // textBoxCountFeuerloescher
+            // 
+            this.textBoxCountFeuerloescher.Location = new System.Drawing.Point(15, 199);
+            this.textBoxCountFeuerloescher.Name = "textBoxCountFeuerloescher";
+            this.textBoxCountFeuerloescher.ReadOnly = true;
+            this.textBoxCountFeuerloescher.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCountFeuerloescher.TabIndex = 16;
+            this.textBoxCountFeuerloescher.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label7
+            // 
+            this.label7.Location = new System.Drawing.Point(127, 189);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(317, 30);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "\r\nFeuerlöscher dieser Bauart für die Grundausstattung erforderlich. \r\n\r\n";
+            // 
+            // textBoxLE
+            // 
+            this.textBoxLE.Location = new System.Drawing.Point(276, 166);
+            this.textBoxLE.Name = "textBoxLE";
+            this.textBoxLE.ReadOnly = true;
+            this.textBoxLE.Size = new System.Drawing.Size(61, 20);
+            this.textBoxLE.TabIndex = 17;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(250, 169);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "LE";
+            // 
             // FormRaum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(436, 363);
+            this.ClientSize = new System.Drawing.Size(543, 363);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBoxLE);
+            this.Controls.Add(this.textBoxCountFeuerloescher);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.comboBoxLoeschvermoegen);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxLoeschmeiiteleinheiten);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.buttonAenderungsSpeichern);
@@ -180,6 +245,7 @@
             this.Controls.Add(this.labelBezeichnung);
             this.Name = "FormRaum";
             this.Text = "FormRaum";
+            this.Load += new System.EventHandler(this.FormRaum_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,5 +266,11 @@
         private System.Windows.Forms.Button buttonAenderungsSpeichern;
         private System.Windows.Forms.TextBox textBoxLoeschmeiiteleinheiten;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxLoeschvermoegen;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxCountFeuerloescher;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxLE;
+        private System.Windows.Forms.Label label8;
     }
 }

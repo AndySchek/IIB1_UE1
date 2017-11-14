@@ -65,12 +65,6 @@
     <Compile Include="FormRaum.Designer.cs">
       <DependentUpon>FormRaum.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRaumList.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormRaumList.Designer.cs">
-      <DependentUpon>FormRaumList.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormMain.resx">
@@ -81,9 +75,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormRaum.resx">
       <DependentUpon>FormRaum.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormRaumList.resx">
-      <DependentUpon>FormRaumList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

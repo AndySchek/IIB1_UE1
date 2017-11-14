@@ -16,16 +16,19 @@ namespace GUI
     public partial class FormMain : Form
     {
         private BindingList<Raum> raeume;
+        private List<Loeschvermoegen> loesche;
 
-        public FormMain(BindingList<Raum> _raeume)
+        public FormMain(BindingList<Raum> _raeume, List<Loeschvermoegen> _loesche)
         {
             InitializeComponent();
             this.raeume = _raeume;
+            this.loesche = _loesche;
             fuelleListe();
         }
 
         private void fuelleListe()
         {
+
 
             if (comboBoxTypRaum.Items.IndexOf("Alle") == -1)
                 comboBoxTypRaum.Items.Add("Alle");

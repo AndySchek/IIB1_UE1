@@ -12,16 +12,10 @@ namespace Klassen
         public string nameLoeschvermoegen { get; set; }
         public int countLoeschmitteleinheiten { get; set; }
 
-        /*public override string ToString()
+        public override string ToString()
         {
             return nameLoeschvermoegen;
         }
-        
-        public override int GetHashCode()
-        {
-            return countLoeschmitteleinheiten;
-        }
-        */
 
     }
 }

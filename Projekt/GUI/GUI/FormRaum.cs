@@ -30,7 +30,6 @@ namespace GUI
             textBoxLoeschmeiiteleinheiten.Text = raum.Loeschmitteleinheiten.ToString();
 
             String typ = raum.TypRaume;
-            //List<String> raumTyp = ("Wohnung", "Buero", "Bildung");
 
             switch (typ)
             {
@@ -46,6 +45,19 @@ namespace GUI
 
             }
 
+            foreach (Loeschvermoegen l in raum.Feuerloecher.LoeschvermoegenList)
+            {
+                if (comboBoxLoeschvermoegen.Items.IndexOf(l.nameLoeschvermoegen) == -1)
+                    comboBoxLoeschvermoegen.Items.Add(l.nameLoeschvermoegen);
+            }
+
+            String losch = raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen;
+
+            comboBoxLoeschvermoegen.SelectedIndex = comboBoxLoeschvermoegen.Items.IndexOf(raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen);
+            textBoxLE.Text = Convert.ToString(raum.Feuerloecher.Loeschvermoegen.countLoeschmitteleinheiten);
+
+            rechnungCountFeuerloescher();
+
         }
 
         private void buttonAenderungsSpeichern_Click(object sender, EventArgs e)
@@ -53,6 +65,7 @@ namespace GUI
             raum.Bezeichung = textBoxRaumBezeichnung.Text;
             raum.Flaeche = Convert.ToDouble(textBoxRaumFlaeche.Text);
             raum.Loeschmitteleinheiten = Convert.ToInt16(textBoxLoeschmeiiteleinheiten.Text);
+            raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen = comboBoxLoeschvermoegen.Text;
 
             int art = 0;
             if (raum.TypRaume.Equals("Bueroarbeit"))
@@ -104,6 +117,8 @@ namespace GUI
                 textBoxLoeschmeiiteleinheiten.Text = "0";
             }
 
+            rechnungCountFeuerloescher();
+
 
         }
 
@@ -127,6 +142,48 @@ namespace GUI
             {
                 e.Handled = true;
             }
+        }
+
+        private void FormRaum_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxLoeschvermoegen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            String loeschvermoegen = (String)comboBoxLoeschvermoegen.SelectedItem;
+            int countLoeschmitteleinheiten = 0;
+            foreach (Loeschvermoegen l in raum.Feuerloecher.LoeschvermoegenList)
+            {
+                if (loeschvermoegen.Equals(l.nameLoeschvermoegen))
+                {
+                    textBoxLE.Text = Convert.ToString(l.countLoeschmitteleinheiten);
+                    countLoeschmitteleinheiten = l.countLoeschmitteleinheiten;
+                    break;
+                }
+            }
+            rechnungCountFeuerloescher();
+
+        }
+
+        private void textBoxLoeschmeiiteleinheiten_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rechnungCountFeuerloescher()
+        {
+            int LoeschmeiiteleinheitenRaum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
+            int LoeschmeiiteleinheitenFeuerlosher = 0;
+            String ss = textBoxLE.Text;
+            if (ss == "")
+            {
+                LoeschmeiiteleinheitenFeuerlosher = 0;
+            }
+            else LoeschmeiiteleinheitenFeuerlosher = Convert.ToInt32(ss);
+            double countFeuerloescher = Math.Ceiling((Double)LoeschmeiiteleinheitenRaum / LoeschmeiiteleinheitenFeuerlosher);
+            if (countFeuerloescher == 0) countFeuerloescher = 1;
+            textBoxCountFeuerloescher.Text = Convert.ToString(countFeuerloescher);
         }
     }
 }

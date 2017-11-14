@@ -1,14 +1,28 @@
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe.config
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.pdb
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\Klassen.dll
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\Klassen.pdb
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.exe
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.pdb
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormMain.resources
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormRaum.resources
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormNeuerRaum.resources
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/GUI.exe.config
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/GUI.exe
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/GUI.pdb
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/Klassen.dll
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/Klassen.pdb
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.csprojResolveAssemblyReference.cache
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.Properties.Resources.resources
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.csproj.GenerateResource.Cache
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.csproj.CoreCompileInputs.cache
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.exe
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.pdb
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.FormMain.resources
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.FormRaum.resources
+C:/Users/igora/source/Visual Studio/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.FormNeuerRaum.resources
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/GUI.exe.config
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/GUI.exe
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/GUI.pdb
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/Klassen.dll
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/bin/Debug/Klassen.pdb
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.csprojResolveAssemblyReference.cache
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.FormMain.resources
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.FormNeuerRaum.resources
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.FormRaum.resources
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.Properties.Resources.resources
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.csproj.GenerateResource.Cache
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.csproj.CoreCompileInputs.cache
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.exe
+/Users/wiebke/Documents/GitHub/IIB1_UE1/Projekt/GUI/GUI/obj/Debug/GUI.pdb

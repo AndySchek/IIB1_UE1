@@ -11,7 +11,11 @@ namespace Klassen
     public abstract class Raum
     {
         //Attribute der Klasse
+<<<<<<< HEAD
         protected double grundflaeche;
+=======
+        protected double grundflaeche;
+>>>>>>> ac2e925c57dca098fc7c682bbb2992d8ff3edf84
         protected String bezeichung;
         protected int loeschmitteleinheiten;
         protected double brandlast;
@@ -21,7 +25,11 @@ namespace Klassen
         //protected double brandgefahr;
 
         //Properties der Klasse
+<<<<<<< HEAD
         public double Grundflaeche { get { return grundflaeche; } set { grundflaeche = value; } }
+=======
+        public double Grundflaeche { get { return grundflaeche; } set { grundflaeche = value; } }
+>>>>>>> ac2e925c57dca098fc7c682bbb2992d8ff3edf84
         public String Bezeichung { get { return bezeichung; } set { bezeichung = value;  } }
         public int Loeschmitteleinheiten { get { return loeschmitteleinheiten; } set { loeschmitteleinheiten = value; } }
         public double Brandlast { get { return brandlast; } set { brandlast = value; } } 

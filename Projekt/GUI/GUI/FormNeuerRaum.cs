@@ -29,40 +29,70 @@ namespace GUI
 
         private void buttonNeuerRaum_Click(object sender, EventArgs e)
         {
-            Raum raum = new Raum();
-            raum.Bezeichung = textBoxRaumBezeichnung.Text;
-
-            try
-            {
-                raum.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
-            }
-            catch(Exception)
-            {
-                raum.Flaeche = 0.0;
-            }
-
-            raum.Loeschmitteleinheiten = raum.countLoeschmitteleinheiten(raum.Flaeche);
-
+            
             int t = comboBoxRaumNutzungsart.SelectedIndex;
-            /*
+            
             switch (t)
             {
                 case 0:
-                    Wohnung neuerWohnungRaum = new Wohnung(raum);
-                    raum = neuerWohnungRaum;
+                    Buero newBuero = new Buero();
+                    newBuero.Bezeichung = textBoxRaumBezeichnung.Text;
+                    try
+                    {
+                        newBuero.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
+                    }
+                    catch (Exception)
+                    {
+                        newBuero.Flaeche = 0.0;
+                    }
+                    newBuero.Loeschmitteleinheiten = newBuero.countLoeschmitteleinheiten(newBuero.Flaeche);
+                    ((FormMain)Owner).raumErstellen(newBuero);
                     break;
                 case 1:
-                    Bueroarbeit neuerBueroarbeitRaum = new Bueroarbeit(raum);
-                    raum = neuerBueroarbeitRaum;
+                    Flur newFlur = new Flur();
+                    newFlur.Bezeichung = textBoxRaumBezeichnung.Text;
+                    try
+                    {
+                        newFlur.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
+                    }
+                    catch (Exception)
+                    {
+                        newFlur.Flaeche = 0.0;
+                    }
+                    newFlur.Loeschmitteleinheiten = newFlur.countLoeschmitteleinheiten(newFlur.Flaeche);
+                    ((FormMain)Owner).raumErstellen(newFlur);
                     break;
                 case 2:
-                    Bildung neuerBildungRaum = new Bildung(raum);
-                    raum = neuerBildungRaum;
+                    Seminarraum newSeminarraum = new Seminarraum();
+                    newSeminarraum.Bezeichung = textBoxRaumBezeichnung.Text;
+                    try
+                    {
+                        newSeminarraum.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
+                    }
+                    catch (Exception)
+                    {
+                        newSeminarraum.Flaeche = 0.0;
+                    }
+                    newSeminarraum.Loeschmitteleinheiten = newSeminarraum.countLoeschmitteleinheiten(newSeminarraum.Flaeche);
+                    ((FormMain)Owner).raumErstellen(newSeminarraum);
                     break;
-            }
-            */
+                case 3:
+                    Sanitaerraum newSanitaerraum = new Sanitaerraum();
+                    newSanitaerraum.Bezeichung = textBoxRaumBezeichnung.Text;
+                    try
+                    {
+                        newSanitaerraum.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
+                    }
+                    catch (Exception)
+                    {
+                        newSanitaerraum.Flaeche = 0.0;
+                    }
+                    newSanitaerraum.Loeschmitteleinheiten = newSanitaerraum.countLoeschmitteleinheiten(newSanitaerraum.Flaeche);
+                    ((FormMain)Owner).raumErstellen(newSanitaerraum);
+                    break;
+            }      
+          
 
-           ((FormMain)Owner).raumErstellen(raum);
 
         }
 

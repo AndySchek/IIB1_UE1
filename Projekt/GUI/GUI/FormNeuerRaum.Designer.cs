@@ -41,9 +41,10 @@
             // 
             this.comboBoxRaumNutzungsart.FormattingEnabled = true;
             this.comboBoxRaumNutzungsart.Items.AddRange(new object[] {
-            "Wohnung",
-            "Büroarbeit",
-            "Bildung"});
+            "Büro",
+            "Flur",
+            "Seminarraum",
+            "Sanitärraum"});
             this.comboBoxRaumNutzungsart.Location = new System.Drawing.Point(138, 6);
             this.comboBoxRaumNutzungsart.Name = "comboBoxRaumNutzungsart";
             this.comboBoxRaumNutzungsart.Size = new System.Drawing.Size(100, 21);

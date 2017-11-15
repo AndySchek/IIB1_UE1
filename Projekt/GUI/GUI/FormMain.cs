@@ -67,7 +67,7 @@ namespace GUI
         {
             raeume.Add(raum);
             listBoxUpdate();
-            comboBoxTypRaum.SelectedIndex = 0;
+            comboBoxTypRaum.SelectedItem = raum.TypRaume;
             listBoxRaum.SelectedItem = raum;
         }
 

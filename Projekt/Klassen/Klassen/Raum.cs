@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Klassen
 {
     [Serializable]
-    public class Raum
+    public abstract class Raum
     {
         //Attribute der Klasse
         protected String bezeichung;

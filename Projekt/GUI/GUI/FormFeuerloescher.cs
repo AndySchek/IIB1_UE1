@@ -13,9 +13,9 @@ namespace GUI
 {
     public partial class FormFeuerloescher : Form
     {
-        private Feuerloecher feuerloecher;
+        private Feuerloescher feuerloecher;
         public FormRaum owner;
-        public FormFeuerloescher(Feuerloecher _feuerloescher)
+        public FormFeuerloescher(Feuerloescher _feuerloescher)
         {
             InitializeComponent();
             this.feuerloecher = _feuerloescher;

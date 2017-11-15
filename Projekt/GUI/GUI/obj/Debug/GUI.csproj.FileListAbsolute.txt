@@ -1,45 +1,15 @@
-<<<<<<< HEAD
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe.config
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.pdb
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\Klassen.dll
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\Klassen.pdb
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.exe
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.pdb
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormMain.resources
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormRaum.resources
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormNeuerRaum.resources
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormFeuerloescher.resources
-=======
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe.config
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.pdb
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\Klassen.dll
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\Klassen.pdb
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormMain.resources
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormNeuerRaum.resources
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormRaum.resources
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.exe
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.pdb
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormMain.resources
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormRaum.resources
-C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormNeuerRaum.resources
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe.config
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.pdb
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\Klassen.dll
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\Klassen.pdb
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csprojResolveAssemblyReference.cache
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormMain.resources
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormNeuerRaum.resources
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormRaum.resources
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.Properties.Resources.resources
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csproj.GenerateResource.Cache
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.exe
-C:\Users\TEMP\Downloads\IIB1_UE1\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.pdb
->>>>>>> ac2e925c57dca098fc7c682bbb2992d8ff3edf84

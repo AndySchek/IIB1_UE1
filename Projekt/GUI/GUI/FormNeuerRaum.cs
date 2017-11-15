@@ -39,13 +39,13 @@ namespace GUI
                     newBuero.Bezeichung = textBoxRaumBezeichnung.Text;
                     try
                     {
-                        newBuero.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
+                        newBuero.Grundflaeche = Double.Parse(textBoxRaumFlaeche.Text);
                     }
                     catch (Exception)
                     {
-                        newBuero.Flaeche = 0.0;
+                        newBuero.Grundflaeche = 0.0;
                     }
-                    newBuero.Loeschmitteleinheiten = newBuero.countLoeschmitteleinheiten(newBuero.Flaeche);
+                    newBuero.Loeschmitteleinheiten = newBuero.countLoeschmitteleinheiten(newBuero.Grundflaeche);
                     ((FormMain)Owner).raumErstellen(newBuero);
                     break;
                 case 1:
@@ -53,13 +53,13 @@ namespace GUI
                     newFlur.Bezeichung = textBoxRaumBezeichnung.Text;
                     try
                     {
-                        newFlur.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
+                        newFlur.Grundflaeche = Double.Parse(textBoxRaumFlaeche.Text);
                     }
                     catch (Exception)
                     {
-                        newFlur.Flaeche = 0.0;
+                        newFlur.Grundflaeche = 0.0;
                     }
-                    newFlur.Loeschmitteleinheiten = newFlur.countLoeschmitteleinheiten(newFlur.Flaeche);
+                    newFlur.Loeschmitteleinheiten = newFlur.countLoeschmitteleinheiten(newFlur.Grundflaeche);
                     ((FormMain)Owner).raumErstellen(newFlur);
                     break;
                 case 2:
@@ -67,13 +67,13 @@ namespace GUI
                     newSeminarraum.Bezeichung = textBoxRaumBezeichnung.Text;
                     try
                     {
-                        newSeminarraum.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
+                        newSeminarraum.Grundflaeche = Double.Parse(textBoxRaumFlaeche.Text);
                     }
                     catch (Exception)
                     {
-                        newSeminarraum.Flaeche = 0.0;
+                        newSeminarraum.Grundflaeche = 0.0;
                     }
-                    newSeminarraum.Loeschmitteleinheiten = newSeminarraum.countLoeschmitteleinheiten(newSeminarraum.Flaeche);
+                    newSeminarraum.Loeschmitteleinheiten = newSeminarraum.countLoeschmitteleinheiten(newSeminarraum.Grundflaeche);
                     ((FormMain)Owner).raumErstellen(newSeminarraum);
                     break;
                 case 3:
@@ -81,13 +81,13 @@ namespace GUI
                     newSanitaerraum.Bezeichung = textBoxRaumBezeichnung.Text;
                     try
                     {
-                        newSanitaerraum.Flaeche = Double.Parse(textBoxRaumFlaeche.Text);
+                        newSanitaerraum.Grundflaeche = Double.Parse(textBoxRaumFlaeche.Text);
                     }
                     catch (Exception)
                     {
-                        newSanitaerraum.Flaeche = 0.0;
+                        newSanitaerraum.Grundflaeche = 0.0;
                     }
-                    newSanitaerraum.Loeschmitteleinheiten = newSanitaerraum.countLoeschmitteleinheiten(newSanitaerraum.Flaeche);
+                    newSanitaerraum.Loeschmitteleinheiten = newSanitaerraum.countLoeschmitteleinheiten(newSanitaerraum.Grundflaeche);
                     ((FormMain)Owner).raumErstellen(newSanitaerraum);
                     break;
             }      

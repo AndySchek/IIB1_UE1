@@ -10,7 +10,7 @@ namespace Klassen
     [Serializable]
     public class Buero : Raum
     {
-        //public String typRaum = "Büro";
+        public String typRaum = "Büro";
 
         public Buero() : base() { TypRaume = typRaum; }
         public Buero(Raum raum) : base(raum) { TypRaume = typRaum; }

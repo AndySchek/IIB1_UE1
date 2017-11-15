@@ -12,7 +12,7 @@ namespace GUI
     static class Program
     {
         private static BindingList<Raum> raeume = new BindingList<Raum>();
-        private static List<Feuerloecher> feuerlocherList = new List<Feuerloecher>();
+        private static List<Feuerloescher> feuerlocherList = new List<Feuerloescher>();
         static Random rd = new Random();
 
         /// <summary>
@@ -30,23 +30,23 @@ namespace GUI
 
         private static void createFeuerloecher()
         {
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "5A/21B", Loescheinheit = 1, Preis = 20 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "8A/34B", Loescheinheit = 2, Preis = 40 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "55B", Loescheinheit = 3, Preis = 100 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "13A/70B", Loescheinheit = 4, Preis = 150 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "89B", Loescheinheit = 5, Preis = 200 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "21A/113B", Loescheinheit = 6, Preis = 250 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "27A/144B", Loescheinheit = 9, Preis = 350 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "34A", Loescheinheit = 10, Preis = 400 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "43A / 183B", Loescheinheit = 12, Preis = 500 });
-            feuerlocherList.Add(new Feuerloecher() { Bezeichnung = "55A/233B", Loescheinheit = 15, Preis = 700 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "5A/21B", Loescheinheit = 1, Preis = 20 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "8A/34B", Loescheinheit = 2, Preis = 40 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "55B", Loescheinheit = 3, Preis = 100 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "13A/70B", Loescheinheit = 4, Preis = 150 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "89B", Loescheinheit = 5, Preis = 200 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "21A/113B", Loescheinheit = 6, Preis = 250 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "27A/144B", Loescheinheit = 9, Preis = 350 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "34A", Loescheinheit = 10, Preis = 400 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "43A / 183B", Loescheinheit = 12, Preis = 500 });
+            feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "55A/233B", Loescheinheit = 15, Preis = 700 });
 
         }
 
-        private static BindingList<Feuerloecher> empfangFeuerlocher(int _anzahl)
+        private static BindingList<Feuerloescher> empfangFeuerlocher(int _anzahl)
         {
-            BindingList<Feuerloecher> ffeuerlocherList = new BindingList<Feuerloecher>();
-            Feuerloecher feuerloecher;
+            BindingList<Feuerloescher> ffeuerlocherList = new BindingList<Feuerloescher>();
+            Feuerloescher feuerloecher;
             for (int i=0; i<_anzahl; i++)
             {
                 while (true)
@@ -78,20 +78,25 @@ namespace GUI
                 String bezeichnungSeminarRaum = name + rd.Next(1, 75).ToString() + "c";
                 String bezeichnunSanitaerRaum = name + rd.Next(1, 75).ToString() + "d";
 
-                int bueroFeuerloecherAnzahl = rd.Next(1, 5);
-                int flurFeuerloecherAnzahl = rd.Next(1, 5);
-                int seminarraumFeuerloecherAnzahl = rd.Next(1, 5);
-                int sanitaerraumFeuerloecherAnzahl = rd.Next(1, 5);
+                int bueroFeuerloescherAnzahl = rd.Next(1, 5);
+                int flurFeuerloescherAnzahl = rd.Next(1, 5);
+                int seminarraumFeuerloescherAnzahl = rd.Next(1, 5);
+                int sanitaerraumFeuerloescherAnzahl = rd.Next(1, 5);
 
-                BindingList<Feuerloecher> bueroFeuerlocherListe = empfangFeuerlocher(bueroFeuerloecherAnzahl);
-                BindingList<Feuerloecher> flurFeuerlocherListe = empfangFeuerlocher(flurFeuerloecherAnzahl);
-                BindingList<Feuerloecher> seminarraumFeuerlocherListe = empfangFeuerlocher(seminarraumFeuerloecherAnzahl);
-                BindingList<Feuerloecher> sanitaerraumFeuerlocherListe = empfangFeuerlocher(sanitaerraumFeuerloecherAnzahl);
+                BindingList<Feuerloescher> bueroFeuerlocherListe = empfangFeuerlocher(bueroFeuerloescherAnzahl);
+                BindingList<Feuerloescher> flurFeuerlocherListe = empfangFeuerlocher(flurFeuerloescherAnzahl);
+                BindingList<Feuerloescher> seminarraumFeuerlocherListe = empfangFeuerlocher(seminarraumFeuerloescherAnzahl);
+                BindingList<Feuerloescher> sanitaerraumFeuerlocherListe = empfangFeuerlocher(sanitaerraumFeuerloescherAnzahl);
 
-                Buero buero = new Buero(bueroFlaeche, bezeichnungBueroRaum, bueroFeuerlocherListe);
-                Flur flur = new Flur(flurFlaeche, bezeichnungFlurRaum, flurFeuerlocherListe);
-                Seminarraum seminarraum = new Seminarraum(seminarraumFlaeche, bezeichnungSeminarRaum, seminarraumFeuerlocherListe);
-                Sanitaerraum sanitaerraum = new Sanitaerraum(satinaerramFlaeche, bezeichnunSanitaerRaum, sanitaerraumFeuerlocherListe);
+                BindingList<Material> bueroMaterial = new BindingList<Material>();
+                BindingList<Material> flurMaterial = new BindingList<Material>();
+                BindingList<Material> seminarraumMaterial = new BindingList<Material>();
+                BindingList<Material> sanitaerraumMaterial = new BindingList<Material>();
+
+                Buero buero = new Buero(bueroFlaeche, bezeichnungBueroRaum, bueroFeuerlocherListe, bueroMaterial);
+                Flur flur = new Flur(flurFlaeche, bezeichnungFlurRaum, flurFeuerlocherListe, flurMaterial);
+                Seminarraum seminarraum = new Seminarraum(seminarraumFlaeche, bezeichnungSeminarRaum, seminarraumFeuerlocherListe, seminarraumMaterial);
+                Sanitaerraum sanitaerraum = new Sanitaerraum(satinaerramFlaeche, bezeichnunSanitaerRaum, sanitaerraumFeuerlocherListe, sanitaerraumMaterial);
 
                 raeume.Add(buero);
                 raeume.Add(flur);

@@ -13,6 +13,7 @@ namespace GUI
     {
         private static BindingList<Raum> raeume = new BindingList<Raum>();
         private static List<Feuerloecher> feuerlocherList = new List<Feuerloecher>();
+        static Random rd = new Random();
 
         /// <summary>
         /// The main entry point for the application.
@@ -42,15 +43,18 @@ namespace GUI
 
         }
 
-        private static Feuerloecher empfangFeuerlocher()
+        private static Feuerloecher empfangFeuerlocher(int _anzahl)
         {
 
-            return feuerlocherList[new Random().Next(1, feuerlocherList.Count)];
+            Feuerloecher feuerlocher = feuerlocherList[rd.Next(1, feuerlocherList.Count)];
+            feuerlocher.Anzahl = _anzahl;
+            return feuerlocher;
         }
 
         private static void createRaume()
         {
-            Random rd = new Random();
+            
+            String name = "Raum ";
             for (int i=0; i<=4; i++)
             {
                 double bueroFlaeche = (rd.NextDouble() + 1) * rd.Next(30, 100);
@@ -58,15 +62,20 @@ namespace GUI
                 double seminarraumFlaeche = (rd.NextDouble() + 1) * rd.Next(50, 100);
                 double satinaerramFlaeche = (rd.NextDouble() + 1) * rd.Next(20, 70);
 
-                String bezeichnungBueroRaum = rd.Next(1, 75).ToString() + "a";
-                String bezeichnungFlurRaum = rd.Next(1, 75).ToString() + "b";
-                String bezeichnungSeminarRaum = rd.Next(1, 75).ToString() + "c";
-                String bezeichnunSanitaerRaum = rd.Next(1, 75).ToString() + "d";
+                String bezeichnungBueroRaum = name + rd.Next(1, 75).ToString() + "a";
+                String bezeichnungFlurRaum = name + rd.Next(1, 75).ToString() + "b";
+                String bezeichnungSeminarRaum = name + rd.Next(1, 75).ToString() + "c";
+                String bezeichnunSanitaerRaum = name + rd.Next(1, 75).ToString() + "d";
 
                 int bueroFeuerloecher = rd.Next(1, 5);
                 int flurFeuerloecher = rd.Next(1, 5);
                 int seminarraumFeuerloecher = rd.Next(1, 5);
                 int sanitaerraumFeuerloecher = rd.Next(1, 5);
+
+                int bueroFeuerloecherAnzahl = rd.Next(1, 5);
+                int flurFeuerloecherAnzahl = rd.Next(1, 5);
+                int seminarraumFeuerloecherAnzahl = rd.Next(1, 5);
+                int sanitaerraumFeuerloecherAnzahl = rd.Next(1, 5);
 
                 BindingList<Feuerloecher> bueroFeuerlocherListe = new BindingList<Feuerloecher>();
                 BindingList<Feuerloecher> flurFeuerlocherListe = new BindingList<Feuerloecher>();
@@ -76,22 +85,22 @@ namespace GUI
 
                 for(int j = 0; j < bueroFeuerloecher; j++)
                 {
-                    bueroFeuerlocherListe.Add(empfangFeuerlocher());
+                    bueroFeuerlocherListe.Add(empfangFeuerlocher(bueroFeuerloecherAnzahl));
                 }
 
                 for (int j = 0; j < flurFeuerloecher; j++)
                 {
-                    flurFeuerlocherListe.Add(empfangFeuerlocher());
+                    flurFeuerlocherListe.Add(empfangFeuerlocher(flurFeuerloecherAnzahl));
                 }
 
                 for (int j = 0; j < seminarraumFeuerloecher; j++)
                 {
-                    seminarraumFeuerlocherListe.Add(empfangFeuerlocher());
+                    seminarraumFeuerlocherListe.Add(empfangFeuerlocher(seminarraumFeuerloecherAnzahl));
                 }
 
                 for (int j = 0; j < sanitaerraumFeuerloecher; j++)
                 {
-                    sanitaerraumFeuerlocherListe.Add(empfangFeuerlocher());
+                    sanitaerraumFeuerlocherListe.Add(empfangFeuerlocher(sanitaerraumFeuerloecherAnzahl));
                 }
 
                 //Raum raum = new Raum();

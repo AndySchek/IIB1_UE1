@@ -26,24 +26,47 @@ namespace GUI
         {
             textBoxRaumBezeichnung.Text = raum.Bezeichung;
             textBoxRaumFlaeche.Text = Math.Round(raum.Flaeche, 2).ToString();
-            //textBoxRaumBrandgefahr.Text = Math.Round(raum.Brandgefahr,2).ToString();
             textBoxLoeschmeiiteleinheiten.Text = raum.Loeschmitteleinheiten.ToString();
 
             String typ = raum.TypRaume;
 
             switch (typ)
             {
-                case "Wohnung":
+                case "Büro":
                     comboBoxRaumNutzungsart.SelectedIndex = 0;
                     break;
-                case "Büroarbeit":
+                case "Flur":
                     comboBoxRaumNutzungsart.SelectedIndex = 1;
                     break;
-                case "Bildung":
+                case "Seminarraum":
                     comboBoxRaumNutzungsart.SelectedIndex = 2;
+                    break;
+                case "Sanitärraum":
+                    comboBoxRaumNutzungsart.SelectedIndex = 3;
                     break;
 
             }
+            int anzahl = 0;
+            double summe = 0;
+            int le = 0;
+            foreach(Feuerloecher fl in raum.FeuerloecherList)
+            {
+                double k = fl.Anzahl * fl.Preis;
+                listBoxFeuerlocher.Items.Add(fl.Bezeichnung);
+                listBoxLE.Items.Add(fl.Loescheinheit);
+                listBoxPreisFeuerloescher.Items.Add(fl.Preis);
+                listBoxCountFeuerloescher.Items.Add(fl.Anzahl);
+                listBoxPreisSummaFeuerloscher.Items.Add(k);
+
+                anzahl += fl.Anzahl;
+                le += fl.Loescheinheit * fl.Anzahl;
+                summe += k;
+            }
+
+            textBoxLESumme.Text = Convert.ToString(le);
+            textBoxAnzahlSumme.Text = Convert.ToString(anzahl);
+            textBoxGesamptpreis.Text = Convert.ToString(summe);
+
 
             /*
             foreach (Loeschvermoegen l in raum.Feuerloecher.LoeschvermoegenList)
@@ -66,36 +89,28 @@ namespace GUI
         {
             raum.Bezeichung = textBoxRaumBezeichnung.Text;
             raum.Flaeche = Convert.ToDouble(textBoxRaumFlaeche.Text);
-            raum.Loeschmitteleinheiten = Convert.ToInt16(textBoxLoeschmeiiteleinheiten.Text);
+            raum.Loeschmitteleinheiten = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
             //raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen = comboBoxLoeschvermoegen.Text;
-
-            int art = 0;
-            if (raum.TypRaume.Equals("Bueroarbeit"))
-                art = 1;
-            else if (raum.TypRaume.Equals("Bildung"))
-                art = 2;
-
-            int t = comboBoxRaumNutzungsart.SelectedIndex;
-            /*
-            if (t != art)
+            String typ = comboBoxRaumNutzungsart.Text;
+            raum.TypRaume = typ;
+            switch (typ)
             {
-                switch (t)
-                {
-                    case 0:
-                        Wohnung neuerWohnungRaum = new Wohnung(raum);
-                        raum = neuerWohnungRaum;
-                        break;
-                    case 1:
-                        Bueroarbeit neuerBueroarbeitRaum = new Bueroarbeit(raum);
-                        raum = neuerBueroarbeitRaum;
-                        break;
-                    case 2:
-                        Bildung neuerBildungRaum = new Bildung(raum);
-                        raum = neuerBildungRaum;
-                        break;
-                }
-            }
-            */
+                case "Büro":
+                    Buero newBuero = new Buero(raum);
+                    raum = newBuero;
+                    break;
+                case "Flur":
+                    Flur newFlur = new Flur(raum);
+                    raum = newFlur;
+                    break;
+                case "Seminarraum":
+                    Seminarraum newSeminarraum = new Seminarraum(raum);
+                    raum = newSeminarraum;
+                    break;
+                case "Sanitärraum":
+                    Sanitaerraum newSanitaerraum = new Sanitaerraum(raum);
+                    break;
+            }         
 
             ((FormMain)Owner).raumAenderung(raum);
         
@@ -190,6 +205,16 @@ namespace GUI
             double countFeuerloescher = Math.Ceiling((Double)LoeschmeiiteleinheitenRaum / LoeschmeiiteleinheitenFeuerlosher);
             if (countFeuerloescher == 0) countFeuerloescher = 1;
             textBoxCountFeuerloescher.Text = Convert.ToString(countFeuerloescher);
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

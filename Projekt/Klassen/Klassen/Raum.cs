@@ -20,7 +20,7 @@ namespace Klassen
         //protected double brandgefahr;
 
         //Properties der Klasse
-        public String Bezeichung { get { return "Raum " + bezeichung; } set { bezeichung = value; } }
+        public String Bezeichung { get { return bezeichung; } set { bezeichung = value;  } }
         public double Flaeche { get { return raumflaeche; } set { raumflaeche = value; } }
         public String TypRaume { get { return typRaum; } set { typRaum = value; } }
         public double Brandlast { get { return brandlast; } set { brandlast = value; } }

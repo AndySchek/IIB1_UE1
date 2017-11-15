@@ -27,7 +27,6 @@ namespace GUI
         private void fuelleListe()
         {
 
-
             if (comboBoxTypRaum.Items.IndexOf("Alle") == -1)
                 comboBoxTypRaum.Items.Add("Alle");
 
@@ -37,8 +36,7 @@ namespace GUI
                     comboBoxTypRaum.Items.Add(r.TypRaume);
             }
 
-            comboBoxTypRaum.SelectedIndex = 0;
-          
+            comboBoxTypRaum.SelectedIndex = 0;          
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -60,7 +58,7 @@ namespace GUI
         {
             raeume.Remove((Raum)listBoxRaum.SelectedItem);
             raeume.Add(raum);
-            comboBoxTypRaum.SelectedIndex = 0;
+            comboBoxTypRaum.SelectedItem = raum.TypRaume;
             listBoxUpdate();
             listBoxRaum.SelectedItem = raum;
         }

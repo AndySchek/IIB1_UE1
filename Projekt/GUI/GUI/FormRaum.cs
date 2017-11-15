@@ -14,6 +14,7 @@ namespace GUI
     public partial class FormRaum : Form
     {
         private Raum raum;
+        private BindingList<Feuerloecher> feuerloescherList;
         public FormRaum(Raum _raum, FormMain _parent)
         {
             InitializeComponent();
@@ -46,13 +47,15 @@ namespace GUI
                     break;
 
             }
+
             int anzahl = 0;
             double summe = 0;
             int le = 0;
             foreach(Feuerloecher fl in raum.FeuerloecherList)
             {
                 double k = fl.Anzahl * fl.Preis;
-                listBoxFeuerlocher.Items.Add(fl.Bezeichnung);
+
+                listBoxFeuerlocher.Items.Add(fl);
                 listBoxLE.Items.Add(fl.Loescheinheit);
                 listBoxPreisFeuerloescher.Items.Add(fl.Preis);
                 listBoxCountFeuerloescher.Items.Add(fl.Anzahl);
@@ -62,6 +65,10 @@ namespace GUI
                 le += fl.Loescheinheit * fl.Anzahl;
                 summe += k;
             }
+        
+
+            listBoxFeuerlocher.DisplayMember = "Bezeichnung";
+            listBoxFeuerlocher.SelectedIndex = 0;
 
             textBoxLESumme.Text = Convert.ToString(le);
             textBoxAnzahlSumme.Text = Convert.ToString(anzahl);
@@ -215,6 +222,28 @@ namespace GUI
         private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void buttonFeuerloescherDetails_Click(object sender, EventArgs e)
+        {
+            //FormFeuerloescher formFeuerloescher = new FormFeuerloescher((Feuerlocher)listBoxFeuerlocher.SelectedItem, this);
+            //formFeuerloescher.ShowDialog();
+            //FormFeuerloescher formFeuerloescher = new FormFeuerloescher((Feuerloecher)listBoxFeuerlocher.Items, this);
+            //formFeuerloescher.Owner = this;
+            //formFeuerloescher.ShowDialog();
+            rufeFormFeuerloescherAuf(f: (Feuerloecher)listBoxFeuerlocher.SelectedItem);
+        }
+
+        private void rufeFormFeuerloescherAuf(Feuerloecher f = null)
+        {
+            FormFeuerloescher fFeuerloescher = new FormFeuerloescher(f);
+            fFeuerloescher.owner = this;
+            fFeuerloescher.ShowDialog();
+        }
+
+        private void buttonFeuerloescherloeschen_Click(object sender, EventArgs e)
+        {
+           // .Remove((Feuerlocher)listBoxFeuerlocher.SelectedItem);
         }
     }
 }

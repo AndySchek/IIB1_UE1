@@ -43,12 +43,23 @@ namespace GUI
 
         }
 
-        private static Feuerloecher empfangFeuerlocher(int _anzahl)
+        private static BindingList<Feuerloecher> empfangFeuerlocher(int _anzahl)
         {
-
-            Feuerloecher feuerlocher = feuerlocherList[rd.Next(1, feuerlocherList.Count)];
-            feuerlocher.Anzahl = _anzahl;
-            return feuerlocher;
+            BindingList<Feuerloecher> ffeuerlocherList = new BindingList<Feuerloecher>();
+            Feuerloecher feuerloecher;
+            for (int i=0; i<_anzahl; i++)
+            {
+                while (true)
+                {
+                    feuerloecher = feuerlocherList[rd.Next(1, feuerlocherList.Count)];
+                    if (ffeuerlocherList.IndexOf(feuerloecher)==-1) {
+                        feuerloecher.Anzahl = 1;
+                        ffeuerlocherList.Add(feuerloecher);
+                        break;
+                    }
+                }
+            }
+            return ffeuerlocherList;
         }
 
         private static void createRaume()
@@ -67,43 +78,16 @@ namespace GUI
                 String bezeichnungSeminarRaum = name + rd.Next(1, 75).ToString() + "c";
                 String bezeichnunSanitaerRaum = name + rd.Next(1, 75).ToString() + "d";
 
-                int bueroFeuerloecher = rd.Next(1, 5);
-                int flurFeuerloecher = rd.Next(1, 5);
-                int seminarraumFeuerloecher = rd.Next(1, 5);
-                int sanitaerraumFeuerloecher = rd.Next(1, 5);
-
                 int bueroFeuerloecherAnzahl = rd.Next(1, 5);
                 int flurFeuerloecherAnzahl = rd.Next(1, 5);
                 int seminarraumFeuerloecherAnzahl = rd.Next(1, 5);
                 int sanitaerraumFeuerloecherAnzahl = rd.Next(1, 5);
 
-                BindingList<Feuerloecher> bueroFeuerlocherListe = new BindingList<Feuerloecher>();
-                BindingList<Feuerloecher> flurFeuerlocherListe = new BindingList<Feuerloecher>();
-                BindingList<Feuerloecher> seminarraumFeuerlocherListe = new BindingList<Feuerloecher>();
-                BindingList<Feuerloecher> sanitaerraumFeuerlocherListe = new BindingList<Feuerloecher>();
+                BindingList<Feuerloecher> bueroFeuerlocherListe = empfangFeuerlocher(bueroFeuerloecherAnzahl);
+                BindingList<Feuerloecher> flurFeuerlocherListe = empfangFeuerlocher(flurFeuerloecherAnzahl);
+                BindingList<Feuerloecher> seminarraumFeuerlocherListe = empfangFeuerlocher(seminarraumFeuerloecherAnzahl);
+                BindingList<Feuerloecher> sanitaerraumFeuerlocherListe = empfangFeuerlocher(sanitaerraumFeuerloecherAnzahl);
 
-
-                for(int j = 0; j < bueroFeuerloecher; j++)
-                {
-                    bueroFeuerlocherListe.Add(empfangFeuerlocher(bueroFeuerloecherAnzahl));
-                }
-
-                for (int j = 0; j < flurFeuerloecher; j++)
-                {
-                    flurFeuerlocherListe.Add(empfangFeuerlocher(flurFeuerloecherAnzahl));
-                }
-
-                for (int j = 0; j < seminarraumFeuerloecher; j++)
-                {
-                    seminarraumFeuerlocherListe.Add(empfangFeuerlocher(seminarraumFeuerloecherAnzahl));
-                }
-
-                for (int j = 0; j < sanitaerraumFeuerloecher; j++)
-                {
-                    sanitaerraumFeuerlocherListe.Add(empfangFeuerlocher(sanitaerraumFeuerloecherAnzahl));
-                }
-
-                //Raum raum = new Raum();
                 Buero buero = new Buero(bueroFlaeche, bezeichnungBueroRaum, bueroFeuerlocherListe);
                 Flur flur = new Flur(flurFlaeche, bezeichnungFlurRaum, flurFeuerlocherListe);
                 Seminarraum seminarraum = new Seminarraum(seminarraumFlaeche, bezeichnungSeminarRaum, seminarraumFeuerlocherListe);

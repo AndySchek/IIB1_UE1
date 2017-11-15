@@ -41,8 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Buero.cs" />
+    <Compile Include="Material.cs" />
     <Compile Include="Flur.cs" />
-    <Compile Include="Loeschvermoegen.cs" />
     <Compile Include="Feuerloecher.cs" />
     <Compile Include="Sanitaerraum.cs" />
     <Compile Include="Seminarraum.cs" />

@@ -11,30 +11,33 @@ namespace Klassen
     public abstract class Raum
     {
         //Attribute der Klasse
+        protected double grundflaeche;
         protected String bezeichung;
-        protected double raumflaeche;
-        protected String typRaum;
-        protected double brandlast;
-        protected BindingList<Feuerloecher> feuerloescherList;
         protected int loeschmitteleinheiten;
+        protected double brandlast;
+        protected BindingList<Material> materialien;
+        protected BindingList<Feuerloescher> feuerloescherList;
+        protected String typRaum;
         //protected double brandgefahr;
 
         //Properties der Klasse
+        public double Grundflaeche { get { return grundflaeche; } set { grundflaeche = value; } }
         public String Bezeichung { get { return bezeichung; } set { bezeichung = value;  } }
-        public double Flaeche { get { return raumflaeche; } set { raumflaeche = value; } }
-        public String TypRaume { get { return typRaum; } set { typRaum = value; } }
-        public double Brandlast { get { return brandlast; } set { brandlast = value; } }
-        public BindingList<Feuerloecher > FeuerloecherList { get { return feuerloescherList; } set { feuerloescherList = value; } }
         public int Loeschmitteleinheiten { get { return loeschmitteleinheiten; } set { loeschmitteleinheiten = value; } }
+        public double Brandlast { get { return brandlast; } set { brandlast = value; } } 
+        public BindingList<Material> Materialien {  get { return materialien; } set { materialien = value; } }
+        public BindingList<Feuerloescher > FeuerloecherList { get { return feuerloescherList; } set { feuerloescherList = value; } }
+        public String TypRaume { get { return typRaum; } set { typRaum = value; } }
 
         //Standard Konstruktor
         public Raum()
         {
-            raumflaeche = 0;
+            grundflaeche = 0;
             //brandgefahr = 0;
             bezeichung = "";
             typRaum = "";
-            feuerloescherList = new BindingList<Feuerloecher>();
+            materialien = new BindingList<Material>();
+            feuerloescherList = new BindingList<Feuerloescher>();
             loeschmitteleinheiten = 0;
         }
 
@@ -42,41 +45,43 @@ namespace Klassen
         public Raum(Raum _raum)
         {
             this.bezeichung = _raum.Bezeichung;
-            this.raumflaeche = _raum.Flaeche;
+            this.grundflaeche = _raum.Grundflaeche;
             //this.brandgefahr = _raum.Brandgefahr;
             this.typRaum = _raum.TypRaume;
             this.brandlast = _raum.Brandlast;
             this.feuerloescherList = _raum.FeuerloecherList;
             this.loeschmitteleinheiten = _raum.loeschmitteleinheiten;
+            this.materialien = _raum.materialien;
         }
 
         //Allgemeiner Konstruktor2
-        public Raum(double _flaeche, String _bezeichnung, BindingList<Feuerloecher> _feuerloecher)
+        public Raum(double _grundflaeche, String _bezeichnung, BindingList<Feuerloescher> _feuerloecher, BindingList<Material> _materialien)
         {
             this.bezeichung = _bezeichnung;
-            this.raumflaeche = _flaeche;
-            this.loeschmitteleinheiten = countLoeschmitteleinheiten(_flaeche);
+            this.grundflaeche = _grundflaeche;
+            this.loeschmitteleinheiten = countLoeschmitteleinheiten(_grundflaeche);
             this.feuerloescherList = _feuerloecher;
+            this.materialien = _materialien;
 
         }
 
-        public int countLoeschmitteleinheiten(double raumFlaeshe)
+        public int countLoeschmitteleinheiten(double raumflaeche)
         {
 
             int LE = 6;
-            if (raumFlaeshe <= 50) return LE;
+            if (raumflaeche <= 50) return LE;
             LE += 3;
-            if (raumFlaeshe > 50 && raumFlaeshe <= 100) return LE;
+            if (raumflaeche > 50 && raumflaeche <= 100) return LE;
             LE += 3;
             for (int k = 200; k <= 1000; k += 100, LE += 3)
             {
-                if (raumFlaeshe <= k) return LE;
+                if (raumflaeche <= k) return LE;
             }
             LE += 3;
             for (int k = 1250; ; k += 250, LE += 6)
             {
 
-                if (raumFlaeshe <= k) return LE;
+                if (raumflaeche <= k) return LE;
             }
         }
     }

@@ -14,6 +14,6 @@ namespace Klassen
 
         public Flur() : base() { TypRaume = typRaum; }
         public Flur(Raum raum) : base(raum) { TypRaume = typRaum; }
-        public Flur(double flaeche, String bezeichnung, BindingList<Feuerloecher> feuerloecher) : base(flaeche, bezeichnung, feuerloecher) { TypRaume = typRaum; }
+        public Flur(double flaeche, String bezeichnung, BindingList<Feuerloescher> feuerloescher, BindingList<Material> materialien) : base(flaeche, bezeichnung, feuerloescher, materialien) { TypRaume = typRaum; }
     }
 }

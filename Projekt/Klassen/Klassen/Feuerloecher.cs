@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Klassen
 {
     [Serializable]
-    public class Feuerloecher
+    public class Feuerloescher
     {
         private String bezeichnung;
         private int loescheinheit;
@@ -21,7 +21,7 @@ namespace Klassen
 
 
         //Standard Konstruktor
-        public Feuerloecher()
+        public Feuerloescher()
         {
             bezeichnung = "";
             loescheinheit = 0;
@@ -30,7 +30,7 @@ namespace Klassen
         }
 
         //Allgemeiner Konstruktor2
-        public Feuerloecher(String _bezeichnung, int _loescheinheit, double _preis)
+        public Feuerloescher(String _bezeichnung, int _loescheinheit, double _preis)
         {
             this.bezeichnung = _bezeichnung;
             this.loescheinheit = _loescheinheit;

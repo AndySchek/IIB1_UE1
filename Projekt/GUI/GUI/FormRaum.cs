@@ -68,8 +68,11 @@ namespace GUI
         
 
             listBoxFeuerlocher.DisplayMember = "Bezeichnung";
-            listBoxFeuerlocher.SelectedIndex = 0;
-
+            if (raum.FeuerloecherList.Count > 0)
+            {
+                listBoxFeuerlocher.SelectedIndex = 0;
+            }
+            
             textBoxLESumme.Text = Convert.ToString(le);
             textBoxAnzahlSumme.Text = Convert.ToString(anzahl);
             textBoxGesamptpreis.Text = Convert.ToString(summe);
@@ -243,7 +246,8 @@ namespace GUI
 
         private void buttonFeuerloescherloeschen_Click(object sender, EventArgs e)
         {
-           // .Remove((Feuerlocher)listBoxFeuerlocher.SelectedItem);
+            // .Remove((Feuerlocher)listBoxFeuerlocher.SelectedItem);
+            raum.FeuerloecherList.Remove((Feuerloescher)listBoxFeuerlocher.SelectedItem);
         }
     }
 }

@@ -11,29 +11,50 @@ namespace Klassen
     {
         private String bezeichnung;
         private String brandschutzklasse;
-        private String baustoffklasse;
+        private double brandbareMasse;
+        private double dichte;
+        private double gesamtdicke;
+        private double flaeche;
+
+
+        public String Bezeichnung { get { return bezeichnung; } set { bezeichnung = value; } }
+        public String Brandschutzklasse { get { return brandschutzklasse; } set { brandschutzklasse = value; } }
+        public double Dichte { get { return dichte; } set { dichte = value; } }
+        public double Gesamtdicke { get { return gesamtdicke; } set { gesamtdicke = value; } }
+        public double Flaeche { get { return flaeche; } set { flaeche = value; } }
+        public double BrandbareMasse { get { return brandbareMasse; } set { brandbareMasse = value; } }
+
 
         //Standardkonstruktor
         public Material()
         {
             bezeichnung = "";
             brandschutzklasse = "";
-            baustoffklasse = "";
+            brandbareMasse = 0;
+            dichte = 0;
+            gesamtdicke = 0;
+            flaeche = 0;
         }
 
 
         //Allgemeiner Konstruktor
-        public Material(string bezeichnung, string brandschutzklasse, string baustoffklasse)
+        public Material(string _bezeichnung, string _brandschutzklasse, double _dichte, double _gesamptdicke, double _flaeche)
         {
-            this.Bezeichnung = bezeichnung;
-            this.Brandschutzklasse = brandschutzklasse;
-            this.Baustoffklasse = baustoffklasse;
+            this.Bezeichnung = _bezeichnung;
+            this.Brandschutzklasse = _brandschutzklasse;
+            this.dichte = _dichte;
+            this.gesamtdicke = _gesamptdicke;
+            this.flaeche = _flaeche;
+            brendbareMasseRechnung();
         }
 
 
-        public String Bezeichnung { get { return bezeichnung; } set { bezeichnung = value; } }
-        public String Brandschutzklasse {  get { return brandschutzklasse; } set { brandschutzklasse = value; } }
-        public String Baustoffklasse { get { return baustoffklasse; } set { baustoffklasse = value; } }
+
+        private void brendbareMasseRechnung()
+        {
+            this.brandbareMasse = this.dichte * this.gesamtdicke * this.flaeche; 
+        }
+
     }
 
   

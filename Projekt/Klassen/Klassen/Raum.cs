@@ -15,9 +15,10 @@ namespace Klassen
         protected String bezeichung;
         protected int loeschmitteleinheiten;
         protected double brandlast;
-        protected BindingList<Material> materialien;
+        protected Material materialien;
         protected BindingList<Feuerloescher> feuerloescherList;
         protected String typRaum;
+        protected double heizwert;
         //protected double brandgefahr;
 
         //Properties der Klasse
@@ -25,9 +26,10 @@ namespace Klassen
         public String Bezeichung { get { return bezeichung; } set { bezeichung = value;  } }
         public int Loeschmitteleinheiten { get { return loeschmitteleinheiten; } set { loeschmitteleinheiten = value; } }
         public double Brandlast { get { return brandlast; } set { brandlast = value; } } 
-        public BindingList<Material> Materialien {  get { return materialien; } set { materialien = value; } }
+        public Material Materialien {  get { return materialien; } set { materialien = value; } }
         public BindingList<Feuerloescher > FeuerloescherList { get { return feuerloescherList; } set { feuerloescherList = value; } }
         public String TypRaume { get { return typRaum; } set { typRaum = value; } }
+        public double Heizwert { get { return heizwert; } set { heizwert = value; } }
 
         //Standard Konstruktor
         public Raum()
@@ -36,9 +38,10 @@ namespace Klassen
             //brandgefahr = 0;
             bezeichung = "";
             typRaum = "";
-            materialien = new BindingList<Material>();
+            materialien = new Material();
             feuerloescherList = new BindingList<Feuerloescher>();
             loeschmitteleinheiten = 0;
+            heizwert = 0;
         }
 
         //Allgemeiner Konstruktor1
@@ -52,16 +55,18 @@ namespace Klassen
             this.feuerloescherList = _raum.FeuerloescherList;
             this.loeschmitteleinheiten = _raum.loeschmitteleinheiten;
             this.materialien = _raum.materialien;
+            this.heizwert = _raum.heizwert;
         }
 
         //Allgemeiner Konstruktor2
-        public Raum(double _grundflaeche, String _bezeichnung, BindingList<Feuerloescher> _feuerloecher, BindingList<Material> _materialien)
+        public Raum(double _grundflaeche, String _bezeichnung, BindingList<Feuerloescher> _feuerloecher, Material _materialien, double _heizwert)
         {
             this.bezeichung = _bezeichnung;
             this.grundflaeche = _grundflaeche;
             this.loeschmitteleinheiten = countLoeschmitteleinheiten(_grundflaeche);
             this.feuerloescherList = _feuerloecher;
             this.materialien = _materialien;
+            this.heizwert = _heizwert;
 
         }
 

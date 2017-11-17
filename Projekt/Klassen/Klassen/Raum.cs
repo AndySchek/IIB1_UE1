@@ -59,14 +59,13 @@ namespace Klassen
         }
 
         //Allgemeiner Konstruktor2
-        public Raum(double _grundflaeche, String _bezeichnung, BindingList<Feuerloescher> _feuerloecher, Material _materialien, double _heizwert)
+        public Raum(double _grundflaeche, String _bezeichnung, BindingList<Feuerloescher> _feuerloecher, Material _materialien)
         {
             this.bezeichung = _bezeichnung;
             this.grundflaeche = _grundflaeche;
             this.loeschmitteleinheiten = countLoeschmitteleinheiten(_grundflaeche);
             this.feuerloescherList = _feuerloecher;
             this.materialien = _materialien;
-            this.heizwert = _heizwert;
 
         }
 

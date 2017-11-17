@@ -15,13 +15,15 @@ namespace GUI
 {
     public partial class FormMain : Form
     {
-        private BindingList<Raum> raeume;
+        public BindingList<Raum> raeume;
         private BindingList<Feuerloescher> feuerloescherList;
-        public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList)
+        public BindingList<Material> materialien;
+        public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList, BindingList<Material> _materialien)
         {
             InitializeComponent();
             this.raeume = _raeume;
             this.feuerloescherList = _feuerloescherList;
+            this.materialien = _materialien;
             fuelleListe();
         }
 
@@ -159,6 +161,34 @@ namespace GUI
         public static implicit operator int(FormMain v)
         {
             throw new NotImplementedException();
+        }
+
+        public double returnHeizwert(String typ)
+        {
+            double heizwert = 0;
+            foreach (Raum r in raeume)
+            {
+                if (r.TypRaume.Equals(typ))
+                {
+                    heizwert = r.Heizwert;
+                    break;
+                }
+            }
+            return heizwert;
+        }
+
+        public Material returnMaterial(String bezeichnung)
+        {
+            Material material = new Material();
+            foreach(Material m in materialien)
+            {
+                if (m.Bezeichnung.Equals(bezeichnung))
+                {
+                    material = m;
+                    break;
+                }
+            }
+            return material;
         }
     }
 }

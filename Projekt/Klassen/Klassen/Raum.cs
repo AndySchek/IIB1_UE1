@@ -42,6 +42,7 @@ namespace Klassen
             feuerloescherList = new BindingList<Feuerloescher>();
             loeschmitteleinheiten = 0;
             heizwert = 0;
+            brandlast = 0;
         }
 
         //Allgemeiner Konstruktor1

@@ -13,6 +13,7 @@ namespace GUI
     {
         private static BindingList<Raum> raeume = new BindingList<Raum>();
         private static BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
+        private static BindingList<Material> materialien = new BindingList<Material>();
         static Random rd = new Random();
 
         /// <summary>
@@ -22,10 +23,11 @@ namespace GUI
         static void Main()
         {
             createFeuerloecher();
+            createMaterial();
             createRaume();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain(raeume, feuerlocherList));
+            Application.Run(new FormMain(raeume, feuerlocherList, materialien));
         }
 
         private static void createFeuerloecher()
@@ -41,6 +43,14 @@ namespace GUI
             feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "43A / 183B", Loescheinheit = 12, Preis = 500 });
             feuerlocherList.Add(new Feuerloescher() { Bezeichnung = "55A/233B", Loescheinheit = 15, Preis = 700 });
 
+        }
+
+        private static void createMaterial()
+        {
+            materialien.Add(new Material() { Bezeichnung = "Beton", Brandschutzklasse = "A1", Flaeche = 100, Dichte = 2000, Gesamtdicke = 0.3 });
+            materialien.Add(new Material() { Bezeichnung = "Gipskartonplatten", Brandschutzklasse = "A2", Flaeche = 100, Dichte = 600, Gesamtdicke = 0.2 });
+            materialien.Add(new Material() { Bezeichnung = "Holzwolle-Leichtbauplatte", Brandschutzklasse = "B1", Flaeche = 100, Dichte = 360, Gesamtdicke = 0.15 });
+            materialien.Add(new Material() { Bezeichnung = "Holz", Brandschutzklasse = "B2", Flaeche = 100, Dichte = 500, Gesamtdicke = 0.12});
         }
 
         private static BindingList<Feuerloescher> empfangFeuerlocher(int _anzahl)
@@ -62,6 +72,11 @@ namespace GUI
             return ffeuerlocherList;
         }
 
+        private static Material empfangMaterial()
+        {
+            return materialien[rd.Next(1, materialien.Count)];
+        }
+
         private static void createRaume()
         {
             
@@ -78,6 +93,7 @@ namespace GUI
                 String bezeichnungSeminarRaum = name + rd.Next(1, 75).ToString() + "c";
                 String bezeichnunSanitaerRaum = name + rd.Next(1, 75).ToString() + "d";
 
+
                 int bueroFeuerloescherAnzahl = rd.Next(1, 5);
                 int flurFeuerloescherAnzahl = rd.Next(1, 5);
                 int seminarraumFeuerloescherAnzahl = rd.Next(1, 5);
@@ -88,10 +104,10 @@ namespace GUI
                 BindingList<Feuerloescher> seminarraumFeuerlocherListe = empfangFeuerlocher(seminarraumFeuerloescherAnzahl);
                 BindingList<Feuerloescher> sanitaerraumFeuerlocherListe = empfangFeuerlocher(sanitaerraumFeuerloescherAnzahl);
 
-                BindingList<Material> bueroMaterial = new BindingList<Material>();
-                BindingList<Material> flurMaterial = new BindingList<Material>();
-                BindingList<Material> seminarraumMaterial = new BindingList<Material>();
-                BindingList<Material> sanitaerraumMaterial = new BindingList<Material>();
+                Material bueroMaterial = empfangMaterial();
+                Material flurMaterial = empfangMaterial();
+                Material seminarraumMaterial = empfangMaterial();
+                Material sanitaerraumMaterial = empfangMaterial();
 
                 Buero buero = new Buero(bueroFlaeche, bezeichnungBueroRaum, bueroFeuerlocherListe, bueroMaterial);
                 Flur flur = new Flur(flurFlaeche, bezeichnungFlurRaum, flurFeuerlocherListe, flurMaterial);

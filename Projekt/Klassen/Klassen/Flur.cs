@@ -10,7 +10,7 @@ namespace Klassen
     [Serializable]
     public class Flur : Raum
     {
-        public String typRaum = "Büro";
+        public String typRaum = "Flur";
         public double heizwert = 19.2;
 
         public Flur() : base() { TypRaume = typRaum; Heizwert = heizwert; }

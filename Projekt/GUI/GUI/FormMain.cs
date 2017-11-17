@@ -15,9 +15,10 @@ namespace GUI
 {
     public partial class FormMain : Form
     {
-        public BindingList<Raum> raeume;
+        private BindingList<Raum> raeume;
         private BindingList<Feuerloescher> feuerloescherList;
         public BindingList<Material> materialien;
+
         public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList, BindingList<Material> _materialien)
         {
             InitializeComponent();
@@ -184,7 +185,7 @@ namespace GUI
             {
                 if (m.Bezeichnung.Equals(bezeichnung))
                 {
-                    material = m;
+                    return m;
                     break;
                 }
             }

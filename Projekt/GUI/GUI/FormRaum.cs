@@ -23,6 +23,7 @@ namespace GUI
             this.raum = _raum;
             this.feuerloescherList = _feuerloescherList;
             this.Owner = _parent;
+            this.material = _raum.Materialien;
             fuelleBoxen();
         }
 
@@ -32,6 +33,10 @@ namespace GUI
             textBoxRaumFlaeche.Text = Math.Round(raum.Grundflaeche, 2).ToString();
             textBoxLoeschmeiiteleinheiten.Text = raum.Loeschmitteleinheiten.ToString();
             textBoxHeizwertRaum.Text = Convert.ToString(raum.Heizwert);
+
+            textBoxMaterialDichte.Text = Convert.ToString(this.material.Dichte);
+            textBoxGesamptdickeMaterial.Text = Convert.ToString(this.material.Gesamtdicke);
+            textBoxFlaecheMaterial.Text = Convert.ToString(this.material.Flaeche);
 
             String typ = raum.TypRaume;
 
@@ -70,7 +75,7 @@ namespace GUI
                     break;
 
             }
-
+            brandlastUpdate();
             //textBoxMaterialDichte.Text = Convert.ToString(raum.Materialien.Dichte);
             //textBoxGesamptdickeMaterial.Text = Convert.ToString(raum.Materialien.Gesamtdicke);
             //textBoxFlaecheMaterial.Text = Convert.ToString(raum.Materialien.Flaeche);
@@ -170,7 +175,7 @@ namespace GUI
                     Sanitaerraum newSanitaerraum = new Sanitaerraum(raum);
                     break;
             }
-
+            raum.Materialien = material;
             ((FormMain)Owner).raumAenderung(raum);
 
         }
@@ -405,34 +410,54 @@ namespace GUI
             textBoxFlaecheMaterial.Text = Convert.ToString(material.Flaeche);
             material.BrandbareMasse = material.Dichte * material.Gesamtdicke * material.Flaeche;
             textBoxBrandbareMasse.Text = Convert.ToString(material.BrandbareMasse);
-            raum.Brandlast = material.BrandbareMasse * raum.Heizwert;
+            raum.Brandlast = raum.Materialien.BrandbareMasse * raum.Heizwert;
             textBoxBrandlastRaum.Text = Convert.ToString(raum.Brandlast);
         }
 
-        private void textBoxMaterialDichte_TextChanged(object sender, EventArgs e)
-        {
-            rechnungBrandlast();
-        }
+
 
         private void rechnungBrandlast()
         {
             //brandlastUpdate();
+            /* String dichte = textBoxMaterialDichte.Text;
+             String gesamtdicke = textBoxGesamptdickeMaterial.Text;
+             String flaeche = textBoxFlaecheMaterial.Text;
+
+             if (dichte != "")
+                 material.Dichte = Convert.ToDouble(textBoxMaterialDichte.Text);
+             else material.Dichte = 0;
+
+             if (gesamtdicke != "")
+                 material.Gesamtdicke = Convert.ToDouble(textBoxGesamptdickeMaterial.Text);
+             else material.Gesamtdicke = 0;
+
+             if (flaeche != "")
+                 material.Flaeche = Convert.ToDouble(textBoxFlaecheMaterial.Text);
+             else material.Flaeche = 0;
+             */
+
+            //brandlastUpdate();
+            /*
             String dichte = textBoxMaterialDichte.Text;
-            String gesamtdicke = textBoxGesamptdickeMaterial.Text;
-            String flaeche = textBoxFlaecheMaterial.Text;
-
             if (dichte != "")
-                material.Dichte = Convert.ToDouble(dichte);
+                material.Dichte = Convert.ToDouble(textBoxMaterialDichte.Text);
             else material.Dichte = 0;
+            */
 
-            if (gesamtdicke != "")
-                material.Gesamtdicke = Convert.ToDouble(gesamtdicke);
+            /*String gesamptdicke = textBoxGesamptdickeMaterial.Text;
+            if (gesamptdicke != "")
+                material.Gesamtdicke = Convert.ToDouble(textBoxGesamptdickeMaterial.Text);
             else material.Gesamtdicke = 0;
+            */
+            brandlastUpdateTextBox();
+        }
 
-            if (flaeche != "")
-                material.Flaeche = Convert.ToDouble(flaeche);
-            else material.Flaeche = 0;
-            brandlastUpdate();
+        public void brandlastUpdateTextBox()
+        {
+            material.BrandbareMasse = material.Dichte * material.Gesamtdicke * material.Flaeche;
+            textBoxBrandbareMasse.Text = Convert.ToString(material.BrandbareMasse);
+            raum.Brandlast = material.BrandbareMasse * raum.Heizwert;
+            textBoxBrandlastRaum.Text = Convert.ToString(raum.Brandlast);
         }
 
         private void textBoxMaterialDichte_KeyPress(object sender, KeyPressEventArgs e)
@@ -444,14 +469,41 @@ namespace GUI
             }
         }
 
+        private void textBoxMaterialDichte_TextChanged(object sender, EventArgs e)
+        {
+            String dichte = textBoxMaterialDichte.Text;
+            if (dichte != "")
+                material.Dichte = Convert.ToDouble(dichte);
+            else material.Dichte = 0;
+            brandlastUpdateTextBox();
+        }
+
         private void textBoxGesamptdickeMaterial_TextChanged(object sender, EventArgs e)
         {
-            rechnungBrandlast();
+            String gesamptDicke = textBoxGesamptdickeMaterial.Text;
+            if (gesamptDicke != "")
+                material.Gesamtdicke = Convert.ToDouble(gesamptDicke);
+            else material.Gesamtdicke = 0;
+            brandlastUpdateTextBox();
         }
 
         private void textBoxFlaecheMaterial_TextChanged(object sender, EventArgs e)
         {
-            rechnungBrandlast();
+            String flaeche = textBoxFlaecheMaterial.Text;
+            if (flaeche != "")
+                material.Flaeche = Convert.ToDouble(flaeche);
+            else material.Flaeche = 0;
+            brandlastUpdateTextBox();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxBrandlastRaum_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

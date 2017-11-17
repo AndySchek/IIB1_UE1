@@ -90,7 +90,7 @@
             // 
             // textBoxRaumBezeichnung
             // 
-            this.textBoxRaumBezeichnung.Location = new System.Drawing.Point(148, 12);
+            this.textBoxRaumBezeichnung.Location = new System.Drawing.Point(161, 12);
             this.textBoxRaumBezeichnung.Name = "textBoxRaumBezeichnung";
             this.textBoxRaumBezeichnung.Size = new System.Drawing.Size(99, 20);
             this.textBoxRaumBezeichnung.TabIndex = 1;
@@ -107,7 +107,7 @@
             // 
             // textBoxRaumFlaeche
             // 
-            this.textBoxRaumFlaeche.Location = new System.Drawing.Point(148, 38);
+            this.textBoxRaumFlaeche.Location = new System.Drawing.Point(161, 38);
             this.textBoxRaumFlaeche.Name = "textBoxRaumFlaeche";
             this.textBoxRaumFlaeche.Size = new System.Drawing.Size(99, 20);
             this.textBoxRaumFlaeche.TabIndex = 4;
@@ -132,7 +132,7 @@
             "Flur",
             "Seminarraum",
             "Sanitärraum"});
-            this.comboBoxRaumNutzungsart.Location = new System.Drawing.Point(148, 90);
+            this.comboBoxRaumNutzungsart.Location = new System.Drawing.Point(161, 90);
             this.comboBoxRaumNutzungsart.Name = "comboBoxRaumNutzungsart";
             this.comboBoxRaumNutzungsart.Size = new System.Drawing.Size(99, 21);
             this.comboBoxRaumNutzungsart.TabIndex = 9;
@@ -141,7 +141,7 @@
             // buttonAenderungsSpeichern
             // 
             this.buttonAenderungsSpeichern.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.buttonAenderungsSpeichern.Location = new System.Drawing.Point(631, 12);
+            this.buttonAenderungsSpeichern.Location = new System.Drawing.Point(644, 12);
             this.buttonAenderungsSpeichern.Name = "buttonAenderungsSpeichern";
             this.buttonAenderungsSpeichern.Size = new System.Drawing.Size(114, 28);
             this.buttonAenderungsSpeichern.TabIndex = 10;
@@ -151,7 +151,7 @@
             // 
             // textBoxLoeschmeiiteleinheiten
             // 
-            this.textBoxLoeschmeiiteleinheiten.Location = new System.Drawing.Point(148, 64);
+            this.textBoxLoeschmeiiteleinheiten.Location = new System.Drawing.Point(161, 64);
             this.textBoxLoeschmeiiteleinheiten.Name = "textBoxLoeschmeiiteleinheiten";
             this.textBoxLoeschmeiiteleinheiten.ReadOnly = true;
             this.textBoxLoeschmeiiteleinheiten.Size = new System.Drawing.Size(99, 20);
@@ -186,7 +186,7 @@
             this.tableLayoutPanel1.Controls.Add(this.listBoxCountFeuerloescher, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.listBoxPreisFeuerloescher, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.Feuerlocher, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(253, 12);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(266, 12);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -311,7 +311,7 @@
             this.textBoxGesamptpreis.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.textBoxGesamptpreis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxGesamptpreis.ForeColor = System.Drawing.Color.Black;
-            this.textBoxGesamptpreis.Location = new System.Drawing.Point(631, 251);
+            this.textBoxGesamptpreis.Location = new System.Drawing.Point(644, 251);
             this.textBoxGesamptpreis.Name = "textBoxGesamptpreis";
             this.textBoxGesamptpreis.ReadOnly = true;
             this.textBoxGesamptpreis.Size = new System.Drawing.Size(114, 23);
@@ -322,7 +322,7 @@
             // textBoxAnzahlSumme
             // 
             this.textBoxAnzahlSumme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxAnzahlSumme.Location = new System.Drawing.Point(631, 223);
+            this.textBoxAnzahlSumme.Location = new System.Drawing.Point(644, 223);
             this.textBoxAnzahlSumme.Name = "textBoxAnzahlSumme";
             this.textBoxAnzahlSumme.ReadOnly = true;
             this.textBoxAnzahlSumme.Size = new System.Drawing.Size(114, 22);
@@ -332,7 +332,7 @@
             // textBoxLESumme
             // 
             this.textBoxLESumme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxLESumme.Location = new System.Drawing.Point(631, 195);
+            this.textBoxLESumme.Location = new System.Drawing.Point(644, 195);
             this.textBoxLESumme.Name = "textBoxLESumme";
             this.textBoxLESumme.ReadOnly = true;
             this.textBoxLESumme.Size = new System.Drawing.Size(114, 22);
@@ -343,7 +343,7 @@
             // buttonFeuerloescherDetails
             // 
             this.buttonFeuerloescherDetails.BackColor = System.Drawing.Color.Gold;
-            this.buttonFeuerloescherDetails.Location = new System.Drawing.Point(631, 46);
+            this.buttonFeuerloescherDetails.Location = new System.Drawing.Point(644, 46);
             this.buttonFeuerloescherDetails.Name = "buttonFeuerloescherDetails";
             this.buttonFeuerloescherDetails.Size = new System.Drawing.Size(114, 30);
             this.buttonFeuerloescherDetails.TabIndex = 20;
@@ -354,7 +354,7 @@
             // buttonFeuerloescherloeschen
             // 
             this.buttonFeuerloescherloeschen.BackColor = System.Drawing.Color.LightCoral;
-            this.buttonFeuerloescherloeschen.Location = new System.Drawing.Point(631, 118);
+            this.buttonFeuerloescherloeschen.Location = new System.Drawing.Point(644, 118);
             this.buttonFeuerloescherloeschen.Name = "buttonFeuerloescherloeschen";
             this.buttonFeuerloescherloeschen.Size = new System.Drawing.Size(114, 30);
             this.buttonFeuerloescherloeschen.TabIndex = 21;
@@ -365,7 +365,7 @@
             // buttonNeuerFeuerloescherhinzufuegen
             // 
             this.buttonNeuerFeuerloescherhinzufuegen.BackColor = System.Drawing.Color.LightGreen;
-            this.buttonNeuerFeuerloescherhinzufuegen.Location = new System.Drawing.Point(631, 82);
+            this.buttonNeuerFeuerloescherhinzufuegen.Location = new System.Drawing.Point(644, 82);
             this.buttonNeuerFeuerloescherhinzufuegen.Name = "buttonNeuerFeuerloescherhinzufuegen";
             this.buttonNeuerFeuerloescherhinzufuegen.Size = new System.Drawing.Size(114, 30);
             this.buttonNeuerFeuerloescherhinzufuegen.TabIndex = 22;
@@ -376,7 +376,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(751, 200);
+            this.label3.Location = new System.Drawing.Point(764, 200);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(208, 13);
             this.label3.TabIndex = 23;
@@ -385,7 +385,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(751, 228);
+            this.label6.Location = new System.Drawing.Point(764, 228);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(157, 13);
             this.label6.TabIndex = 24;
@@ -394,7 +394,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(751, 256);
+            this.label7.Location = new System.Drawing.Point(764, 256);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 13);
             this.label7.TabIndex = 25;
@@ -402,14 +402,14 @@
             // 
             // progressBarBrandschutzplanung
             // 
-            this.progressBarBrandschutzplanung.Location = new System.Drawing.Point(256, 286);
+            this.progressBarBrandschutzplanung.Location = new System.Drawing.Point(269, 286);
             this.progressBarBrandschutzplanung.Name = "progressBarBrandschutzplanung";
             this.progressBarBrandschutzplanung.Size = new System.Drawing.Size(363, 23);
             this.progressBarBrandschutzplanung.TabIndex = 26;
             // 
             // buttonabbrechen
             // 
-            this.buttonabbrechen.Location = new System.Drawing.Point(631, 281);
+            this.buttonabbrechen.Location = new System.Drawing.Point(644, 281);
             this.buttonabbrechen.Name = "buttonabbrechen";
             this.buttonabbrechen.Size = new System.Drawing.Size(114, 28);
             this.buttonabbrechen.TabIndex = 42;
@@ -421,7 +421,7 @@
             // 
             this.labelProgressBar.BackColor = System.Drawing.SystemColors.Control;
             this.labelProgressBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelProgressBar.Location = new System.Drawing.Point(253, 312);
+            this.labelProgressBar.Location = new System.Drawing.Point(266, 312);
             this.labelProgressBar.Name = "labelProgressBar";
             this.labelProgressBar.Size = new System.Drawing.Size(366, 23);
             this.labelProgressBar.TabIndex = 43;
@@ -430,7 +430,7 @@
             // textBoxInfoBrandschutz
             // 
             this.textBoxInfoBrandschutz.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxInfoBrandschutz.Location = new System.Drawing.Point(754, 13);
+            this.textBoxInfoBrandschutz.Location = new System.Drawing.Point(767, 13);
             this.textBoxInfoBrandschutz.Multiline = true;
             this.textBoxInfoBrandschutz.Name = "textBoxInfoBrandschutz";
             this.textBoxInfoBrandschutz.Size = new System.Drawing.Size(263, 184);
@@ -439,26 +439,27 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 322);
+            this.label8.Location = new System.Drawing.Point(12, 312);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 13);
+            this.label8.Size = new System.Drawing.Size(180, 13);
             this.label8.TabIndex = 45;
-            this.label8.Text = "Brandlast Raum";
+            this.label8.Text = "[Heizwert Raum *  brandbare Masse]";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(67, 155);
+            this.label12.Location = new System.Drawing.Point(12, 290);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(104, 16);
+            this.label12.Size = new System.Drawing.Size(136, 16);
             this.label12.TabIndex = 46;
-            this.label12.Text = "Brandlast Raum";
+            this.label12.Text = "Brandlast Raum  (MJ)";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 187);
+            this.label13.Location = new System.Drawing.Point(15, 162);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(44, 13);
             this.label13.TabIndex = 47;
@@ -472,7 +473,7 @@
             "Gipskartonplatten",
             "Holzwolle-Leichtbauplatte",
             "Holz"});
-            this.comboBoxMaterial.Location = new System.Drawing.Point(149, 184);
+            this.comboBoxMaterial.Location = new System.Drawing.Point(161, 159);
             this.comboBoxMaterial.Name = "comboBoxMaterial";
             this.comboBoxMaterial.Size = new System.Drawing.Size(99, 21);
             this.comboBoxMaterial.TabIndex = 48;
@@ -481,7 +482,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(17, 214);
+            this.label14.Location = new System.Drawing.Point(16, 189);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 49;
@@ -489,7 +490,7 @@
             // 
             // textBoxHeizwertRaum
             // 
-            this.textBoxHeizwertRaum.Location = new System.Drawing.Point(148, 117);
+            this.textBoxHeizwertRaum.Location = new System.Drawing.Point(161, 117);
             this.textBoxHeizwertRaum.Name = "textBoxHeizwertRaum";
             this.textBoxHeizwertRaum.ReadOnly = true;
             this.textBoxHeizwertRaum.Size = new System.Drawing.Size(99, 20);
@@ -506,7 +507,7 @@
             // 
             // textBoxMaterialDichte
             // 
-            this.textBoxMaterialDichte.Location = new System.Drawing.Point(148, 211);
+            this.textBoxMaterialDichte.Location = new System.Drawing.Point(160, 186);
             this.textBoxMaterialDichte.Name = "textBoxMaterialDichte";
             this.textBoxMaterialDichte.Size = new System.Drawing.Size(100, 20);
             this.textBoxMaterialDichte.TabIndex = 52;
@@ -515,7 +516,7 @@
             // 
             // textBoxGesamptdickeMaterial
             // 
-            this.textBoxGesamptdickeMaterial.Location = new System.Drawing.Point(148, 237);
+            this.textBoxGesamptdickeMaterial.Location = new System.Drawing.Point(160, 212);
             this.textBoxGesamptdickeMaterial.Name = "textBoxGesamptdickeMaterial";
             this.textBoxGesamptdickeMaterial.Size = new System.Drawing.Size(100, 20);
             this.textBoxGesamptdickeMaterial.TabIndex = 54;
@@ -524,7 +525,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(17, 240);
+            this.label16.Location = new System.Drawing.Point(16, 215);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(86, 13);
             this.label16.TabIndex = 53;
@@ -532,7 +533,7 @@
             // 
             // textBoxFlaecheMaterial
             // 
-            this.textBoxFlaecheMaterial.Location = new System.Drawing.Point(148, 263);
+            this.textBoxFlaecheMaterial.Location = new System.Drawing.Point(160, 238);
             this.textBoxFlaecheMaterial.Name = "textBoxFlaecheMaterial";
             this.textBoxFlaecheMaterial.Size = new System.Drawing.Size(99, 20);
             this.textBoxFlaecheMaterial.TabIndex = 56;
@@ -541,7 +542,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(17, 266);
+            this.label17.Location = new System.Drawing.Point(16, 241);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(59, 13);
             this.label17.TabIndex = 55;
@@ -549,15 +550,18 @@
             // 
             // textBoxBrandlastRaum
             // 
-            this.textBoxBrandlastRaum.Location = new System.Drawing.Point(147, 319);
+            this.textBoxBrandlastRaum.BackColor = System.Drawing.Color.DodgerBlue;
+            this.textBoxBrandlastRaum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxBrandlastRaum.Location = new System.Drawing.Point(160, 289);
             this.textBoxBrandlastRaum.Name = "textBoxBrandlastRaum";
             this.textBoxBrandlastRaum.ReadOnly = true;
-            this.textBoxBrandlastRaum.Size = new System.Drawing.Size(99, 20);
+            this.textBoxBrandlastRaum.Size = new System.Drawing.Size(99, 22);
             this.textBoxBrandlastRaum.TabIndex = 57;
+            this.textBoxBrandlastRaum.TextChanged += new System.EventHandler(this.textBoxBrandlastRaum_TextChanged);
             // 
             // textBoxBrandbareMasse
             // 
-            this.textBoxBrandbareMasse.Location = new System.Drawing.Point(148, 289);
+            this.textBoxBrandbareMasse.Location = new System.Drawing.Point(160, 264);
             this.textBoxBrandbareMasse.Name = "textBoxBrandbareMasse";
             this.textBoxBrandbareMasse.ReadOnly = true;
             this.textBoxBrandbareMasse.Size = new System.Drawing.Size(99, 20);
@@ -566,7 +570,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 292);
+            this.label18.Location = new System.Drawing.Point(14, 267);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(111, 13);
             this.label18.TabIndex = 58;
@@ -576,7 +580,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1029, 379);
+            this.ClientSize = new System.Drawing.Size(1102, 379);
             this.Controls.Add(this.textBoxBrandbareMasse);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.textBoxBrandlastRaum);

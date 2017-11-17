@@ -521,6 +521,7 @@
             this.textBoxGesamptdickeMaterial.Size = new System.Drawing.Size(100, 20);
             this.textBoxGesamptdickeMaterial.TabIndex = 54;
             this.textBoxGesamptdickeMaterial.TextChanged += new System.EventHandler(this.textBoxGesamptdickeMaterial_TextChanged);
+            this.textBoxGesamptdickeMaterial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxGesamptdickeMaterial_KeyPress);
             // 
             // label16
             // 
@@ -538,6 +539,7 @@
             this.textBoxFlaecheMaterial.Size = new System.Drawing.Size(99, 20);
             this.textBoxFlaecheMaterial.TabIndex = 56;
             this.textBoxFlaecheMaterial.TextChanged += new System.EventHandler(this.textBoxFlaecheMaterial_TextChanged);
+            this.textBoxFlaecheMaterial.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxFlaecheMaterial_KeyPress);
             // 
             // label17
             // 

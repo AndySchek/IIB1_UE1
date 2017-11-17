@@ -460,40 +460,54 @@ namespace GUI
             textBoxBrandlastRaum.Text = Convert.ToString(raum.Brandlast);
         }
 
-        private void textBoxMaterialDichte_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
-            if (!Char.IsDigit(number) && number != 8 && number != 44)
-            {
-                e.Handled = true;
-            }
-        }
-
         private void textBoxMaterialDichte_TextChanged(object sender, EventArgs e)
         {
-            String dichte = textBoxMaterialDichte.Text;
-            if (dichte != "")
-                material.Dichte = Convert.ToDouble(dichte);
-            else material.Dichte = 0;
-            brandlastUpdateTextBox();
+            try
+            {
+                String dichte = textBoxMaterialDichte.Text;
+                if (dichte != "")
+                    material.Dichte = Convert.ToDouble(dichte);
+                else material.Dichte = 0;
+                brandlastUpdateTextBox();
+            }
+            catch
+            {
+                material.Dichte = 0;
+                brandlastUpdate();
+            }
         }
 
         private void textBoxGesamptdickeMaterial_TextChanged(object sender, EventArgs e)
         {
-            String gesamptDicke = textBoxGesamptdickeMaterial.Text;
-            if (gesamptDicke != "")
-                material.Gesamtdicke = Convert.ToDouble(gesamptDicke);
-            else material.Gesamtdicke = 0;
-            brandlastUpdateTextBox();
+            try
+            {
+                String gesamptDicke = textBoxGesamptdickeMaterial.Text;
+                if (gesamptDicke != "")
+                    material.Gesamtdicke = Convert.ToDouble(gesamptDicke);
+                else material.Gesamtdicke = 0;
+                brandlastUpdateTextBox();
+            }
+            catch
+            {
+                material.Gesamtdicke = 0;
+                brandlastUpdate();
+            }
         }
 
         private void textBoxFlaecheMaterial_TextChanged(object sender, EventArgs e)
         {
-            String flaeche = textBoxFlaecheMaterial.Text;
-            if (flaeche != "")
-                material.Flaeche = Convert.ToDouble(flaeche);
-            else material.Flaeche = 0;
-            brandlastUpdateTextBox();
+            try
+            {
+                String flaeche = textBoxFlaecheMaterial.Text;
+                if (flaeche != "")
+                    material.Flaeche = Convert.ToDouble(flaeche);
+                else material.Flaeche = 0;
+                brandlastUpdateTextBox();
+            }
+            catch {
+                material.Flaeche = 0;
+                brandlastUpdate();
+            }
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -504,6 +518,33 @@ namespace GUI
         private void textBoxBrandlastRaum_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxMaterialDichte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxGesamptdickeMaterial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxFlaecheMaterial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

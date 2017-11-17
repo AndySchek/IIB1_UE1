@@ -76,13 +76,6 @@ namespace GUI
 
             }
             brandlastUpdate();
-            //textBoxMaterialDichte.Text = Convert.ToString(raum.Materialien.Dichte);
-            //textBoxGesamptdickeMaterial.Text = Convert.ToString(raum.Materialien.Gesamtdicke);
-            //textBoxFlaecheMaterial.Text = Convert.ToString(raum.Materialien.Flaeche);
-            //raum.Materialien.BrandbareMasse = raum.Materialien.Dichte * raum.Materialien.Gesamtdicke * raum.Materialien.Flaeche;
-            //textBoxBrandbareMasse.Text = Convert.ToString(raum.Materialien.BrandbareMasse);
-            //raum.Brandlast = raum.Materialien.BrandbareMasse * raum.Heizwert;
-            //textBoxBrandlastRaum.Text = Convert.ToString(raum.Brandlast);
             feuerloescherUpdate(0);
 
         }
@@ -154,7 +147,6 @@ namespace GUI
             raum.Bezeichung = textBoxRaumBezeichnung.Text;
             raum.Grundflaeche = Convert.ToDouble(textBoxRaumFlaeche.Text);
             raum.Loeschmitteleinheiten = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
-            //raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen = comboBoxLoeschvermoegen.Text;
             String typ = comboBoxRaumNutzungsart.Text;
             raum.TypRaume = typ;
             switch (typ)

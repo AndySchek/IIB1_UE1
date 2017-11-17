@@ -415,43 +415,6 @@ namespace GUI
         }
 
 
-
-        private void rechnungBrandlast()
-        {
-            //brandlastUpdate();
-            /* String dichte = textBoxMaterialDichte.Text;
-             String gesamtdicke = textBoxGesamptdickeMaterial.Text;
-             String flaeche = textBoxFlaecheMaterial.Text;
-
-             if (dichte != "")
-                 material.Dichte = Convert.ToDouble(textBoxMaterialDichte.Text);
-             else material.Dichte = 0;
-
-             if (gesamtdicke != "")
-                 material.Gesamtdicke = Convert.ToDouble(textBoxGesamptdickeMaterial.Text);
-             else material.Gesamtdicke = 0;
-
-             if (flaeche != "")
-                 material.Flaeche = Convert.ToDouble(textBoxFlaecheMaterial.Text);
-             else material.Flaeche = 0;
-             */
-
-            //brandlastUpdate();
-            /*
-            String dichte = textBoxMaterialDichte.Text;
-            if (dichte != "")
-                material.Dichte = Convert.ToDouble(textBoxMaterialDichte.Text);
-            else material.Dichte = 0;
-            */
-
-            /*String gesamptdicke = textBoxGesamptdickeMaterial.Text;
-            if (gesamptdicke != "")
-                material.Gesamtdicke = Convert.ToDouble(textBoxGesamptdickeMaterial.Text);
-            else material.Gesamtdicke = 0;
-            */
-            brandlastUpdateTextBox();
-        }
-
         public void brandlastUpdateTextBox()
         {
             material.BrandbareMasse = material.Dichte * material.Gesamtdicke * material.Flaeche;

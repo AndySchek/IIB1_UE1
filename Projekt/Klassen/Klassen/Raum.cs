@@ -26,7 +26,7 @@ namespace Klassen
         public int Loeschmitteleinheiten { get { return loeschmitteleinheiten; } set { loeschmitteleinheiten = value; } }
         public double Brandlast { get { return brandlast; } set { brandlast = value; } } 
         public BindingList<Material> Materialien {  get { return materialien; } set { materialien = value; } }
-        public BindingList<Feuerloescher > FeuerloecherList { get { return feuerloescherList; } set { feuerloescherList = value; } }
+        public BindingList<Feuerloescher > FeuerloescherList { get { return feuerloescherList; } set { feuerloescherList = value; } }
         public String TypRaume { get { return typRaum; } set { typRaum = value; } }
 
         //Standard Konstruktor
@@ -49,7 +49,7 @@ namespace Klassen
             //this.brandgefahr = _raum.Brandgefahr;
             this.typRaum = _raum.TypRaume;
             this.brandlast = _raum.Brandlast;
-            this.feuerloescherList = _raum.FeuerloecherList;
+            this.feuerloescherList = _raum.FeuerloescherList;
             this.loeschmitteleinheiten = _raum.loeschmitteleinheiten;
             this.materialien = _raum.materialien;
         }

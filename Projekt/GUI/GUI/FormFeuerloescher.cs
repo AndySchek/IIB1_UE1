@@ -13,22 +13,22 @@ namespace GUI
 {
     public partial class FormFeuerloescher : Form
     {
-        private Feuerloescher feuerloecher;
-        public FormRaum owner;
-        public FormFeuerloescher(Feuerloescher _feuerloescher)
+        private Feuerloescher feuerloescher;
+        public FormRaum Owner;
+        public FormFeuerloescher(Feuerloescher _feuerloescher, FormRaum _parent)
         {
             InitializeComponent();
-            this.feuerloecher = _feuerloescher;
-            //this.Owner = _parent;
+            this.feuerloescher = _feuerloescher;
+            this.Owner = _parent;
             fuelleBoxen();
         }
 
         private void fuelleBoxen()
         {
-            textBoxBezeichnungFeuerloescher.Text = feuerloecher.Bezeichnung;
-            trackBarAnzahlFeuerloescher.Value = feuerloecher.Anzahl;
-            textBoxLEFeuerloescher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value * feuerloecher.Loescheinheit);
-            textBoxGesamptpreisFeuerloscher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value * feuerloecher.Preis);
+            textBoxBezeichnungFeuerloescher.Text = feuerloescher.Bezeichnung;
+            trackBarAnzahlFeuerloescher.Value = feuerloescher.Anzahl;
+            textBoxLEFeuerloescher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value * feuerloescher.Loescheinheit);
+            textBoxGesamptpreisFeuerloscher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value * feuerloescher.Preis);
             labelAnzahlFeuerloescher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value);
         }
 
@@ -40,8 +40,20 @@ namespace GUI
         private void trackBarAnzahlFeuerloescher_ValueChanged(object sender, EventArgs e)
         {
             labelAnzahlFeuerloescher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value);
-            textBoxGesamptpreisFeuerloscher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value * feuerloecher.Preis);
-            textBoxLEFeuerloescher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value * feuerloecher.Loescheinheit);
+            textBoxGesamptpreisFeuerloscher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value * feuerloescher.Preis);
+            textBoxLEFeuerloescher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value * feuerloescher.Loescheinheit);
+        }
+
+        private void buttonAenderungFeuerloescherSpeichern_Click(object sender, EventArgs e)
+        {
+            feuerloescher.Anzahl = trackBarAnzahlFeuerloescher.Value;
+            ((FormRaum)Owner).feuerloescherAenderung(feuerloescher);
+        }
+
+        private void buttonFeuerloescherloeschen_Click(object sender, EventArgs e)
+        {
+            ((FormRaum)Owner).feuerloescheLoeschen();
+            this.Close();
         }
     }
 }

@@ -36,8 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxGesamptpreisFeuerloscher = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAenderungFeuerloescherSpeichern = new System.Windows.Forms.Button();
             this.labelAnzahlFeuerloescher = new System.Windows.Forms.Label();
+            this.buttonFeuerloescherloeschen = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarAnzahlFeuerloescher)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,10 +53,10 @@
             // 
             // textBoxBezeichnungFeuerloescher
             // 
-            this.textBoxBezeichnungFeuerloescher.Location = new System.Drawing.Point(179, 13);
+            this.textBoxBezeichnungFeuerloescher.Location = new System.Drawing.Point(168, 13);
             this.textBoxBezeichnungFeuerloescher.Name = "textBoxBezeichnungFeuerloescher";
             this.textBoxBezeichnungFeuerloescher.ReadOnly = true;
-            this.textBoxBezeichnungFeuerloescher.Size = new System.Drawing.Size(104, 20);
+            this.textBoxBezeichnungFeuerloescher.Size = new System.Drawing.Size(115, 20);
             this.textBoxBezeichnungFeuerloescher.TabIndex = 23;
             // 
             // trackBarAnzahlFeuerloescher
@@ -71,10 +72,10 @@
             // 
             // textBoxLEFeuerloescher
             // 
-            this.textBoxLEFeuerloescher.Location = new System.Drawing.Point(179, 38);
+            this.textBoxLEFeuerloescher.Location = new System.Drawing.Point(168, 38);
             this.textBoxLEFeuerloescher.Name = "textBoxLEFeuerloescher";
             this.textBoxLEFeuerloescher.ReadOnly = true;
-            this.textBoxLEFeuerloescher.Size = new System.Drawing.Size(104, 20);
+            this.textBoxLEFeuerloescher.Size = new System.Drawing.Size(115, 20);
             this.textBoxLEFeuerloescher.TabIndex = 26;
             this.textBoxLEFeuerloescher.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
@@ -107,20 +108,21 @@
             // 
             // textBoxGesamptpreisFeuerloscher
             // 
-            this.textBoxGesamptpreisFeuerloscher.Location = new System.Drawing.Point(179, 112);
+            this.textBoxGesamptpreisFeuerloscher.Location = new System.Drawing.Point(168, 112);
             this.textBoxGesamptpreisFeuerloscher.Name = "textBoxGesamptpreisFeuerloscher";
             this.textBoxGesamptpreisFeuerloscher.ReadOnly = true;
-            this.textBoxGesamptpreisFeuerloscher.Size = new System.Drawing.Size(104, 20);
+            this.textBoxGesamptpreisFeuerloscher.Size = new System.Drawing.Size(115, 20);
             this.textBoxGesamptpreisFeuerloscher.TabIndex = 29;
             // 
-            // button1
+            // buttonAenderungFeuerloescherSpeichern
             // 
-            this.button1.Location = new System.Drawing.Point(12, 260);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 23);
-            this.button1.TabIndex = 30;
-            this.button1.Text = "Änderung speichern";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonAenderungFeuerloescherSpeichern.Location = new System.Drawing.Point(16, 153);
+            this.buttonAenderungFeuerloescherSpeichern.Name = "buttonAenderungFeuerloescherSpeichern";
+            this.buttonAenderungFeuerloescherSpeichern.Size = new System.Drawing.Size(115, 23);
+            this.buttonAenderungFeuerloescherSpeichern.TabIndex = 30;
+            this.buttonAenderungFeuerloescherSpeichern.Text = "Änderung speichern";
+            this.buttonAenderungFeuerloescherSpeichern.UseVisualStyleBackColor = true;
+            this.buttonAenderungFeuerloescherSpeichern.Click += new System.EventHandler(this.buttonAenderungFeuerloescherSpeichern_Click);
             // 
             // labelAnzahlFeuerloescher
             // 
@@ -132,13 +134,24 @@
             this.labelAnzahlFeuerloescher.TabIndex = 31;
             this.labelAnzahlFeuerloescher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // buttonFeuerloescherloeschen
+            // 
+            this.buttonFeuerloescherloeschen.Location = new System.Drawing.Point(16, 182);
+            this.buttonFeuerloescherloeschen.Name = "buttonFeuerloescherloeschen";
+            this.buttonFeuerloescherloeschen.Size = new System.Drawing.Size(115, 36);
+            this.buttonFeuerloescherloeschen.TabIndex = 32;
+            this.buttonFeuerloescherloeschen.Text = "Feuerlöscher löschen";
+            this.buttonFeuerloescherloeschen.UseVisualStyleBackColor = true;
+            this.buttonFeuerloescherloeschen.Click += new System.EventHandler(this.buttonFeuerloescherloeschen_Click);
+            // 
             // FormFeuerloescher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 295);
+            this.ClientSize = new System.Drawing.Size(321, 258);
+            this.Controls.Add(this.buttonFeuerloescherloeschen);
             this.Controls.Add(this.labelAnzahlFeuerloescher);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonAenderungFeuerloescherSpeichern);
             this.Controls.Add(this.textBoxGesamptpreisFeuerloscher);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -165,7 +178,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBoxGesamptpreisFeuerloscher;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonAenderungFeuerloescherSpeichern;
         private System.Windows.Forms.Label labelAnzahlFeuerloescher;
+        private System.Windows.Forms.Button buttonFeuerloescherloeschen;
     }
 }

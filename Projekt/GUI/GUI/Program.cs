@@ -12,7 +12,7 @@ namespace GUI
     static class Program
     {
         private static BindingList<Raum> raeume = new BindingList<Raum>();
-        private static List<Feuerloescher> feuerlocherList = new List<Feuerloescher>();
+        private static BindingList<Feuerloescher> feuerlocherList = new BindingList<Feuerloescher>();
         static Random rd = new Random();
 
         /// <summary>
@@ -25,7 +25,7 @@ namespace GUI
             createRaume();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain(raeume));
+            Application.Run(new FormMain(raeume, feuerlocherList));
         }
 
         private static void createFeuerloecher()

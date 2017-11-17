@@ -13,3 +13,4 @@ C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.cspro
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.csproj.CoreCompileInputs.cache
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.exe
 C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.pdb
+C:\Users\igora\source\Visual Studio\IIB1_UE1\Projekt\GUI\GUI\obj\Debug\GUI.FormNeuerFeuerloescher.resources

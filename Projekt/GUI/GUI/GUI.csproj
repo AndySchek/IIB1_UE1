@@ -59,6 +59,12 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormNeuerFeuerloescher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNeuerFeuerloescher.Designer.cs">
+      <DependentUpon>FormNeuerFeuerloescher.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormNeuerRaum.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNeuerFeuerloescher.resx">
+      <DependentUpon>FormNeuerFeuerloescher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormNeuerRaum.resx">
       <DependentUpon>FormNeuerRaum.cs</DependentUpon>

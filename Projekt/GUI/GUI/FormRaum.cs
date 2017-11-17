@@ -15,10 +15,12 @@ namespace GUI
     {
         private Raum raum;
         private BindingList<Feuerloescher> feuerloescherList;
-        public FormRaum(Raum _raum, FormMain _parent)
+        String gesamptpreis = "0";
+        public FormRaum(Raum _raum, BindingList<Feuerloescher> _feuerloescherList, FormMain _parent)
         {
             InitializeComponent();
             this.raum = _raum;
+            this.feuerloescherList = _feuerloescherList;
             this.Owner = _parent;
             fuelleBoxen();
         }
@@ -48,10 +50,22 @@ namespace GUI
 
             }
 
+            feuerloescherUpdate(0);
+
+        }
+
+        private void feuerloescherUpdate(int index)
+        {
+            listBoxFeuerlocher.Items.Clear();
+            listBoxLE.Items.Clear();
+            listBoxPreisFeuerloescher.Items.Clear();
+            listBoxCountFeuerloescher.Items.Clear();
+            listBoxPreisSummaFeuerloscher.Items.Clear();
+
             int anzahl = 0;
             double summe = 0;
             int le = 0;
-            foreach(Feuerloescher fl in raum.FeuerloecherList)
+            foreach (Feuerloescher fl in raum.FeuerloescherList)
             {
                 double k = fl.Anzahl * fl.Preis;
 
@@ -65,33 +79,40 @@ namespace GUI
                 le += fl.Loescheinheit * fl.Anzahl;
                 summe += k;
             }
-        
 
+            gesamptpreis = Convert.ToString(summe);
             listBoxFeuerlocher.DisplayMember = "Bezeichnung";
-            if (raum.FeuerloecherList.Count > 0)
-            {
-                listBoxFeuerlocher.SelectedIndex = 0;
+            if (raum.FeuerloescherList.Count > 0)
+            {   
+                listBoxFeuerlocher.SelectedIndex = index;
+                listBoxLE.SelectedIndex = index;
+                listBoxPreisFeuerloescher.SelectedIndex = index;
+                listBoxCountFeuerloescher.SelectedIndex = index;
+                listBoxPreisSummaFeuerloscher.SelectedIndex = index;
+                buttonFeuerloescherDetails.Enabled = true;
+                buttonFeuerloescherloeschen.Enabled = true;
+                buttonFeuerloescherDetails.BackColor = Color.FromName("Gold");
+                buttonFeuerloescherloeschen.BackColor = Color.FromName("LightCoral");
+                if (raum.FeuerloescherList.Count == this.feuerloescherList.Count)
+                {
+                    buttonNeuerFeuerloescherhinzufuegen.Enabled = false;
+                    buttonNeuerFeuerloescherhinzufuegen.BackColor = DefaultBackColor;
+                }
+
             }
-            
+            else
+            {
+                buttonNeuerFeuerloescherhinzufuegen.Enabled = true;
+                buttonNeuerFeuerloescherhinzufuegen.BackColor = Color.FromName("LightGreen"); ;
+                buttonFeuerloescherDetails.Enabled = false;
+                buttonFeuerloescherloeschen.Enabled = false;
+                buttonFeuerloescherDetails.BackColor = DefaultBackColor;
+                buttonFeuerloescherloeschen.BackColor = DefaultBackColor;
+            }
+
             textBoxLESumme.Text = Convert.ToString(le);
             textBoxAnzahlSumme.Text = Convert.ToString(anzahl);
             textBoxGesamptpreis.Text = Convert.ToString(summe);
-
-
-            /*
-            foreach (Loeschvermoegen l in raum.Feuerloecher.LoeschvermoegenList)
-            {
-                if (comboBoxLoeschvermoegen.Items.IndexOf(l.nameLoeschvermoegen) == -1)
-                    comboBoxLoeschvermoegen.Items.Add(l.nameLoeschvermoegen);
-            }
-
-            String losch = raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen;
-
-            comboBoxLoeschvermoegen.SelectedIndex = comboBoxLoeschvermoegen.Items.IndexOf(raum.Feuerloecher.Loeschvermoegen.nameLoeschvermoegen);
-            textBoxLE.Text = Convert.ToString(raum.Feuerloecher.Loeschvermoegen.countLoeschmitteleinheiten);
-
-            rechnungCountFeuerloescher();
-            */
 
         }
 
@@ -145,8 +166,6 @@ namespace GUI
                 textBoxLoeschmeiiteleinheiten.Text = "0";
             }
 
-            rechnungCountFeuerloescher();
-
 
         }
 
@@ -177,46 +196,6 @@ namespace GUI
 
         }
 
-        private void comboBoxLoeschvermoegen_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            String loeschvermoegen = (String)comboBoxLoeschvermoegen.SelectedItem;
-            int countLoeschmitteleinheiten = 0;
-
-            /*
-            foreach (Loeschvermoegen l in raum.Feuerloecher.LoeschvermoegenList)
-            {
-                if (loeschvermoegen.Equals(l.nameLoeschvermoegen))
-                {
-                    textBoxLE.Text = Convert.ToString(l.countLoeschmitteleinheiten);
-                    countLoeschmitteleinheiten = l.countLoeschmitteleinheiten;
-                    break;
-                }
-            }
-            rechnungCountFeuerloescher();
-            */
-
-        }
-
-        private void textBoxLoeschmeiiteleinheiten_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rechnungCountFeuerloescher()
-        {
-            int LoeschmeiiteleinheitenRaum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
-            int LoeschmeiiteleinheitenFeuerlosher = 0;
-            String ss = textBoxLE.Text;
-            if (ss == "")
-            {
-                LoeschmeiiteleinheitenFeuerlosher = 0;
-            }
-            else LoeschmeiiteleinheitenFeuerlosher = Convert.ToInt32(ss);
-            double countFeuerloescher = Math.Ceiling((Double)LoeschmeiiteleinheitenRaum / LoeschmeiiteleinheitenFeuerlosher);
-            if (countFeuerloescher == 0) countFeuerloescher = 1;
-            textBoxCountFeuerloescher.Text = Convert.ToString(countFeuerloescher);
-        }
-
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -229,25 +208,145 @@ namespace GUI
 
         private void buttonFeuerloescherDetails_Click(object sender, EventArgs e)
         {
-            //FormFeuerloescher formFeuerloescher = new FormFeuerloescher((Feuerlocher)listBoxFeuerlocher.SelectedItem, this);
-            //formFeuerloescher.ShowDialog();
-            //FormFeuerloescher formFeuerloescher = new FormFeuerloescher((Feuerloecher)listBoxFeuerlocher.Items, this);
-            //formFeuerloescher.Owner = this;
-            //formFeuerloescher.ShowDialog();
             rufeFormFeuerloescherAuf(f: (Feuerloescher)listBoxFeuerlocher.SelectedItem);
         }
 
         private void rufeFormFeuerloescherAuf(Feuerloescher f = null)
         {
-            FormFeuerloescher fFeuerloescher = new FormFeuerloescher(f);
-            fFeuerloescher.owner = this;
+            FormFeuerloescher fFeuerloescher = new FormFeuerloescher(f, this);
             fFeuerloescher.ShowDialog();
         }
 
         private void buttonFeuerloescherloeschen_Click(object sender, EventArgs e)
         {
-            // .Remove((Feuerlocher)listBoxFeuerlocher.SelectedItem);
-            raum.FeuerloecherList.Remove((Feuerloescher)listBoxFeuerlocher.SelectedItem);
+            feuerloescheLoeschen();
+        }
+
+        public void feuerloescheLoeschen()
+        {
+            raum.FeuerloescherList.Remove((Feuerloescher)listBoxFeuerlocher.SelectedItem);
+            feuerloescherUpdate(0);
+        }
+
+        public void feuerloescherAenderung(Feuerloescher feuerloescher)
+        {
+            feuerloescherList[listBoxFeuerlocher.SelectedIndex].Anzahl = feuerloescher.Anzahl;
+            feuerloescherUpdate(listBoxFeuerlocher.SelectedIndex);
+        }
+
+        public void feuerloescherHinzufuegen(Feuerloescher feuerloescher)
+        {
+            raum.FeuerloescherList.Add(feuerloescher);
+            feuerloescherUpdate(0);
+        }
+
+        private void listBoxFeuerlocher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = listBoxFeuerlocher.SelectedIndex;
+            listBoxLE.SelectedIndex = index;
+            listBoxPreisFeuerloescher.SelectedIndex = index;
+            listBoxCountFeuerloescher.SelectedIndex = index;
+            listBoxPreisSummaFeuerloscher.SelectedIndex = index;
+        }
+
+        private void listBoxLE_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = listBoxLE.SelectedIndex;
+            listBoxFeuerlocher.SelectedIndex = index;
+            listBoxPreisFeuerloescher.SelectedIndex = index;
+            listBoxCountFeuerloescher.SelectedIndex = index;
+            listBoxPreisSummaFeuerloscher.SelectedIndex = index;
+            
+        }
+
+        private void listBoxCountFeuerloescher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = listBoxCountFeuerloescher.SelectedIndex;
+            listBoxFeuerlocher.SelectedIndex = index;
+            listBoxLE.SelectedIndex = index;
+            listBoxPreisFeuerloescher.SelectedIndex = index;
+            listBoxPreisSummaFeuerloscher.SelectedIndex = index;
+        }
+
+        private void listBoxPreisFeuerloescher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = listBoxPreisFeuerloescher.SelectedIndex;
+            listBoxFeuerlocher.SelectedIndex = index;
+            listBoxLE.SelectedIndex = index;
+            listBoxCountFeuerloescher.SelectedIndex = index;
+            listBoxPreisSummaFeuerloscher.SelectedIndex = index;
+        }
+
+        private void listBoxPreisSummaFeuerloscher_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = listBoxPreisSummaFeuerloscher.SelectedIndex;
+            listBoxFeuerlocher.SelectedIndex = index;
+            listBoxLE.SelectedIndex = index;
+            listBoxCountFeuerloescher.SelectedIndex = index;
+            listBoxPreisSummaFeuerloscher.SelectedIndex = index;
+        }
+
+        private void buttonNeuerFeuerloescherhinzufuegen_Click(object sender, EventArgs e)
+        {
+            FormNeuerFeuerloescher fNewFeuerloescher = new FormNeuerFeuerloescher(raum, feuerloescherList, this);
+            fNewFeuerloescher.ShowDialog();
+        }
+
+        private void buttonabbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void textBoxLoeschmeiiteleinheiten_TextChanged(object sender, EventArgs e)
+        {
+            //progressBarBrandschutz();
+            progressBarBrandschutzplanung.Maximum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
+            progressBarBrandschutz();
+        }
+
+        private void textBoxLESumme_TextChanged(object sender, EventArgs e)
+        {
+            progressBarBrandschutz();
+           
+        }
+
+        private void progressBarBrandschutz()
+        {
+            int LEFeuerloeschern = 0, LERaum = 0;
+            if (textBoxLoeschmeiiteleinheiten.Text!="") 
+                LERaum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
+            if(textBoxLESumme.Text!="")
+                LEFeuerloeschern = Convert.ToInt32(textBoxLESumme.Text);
+            progressBarBrandschutzplanung.Maximum = LERaum;
+
+            if (LEFeuerloeschern <= LERaum)
+            {
+                progressBarBrandschutzplanung.Value = LEFeuerloeschern;
+            }
+            else
+            {
+                progressBarBrandschutzplanung.Value = LERaum;
+            }
+            int prozent = LEFeuerloeschern * 100 / LERaum;
+            if (prozent >= 100)
+            {
+                labelProgressBar.ForeColor = Color.FromName("ForestGreen");
+                textBoxInfoBrandschutz.ForeColor = Color.FromName("ForestGreen");
+                textBoxInfoBrandschutz.Text = Convert.ToString("Sehr geehrter Nutzer," + Environment.NewLine + Environment.NewLine + "Ihre Planung an den Brandschutz ist erfolgreich erfüllt. Nun ist die Anzahl der Feuerlöschern ist genug für den Raum." + Environment.NewLine + Environment.NewLine + "Die Kosten für Brandschutz beträgt " + gesamptpreis + "€.");
+            }
+            else
+            {
+                labelProgressBar.ForeColor = Color.FromName("Red");
+                textBoxInfoBrandschutz.ForeColor = Color.FromName("Red");
+                textBoxInfoBrandschutz.Text = Convert.ToString("Sehr geehrter Nutzer," + Environment.NewLine + Environment.NewLine + "Ihre Planung an den Brandschutz ist nicht erfolgreich erfüllt. Die Anzahl der Feuerlöschern ist nicht genug für den Raum. Sie sollen mehr die Feuerlöschern zur Verbesserung des Brandschutz hinzugefügen.");
+
+            }
+            labelProgressBar.Text = Convert.ToString("Löschmitteleinheit " + LEFeuerloeschern + " aus " + LERaum + " | " + prozent + "% Brandschutz");  
+        }
+
+        private void textBoxGesamptpreis_TextChanged(object sender, EventArgs e)
+        {
+            gesamptpreis = textBoxGesamptpreis.Text;
         }
     }
 }

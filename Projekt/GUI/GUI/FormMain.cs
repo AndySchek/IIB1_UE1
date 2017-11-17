@@ -16,11 +16,12 @@ namespace GUI
     public partial class FormMain : Form
     {
         private BindingList<Raum> raeume;
-
-        public FormMain(BindingList<Raum> _raeume)
+        private BindingList<Feuerloescher> feuerloescherList;
+        public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList)
         {
             InitializeComponent();
             this.raeume = _raeume;
+            this.feuerloescherList = _feuerloescherList;
             fuelleListe();
         }
 
@@ -118,7 +119,7 @@ namespace GUI
 
         private void buttonRaumDetail_Click(object sender, EventArgs e)
         {
-            FormRaum formRaum = new FormRaum((Raum)listBoxRaum.SelectedItem, this);
+            FormRaum formRaum = new FormRaum((Raum)listBoxRaum.SelectedItem, feuerloescherList, this);
             formRaum.ShowDialog();
         }
 

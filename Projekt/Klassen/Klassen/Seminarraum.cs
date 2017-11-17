@@ -11,9 +11,10 @@ namespace Klassen
     public class Seminarraum : Raum
     {
         public String typRaum = "Seminarraum";
+        public double heizwert = 18.2;
 
-        public Seminarraum() : base() { TypRaume = typRaum; }
-        public Seminarraum(Raum raum) : base(raum) { TypRaume = typRaum; }
-        public Seminarraum(double flaeche, String bezeichnung, BindingList<Feuerloescher> feuerloescher, Material materialien, double heizwert) : base(flaeche, bezeichnung, feuerloescher, materialien, heizwert) { TypRaume = typRaum; }
+        public Seminarraum() : base() { TypRaume = typRaum; Heizwert = heizwert; }
+        public Seminarraum(Raum raum) : base(raum) { TypRaume = typRaum; Heizwert = heizwert; }
+        public Seminarraum(double flaeche, String bezeichnung, BindingList<Feuerloescher> feuerloescher, Material materialien) : base(flaeche, bezeichnung, feuerloescher, materialien) { TypRaume = typRaum; Heizwert = heizwert; }
     }
 }

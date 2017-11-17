@@ -10,10 +10,11 @@ namespace Klassen
     [Serializable]
     public class Flur : Raum
     {
-        public String typRaum = "Flur";
+        public String typRaum = "Büro";
+        public double heizwert = 19.2;
 
-        public Flur() : base() { TypRaume = typRaum; }
-        public Flur(Raum raum) : base(raum) { TypRaume = typRaum; }
-        public Flur(double flaeche, String bezeichnung, BindingList<Feuerloescher> feuerloescher, Material materialien, double heizwert) : base(flaeche, bezeichnung, feuerloescher, materialien, heizwert) { TypRaume = typRaum; }
+        public Flur() : base() { TypRaume = typRaum; Heizwert = heizwert; }
+        public Flur(Raum raum) : base(raum) { TypRaume = typRaum; Heizwert = heizwert; }
+        public Flur(double flaeche, String bezeichnung, BindingList<Feuerloescher> feuerloescher, Material materialien) : base(flaeche, bezeichnung, feuerloescher, materialien) { TypRaume = typRaum; Heizwert = heizwert; }
     }
 }

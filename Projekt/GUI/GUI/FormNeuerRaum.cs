@@ -47,6 +47,7 @@ namespace GUI
                     }
                     newBuero.Loeschmitteleinheiten = newBuero.countLoeschmitteleinheiten(newBuero.Grundflaeche);
                     ((FormMain)Owner).raumErstellen(newBuero);
+                    this.Close();
                     break;
                 case 1:
                     Flur newFlur = new Flur();
@@ -61,6 +62,7 @@ namespace GUI
                     }
                     newFlur.Loeschmitteleinheiten = newFlur.countLoeschmitteleinheiten(newFlur.Grundflaeche);
                     ((FormMain)Owner).raumErstellen(newFlur);
+                    this.Close();
                     break;
                 case 2:
                     Seminarraum newSeminarraum = new Seminarraum();
@@ -75,6 +77,7 @@ namespace GUI
                     }
                     newSeminarraum.Loeschmitteleinheiten = newSeminarraum.countLoeschmitteleinheiten(newSeminarraum.Grundflaeche);
                     ((FormMain)Owner).raumErstellen(newSeminarraum);
+                    this.Close();
                     break;
                 case 3:
                     Sanitaerraum newSanitaerraum = new Sanitaerraum();
@@ -89,6 +92,7 @@ namespace GUI
                     }
                     newSanitaerraum.Loeschmitteleinheiten = newSanitaerraum.countLoeschmitteleinheiten(newSanitaerraum.Grundflaeche);
                     ((FormMain)Owner).raumErstellen(newSanitaerraum);
+                    this.Close();
                     break;
             }      
           
@@ -112,13 +116,20 @@ namespace GUI
 
         private void textBoxRaumFlaeche_TextChanged(object sender, EventArgs e)
         {
-            buttonNeuerRaumEnabled();
-            int max = 2147483632;
-            if (textBoxRaumFlaeche.Text != "")
+            try
             {
-                double change = Convert.ToDouble(textBoxRaumFlaeche.Text);
+                buttonNeuerRaumEnabled();
+                int max = 2147483632;
+                if (textBoxRaumFlaeche.Text != "")
+                {
+                    double change = Convert.ToDouble(textBoxRaumFlaeche.Text);
 
-                if (change > max) textBoxRaumFlaeche.Text = "2147483632";
+                    if (change > max) textBoxRaumFlaeche.Text = "2147483632";
+                }
+            }
+            catch
+            {
+                textBoxRaumFlaeche.Text = "0";
             }
 
         }
@@ -129,6 +140,11 @@ namespace GUI
             if ((textBoxRaumBezeichnung.TextLength > 0) && (textBoxRaumFlaeche.TextLength > 0)) buttonNeuerRaum.Enabled = true;
             else buttonNeuerRaum.Enabled = false;
 
+        }
+
+        private void buttonAbbrechen_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

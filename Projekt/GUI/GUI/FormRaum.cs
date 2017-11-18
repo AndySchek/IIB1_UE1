@@ -337,7 +337,7 @@ namespace GUI
 
         private void progressBarBrandschutz()
         {
-            int LEFeuerloeschern = 0, LERaum = 0;
+            int LEFeuerloeschern = 0, LERaum = 0, prozent = 0;
             if (textBoxLoeschmeiiteleinheiten.Text != "")
                 LERaum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
             if (textBoxLESumme.Text != "")
@@ -352,7 +352,8 @@ namespace GUI
             {
                 progressBarBrandschutzplanung.Value = LERaum;
             }
-            int prozent = LEFeuerloeschern * 100 / LERaum;
+            if (LERaum!=0)
+                prozent = LEFeuerloeschern * 100 / LERaum;
             if (prozent >= 100)
             {
                 labelProgressBar.ForeColor = Color.FromName("ForestGreen");
@@ -391,6 +392,7 @@ namespace GUI
         private void comboBoxMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
             brandlastUpdate();
+            brandlastUpdateTextBox();
         }
 
         public void brandlastUpdate()

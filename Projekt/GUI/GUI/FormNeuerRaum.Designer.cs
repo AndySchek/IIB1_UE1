@@ -35,6 +35,7 @@
             this.textBoxRaumBezeichnung = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.buttonNeuerRaum = new System.Windows.Forms.Button();
+            this.buttonAbbrechen = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBoxRaumNutzungsart
@@ -100,15 +101,26 @@
             this.buttonNeuerRaum.Name = "buttonNeuerRaum";
             this.buttonNeuerRaum.Size = new System.Drawing.Size(223, 23);
             this.buttonNeuerRaum.TabIndex = 16;
-            this.buttonNeuerRaum.Text = "Neuer Raum erstellen";
+            this.buttonNeuerRaum.Text = "Neuer Raum hinzufügen";
             this.buttonNeuerRaum.UseVisualStyleBackColor = true;
             this.buttonNeuerRaum.Click += new System.EventHandler(this.buttonNeuerRaum_Click);
+            // 
+            // buttonAbbrechen
+            // 
+            this.buttonAbbrechen.Location = new System.Drawing.Point(15, 114);
+            this.buttonAbbrechen.Name = "buttonAbbrechen";
+            this.buttonAbbrechen.Size = new System.Drawing.Size(223, 23);
+            this.buttonAbbrechen.TabIndex = 17;
+            this.buttonAbbrechen.Text = "Schlissen";
+            this.buttonAbbrechen.UseVisualStyleBackColor = true;
+            this.buttonAbbrechen.Click += new System.EventHandler(this.buttonAbbrechen_Click);
             // 
             // FormNeuerRaum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(257, 179);
+            this.Controls.Add(this.buttonAbbrechen);
             this.Controls.Add(this.buttonNeuerRaum);
             this.Controls.Add(this.comboBoxRaumNutzungsart);
             this.Controls.Add(this.label4);
@@ -131,5 +143,6 @@
         private System.Windows.Forms.TextBox textBoxRaumBezeichnung;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button buttonNeuerRaum;
+        private System.Windows.Forms.Button buttonAbbrechen;
     }
 }

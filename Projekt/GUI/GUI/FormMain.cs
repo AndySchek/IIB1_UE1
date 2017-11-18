@@ -18,7 +18,7 @@ namespace GUI
         private BindingList<Raum> raeume;
         private BindingList<Feuerloescher> feuerloescherList;
         public BindingList<Material> materialien;
-
+        private listBoxRaumItems item;
         public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList, BindingList<Material> _materialien)
         {
             InitializeComponent();
@@ -40,7 +40,8 @@ namespace GUI
                     comboBoxTypRaum.Items.Add(r.TypRaume);
             }
 
-            comboBoxTypRaum.SelectedIndex = 0;          
+            comboBoxTypRaum.SelectedIndex = 0;    
+            
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -58,41 +59,78 @@ namespace GUI
             this.Close();
         }
 
-        public void raumAenderung(Raum raum)
-        {
-            raeume.Remove((Raum)listBoxRaum.SelectedItem);
-            raeume.Add(raum);
-            comboBoxTypRaum.SelectedItem = raum.TypRaume;
-            listBoxUpdate();
-            listBoxRaum.SelectedItem = raum;
-        }
-
         public void raumErstellen(Raum raum)
         {
             raeume.Add(raum);
-            listBoxUpdate();
             comboBoxTypRaum.SelectedItem = raum.TypRaume;
-            listBoxRaum.SelectedItem = raum;
+            listBoxUpdate();
+            listBoxRaum.SelectedIndex = listBoxRaum.Items.Count - 1;
+            item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
+            FormRaum formRaum = new FormRaum(item.Raum, feuerloescherList, this);
+            formRaum.ShowDialog();
+        }
+
+        public void raumAenderung(Raum raum)
+        {
+            item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
+            raeume.Remove(item.Raum);
+            raeume.Add(raum);
+            comboBoxTypRaum.SelectedItem = raum.TypRaume;
+            listBoxUpdate();
+            listBoxRaum.SelectedIndex = listBoxRaum.Items.Count - 1;
         }
 
 
         private void buttonLoeschenRaum_Click(object sender, EventArgs e)
         {
-            raeume.Remove((Raum)listBoxRaum.SelectedItem);
+            item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
+            raeume.Remove(item.Raum);
             listBoxUpdate();
         }
 
+        private void listBoxRaum_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            item = listBoxRaum.Items[e.Index] as listBoxRaumItems;
+
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+                e = new DrawItemEventArgs(e.Graphics,
+                                          e.Font,
+                                          e.Bounds,
+                                          e.Index,
+                                          e.State ^ DrawItemState.Selected,
+                                          e.ForeColor,
+                                          Color.Cyan);
+
+            e.DrawBackground();
+            e.Graphics.DrawString(item.Raum.Bezeichung, e.Font, new SolidBrush(item.RaumColor), new PointF(e.Bounds.X, e.Bounds.Y));
+            e.DrawFocusRectangle();
+        }
         private void listBoxUpdate()
         {
             listBoxRaum.Items.Clear();
-            String typ = (String)comboBoxTypRaum.SelectedItem;
+            listBoxRaum.DrawMode = DrawMode.OwnerDrawFixed;
+            listBoxRaum.DrawItem += listBoxRaum_DrawItem;
 
+            
+            String typ = (String)comboBoxTypRaum.SelectedItem;
+            double gesamptpreis = 0;
             if (typ.Equals("Alle"))
             {
                 foreach (Raum r in raeume)
                 {
-                    listBoxRaum.Items.Add(r);
+                    int LEFeurloescher = 0;
+                    foreach(Feuerloescher f in r.FeuerloescherList)
+                    {
+                        LEFeurloescher += f.Anzahl * f.Loescheinheit;
+                        gesamptpreis += f.Anzahl * f.Preis;
+                    }
+                    if (LEFeurloescher>=r.Loeschmitteleinheiten)
+                        listBoxRaum.Items.Add(new listBoxRaumItems(Color.Green, r));
+                    else listBoxRaum.Items.Add(new listBoxRaumItems(Color.Red, r));
                 }
+
+                labelGesamptpreis.Text = "Gesamptpreis des Brandschutz für alle Räume";
+                textBoxGesamptpreis.Text = Convert.ToString(gesamptpreis);
             }
 
             else
@@ -102,11 +140,22 @@ namespace GUI
 
                     if (r.TypRaume.Equals(typ))
                     {
-                        listBoxRaum.Items.Add(r);
+                    int LEFeurloescher = 0;
+                    foreach(Feuerloescher f in r.FeuerloescherList)
+                    {
+                        LEFeurloescher += f.Anzahl * f.Loescheinheit;
+                        gesamptpreis += f.Anzahl * f.Preis;
+                    }
+                    if (LEFeurloescher>=r.Loeschmitteleinheiten)
+                        listBoxRaum.Items.Add(new listBoxRaumItems(Color.Green, r));
+                    else listBoxRaum.Items.Add(new listBoxRaumItems(Color.Red, r));
                     }
                 }
+
+                labelGesamptpreis.Text = "Gesamptpreis des Brandschutz für den Nutzungsart " + typ;
+                textBoxGesamptpreis.Text = Convert.ToString(gesamptpreis);
             }
-            listBoxRaum.DisplayMember = "Bezeichung";
+
             if (listBoxRaum.Items.Count > 0)
             { 
                 listBoxRaum.SelectedIndex = 0;
@@ -118,11 +167,16 @@ namespace GUI
                 buttonRaumDetail.Enabled = false;
                 buttonLoeschenRaum.Enabled = false;
             }
+
+
+
+            
         }
 
         private void buttonRaumDetail_Click(object sender, EventArgs e)
         {
-            FormRaum formRaum = new FormRaum((Raum)listBoxRaum.SelectedItem, feuerloescherList, this);
+            item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
+            FormRaum formRaum = new FormRaum(item.Raum, feuerloescherList, this);
             formRaum.ShowDialog();
         }
 
@@ -191,5 +245,7 @@ namespace GUI
             }
             return material;
         }
+
+
     }
 }

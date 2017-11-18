@@ -17,6 +17,8 @@ namespace IIB1_UE1AddIn
 		public class RevitAddIn : IExternalCommand
 		{
 			private static BindingList<Raum> meineRaeume = new BindingList<Raum>();
+            private static BindingList<Feuerloescher> feuerloescher = new BindingList<Feuerloescher>();
+            private static BindingList<Klassen.Material> material = new BindingList<Klassen.Material>();
 
 			public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
 			{
@@ -29,7 +31,6 @@ namespace IIB1_UE1AddIn
 
 					List<Element> Rooms = new FilteredElementCollector(mdoc.Document).OfClass(typeof(SpatialElement)).
 						WhereElementIsNotElementType().Where(room => room.GetType() == typeof(Room)).ToList();
-					Util.alleBoedensuchen();
 					BindingList<Raum> raeume = new BindingList<Raum>();
 					foreach (Element e in Rooms)
 					{
@@ -37,46 +38,13 @@ namespace IIB1_UE1AddIn
 						if (r != null)
 							meineRaeume.Add(r);
 					}
-					FormMain m = new FormMain(meineRaeume);
+					FormMain m = new FormMain(meineRaeume, feuerloescher, material);
 					m.ShowDialog();
 					return Autodesk.Revit.UI.Result.Succeeded;
 				}
 				catch (Exception e) { return Result.Failed; }
 			}
 
-			private static void bspRaeume()
-			{
-				Random rd = new Random();
-				for (int i = 0; i < 4; i++)
-				{
-					double bFlaeche = rd.NextDouble() * rd.Next(50, 100);
-					double wFlaeche = rd.NextDouble() * rd.Next(50, 100);
-					String bNummer = rd.Next(1, 75).ToString() + "a";
-					String wNummer = rd.Next(1, 75).ToString() + "b";
-					int bFenster = rd.Next(1, 5);
-					int wFenster = rd.Next(1, 5);
-					BindingList<Fenster> bFensterListe = new BindingList<Fenster>();
-					BindingList<Fenster> wFensterListe = new BindingList<Fenster>();
-					for (int j = 0; j < bFenster; j++)
-					{
-						String fBez = j + "";
-						double fFlaeche = rd.NextDouble() * 2;
-						String typ = "test";
-						bFensterListe.Add(new Fenster(fFlaeche, fBez, typ));
-					}
-					for (int j = 0; j < wFenster; j++)
-					{
-						String fBez = j + "";
-						double fFlaeche = rd.NextDouble() * 2;
-						String typ = "test";
-						wFensterListe.Add(new Fenster(fFlaeche, fBez, typ));
-					}
-					Buero b = new Buero(bFlaeche, bNummer, bFensterListe);
-					Wohnen w = new Wohnen(wFlaeche, wNummer, wFensterListe);
-					meineRaeume.Add(b);
-					meineRaeume.Add(w);
-				}
-			}
 		}
 
 	}

@@ -16,7 +16,7 @@ namespace IIB1_UE1AddIn
 	{
 		#region Attribute
         private static Document doc = null;
-        private static IList<Element> alleElemente = new List<Element>();
+        private static IList<Element> alleBoeden = new List<Element>();
 
         public static Document Doc
         {
@@ -38,7 +38,7 @@ namespace IIB1_UE1AddIn
             /*List<FamilyInstance> revitFensterListe = findeAlleRaumFenster(room);
             BindingList<Fenster> fensterListe = parseFenster(revitFensterListe);*/
             BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
-            BindingList <Klassen.Material> materialListe = getMaterials(room); 
+            Klassen.Material material = getMaterial(room); 
             double flaeche = squarefeetToQuadratmeter(room.Area);
             string raumtyp = room.GetParameters("Nutzungsgruppe DIN 277-2")[0].AsString();
             if (raumtyp == "2-Büroarbeit")
@@ -58,63 +58,52 @@ namespace IIB1_UE1AddIn
             }
             else if (raumtyp == "9-Verkehrserschließung und -sicherung")
             {
-                Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, materialListe);
+                Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, material);
                 return flur;
             }
             return null;
         }
 
-        public static BindingList<Klassen.Material> getMaterials(Room room)
+        public static Klassen.Material getMaterial(Room room)
         {
-            return 
-        }
 
-        /// <summary>
-        /// Parst eine Revit-Fensterliste in ein Fenster-Fensterliste.
-        /// </summary>
-        /// <param name="revitFensterListe">liste von Fenster, die geparst werden soll.</param>
-        /// <returns>Eine Liste der Fenster eines Raumes</returns>
-        /*
-        private static BindingList<Material> parseMaterial(List<FamilyInstance> revitFensterListe)
-        {
-            if (revitFensterListe != null)
-            {
-                BindingList<Fenster> fensterListe = new BindingList<Fenster>();
-                foreach (FamilyInstance fi in revitFensterListe)
-                {
-                    double fensterFlaeche = groessteFensterflaeche(fi);
-                    Fenster fenster = new Fenster(Util.squarefeetToQuadratmeter(
-              fensterFlaeche), fi.Name, fi.Symbol.ToString());
-                    fensterListe.Add(fenster);
-                }
-                return fensterListe;
-            }
-            return null;
-        }*/
 
-        public static void holeAlleGegenstaende()
-        {
-            ElementCategoryFilter filter = new ElementCategoryFilter(BuiltInCategory.OST_Furniture);
-            FilteredElementCollector collector = new FilteredElementCollector(doc);
-            alleElemente = collector.WherePasses(filter).WhereElementIsNotElementType().ToElements();
-        }
-
-        /// <summary>
-        /// Holt alle Gegenstände, die in den Waenden des ausgesuchten Zimmers sind.  
-        /// </summary>
-        /// <param name="room">Raum, der untersucht werden soll.</param>
-        /// <returns>Den Raum als Instanz der Klasse Raum</returns>
-        private static List<FamilyInstance> findeAlleRaumGegenstaende(Room room)
-        {
-            List<FamilyInstance> alleRaumGegenstaende = new List<FamilyInstance>();
-            foreach (Element e in alleElemente)
+            List<FamilyInstance> alleBodenMaterialien = new List<FamilyInstance>();
+            foreach (Element e in alleBoeden)
             {
                 FamilyInstance fi = (FamilyInstance)e;
-                if ((fi.ToRoom != null && fi.ToRoom.Number.Equals(room.Number)) || (fi.FromRoom != null && fi.FromRoom.Number.Equals(room.Number)))
-                    alleRaumGegenstaende.Add(fi);
+                if (fi.Room != null && fi.Room.Number.Equals(room.Number)) {
+                    alleBoeden.Add(fi);
+                    
+                }
             }
-            return alleRaumGegenstaende;
+            Klassen.Material material= new Klassen.Material();
+
+
+            if (alleBoeden != null)
+            {
+                foreach (FamilyInstance fi in alleBoeden)
+                {
+
+                }
+            }
+
+            return material;
         }
+
+
+        /// <summary>
+        /// Sucht alle Elemente der Kategorie Boden aus dem Bauwerk.
+        /// </summary>
+        /// <param name="alleElemente">Liste aller Böden.</param>
+        public static void alleBoedensuchen()
+        {
+            ElementCategoryFilter floorFilter = new ElementCategoryFilter(BuiltInCategory.OST_Floors);
+
+            FilteredElementCollector collector = new FilteredElementCollector(doc);
+            alleBoeden = collector.WherePasses(floorFilter).WhereElementIsNotElementType().ToElements();
+        }
+        
 
         public static double squarefeetToQuadratmeter(double squarefeet)
         {

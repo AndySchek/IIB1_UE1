@@ -29,7 +29,7 @@ namespace IIB1_UE1AddIn
 
 					List<Element> Rooms = new FilteredElementCollector(mdoc.Document).OfClass(typeof(SpatialElement)).
 						WhereElementIsNotElementType().Where(room => room.GetType() == typeof(Room)).ToList();
-					Util.holeAlleGegenstaende();
+					Util.alleBoedensuchen();
 					BindingList<Raum> raeume = new BindingList<Raum>();
 					foreach (Element e in Rooms)
 					{

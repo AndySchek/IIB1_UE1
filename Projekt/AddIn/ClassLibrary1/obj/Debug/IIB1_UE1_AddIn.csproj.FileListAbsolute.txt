@@ -1,0 +1,2 @@
+C:\Users\Charli\Documents\GitHub\IIB1_UE1\Projekt\AddIn\ClassLibrary1\obj\Debug\IIB1_UE1_AddIn.csprojResolveAssemblyReference.cache
+C:\Users\Charli\Documents\GitHub\IIB1_UE1\Projekt\AddIn\ClassLibrary1\obj\Debug\IIB1_UE1_AddIn.csproj.CoreCompileInputs.cache

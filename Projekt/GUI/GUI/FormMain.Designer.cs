@@ -169,14 +169,14 @@
             // 
             this.labelGesamptpreis.Location = new System.Drawing.Point(248, 143);
             this.labelGesamptpreis.Name = "labelGesamptpreis";
-            this.labelGesamptpreis.Size = new System.Drawing.Size(119, 41);
+            this.labelGesamptpreis.Size = new System.Drawing.Size(119, 60);
             this.labelGesamptpreis.TabIndex = 13;
             this.labelGesamptpreis.Text = "label2";
             this.labelGesamptpreis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBoxGesamptpreis
             // 
-            this.textBoxGesamptpreis.Location = new System.Drawing.Point(248, 187);
+            this.textBoxGesamptpreis.Location = new System.Drawing.Point(248, 206);
             this.textBoxGesamptpreis.Name = "textBoxGesamptpreis";
             this.textBoxGesamptpreis.Size = new System.Drawing.Size(119, 20);
             this.textBoxGesamptpreis.TabIndex = 14;

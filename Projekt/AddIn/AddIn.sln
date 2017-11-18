@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary1", "ClassLibrary1\ClassLibrary1.csproj", "{8BE1E708-3010-4E40-BB45-89117D316A62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IIB1_UE1_AddIn", "ClassLibrary1\IIB1_UE1_AddIn.csproj", "{8BE1E708-3010-4E40-BB45-89117D316A62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

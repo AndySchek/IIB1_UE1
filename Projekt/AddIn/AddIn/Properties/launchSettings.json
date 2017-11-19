@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "AddIn": {
-      "commandName": "Executable",
-      "executablePath": "C:\\Program Files\\Autodesk\\Revit 2017\\Revit.exe"
-    }
-  }
-}

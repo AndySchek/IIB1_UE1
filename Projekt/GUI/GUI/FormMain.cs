@@ -17,20 +17,20 @@ namespace GUI
     {
         private BindingList<Raum> raeume;
         private BindingList<Feuerloescher> feuerloescherList;
-        public BindingList<Material> materialien;
+        //public BindingList<Material> materialien;
         private listBoxRaumItems item;
-        public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList, BindingList<Material> _materialien)
+        public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList)//, BindingList<Material> _materialien)
         {
             InitializeComponent();
             this.raeume = _raeume;
             this.feuerloescherList = _feuerloescherList;
-            this.materialien = _materialien;
+            //this.materialien = _materialien;
             fuelleListe();
         }
 
         private void fuelleListe()
         {
-
+            comboBoxTypRaum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             if (comboBoxTypRaum.Items.IndexOf("Alle") == -1)
                 comboBoxTypRaum.Items.Add("Alle");
 
@@ -74,6 +74,7 @@ namespace GUI
         {
             item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
             raeume.Remove(item.Raum);
+            //listBoxUpdate();
             raeume.Add(raum);
             comboBoxTypRaum.SelectedItem = raum.TypRaume;
             listBoxUpdate();
@@ -231,9 +232,10 @@ namespace GUI
             }
             return heizwert;
         }
-
+        /*
         public Material returnMaterial(String bezeichnung)
         {
+            
             Material material = new Material();
             foreach(Material m in materialien)
             {
@@ -244,7 +246,9 @@ namespace GUI
                 }
             }
             return material;
-        }
+
+        }*/
+        
 
 
     }

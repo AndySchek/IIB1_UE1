@@ -45,12 +45,12 @@ namespace Klassen
             this.dichte = _dichte;
             this.gesamtdicke = _gesamptdicke;
             this.flaeche = _flaeche;
-            brendbareMasseRechnung();
+            brandbareMasseRechnung();
         }
 
 
 
-        private void brendbareMasseRechnung()
+        private void brandbareMasseRechnung()
         {
             this.brandbareMasse = this.dichte * this.gesamtdicke * this.flaeche; 
         }

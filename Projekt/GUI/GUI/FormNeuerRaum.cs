@@ -24,7 +24,9 @@ namespace GUI
             if (_index == -1) _index = 0;
             comboBoxRaumNutzungsart.SelectedIndex = _index;
             buttonNeuerRaum.Enabled = true;
-            
+            comboBoxRaumNutzungsart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+
+
         }
 
         private void buttonNeuerRaum_Click(object sender, EventArgs e)

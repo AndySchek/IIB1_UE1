@@ -171,11 +171,11 @@
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.tableLayoutPanel1.ColumnCount = 5;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 41.11675F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 58.88325F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.10526F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.89474F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 74F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
             this.tableLayoutPanel1.Controls.Add(this.listBoxPreisSummaFeuerloscher, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.label11, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
@@ -198,7 +198,7 @@
             // listBoxPreisSummaFeuerloscher
             // 
             this.listBoxPreisSummaFeuerloscher.FormattingEnabled = true;
-            this.listBoxPreisSummaFeuerloscher.Location = new System.Drawing.Point(300, 37);
+            this.listBoxPreisSummaFeuerloscher.Location = new System.Drawing.Point(299, 37);
             this.listBoxPreisSummaFeuerloscher.Name = "listBoxPreisSummaFeuerloscher";
             this.listBoxPreisSummaFeuerloscher.Size = new System.Drawing.Size(65, 225);
             this.listBoxPreisSummaFeuerloscher.TabIndex = 20;
@@ -210,7 +210,7 @@
             this.label11.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(300, 0);
+            this.label11.Location = new System.Drawing.Point(299, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 32);
             this.label11.TabIndex = 20;
@@ -222,7 +222,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(175, 0);
+            this.label2.Location = new System.Drawing.Point(174, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 32);
             this.label2.TabIndex = 3;
@@ -234,9 +234,9 @@
             this.label9.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(74, 0);
+            this.label9.Location = new System.Drawing.Point(75, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 32);
+            this.label9.Size = new System.Drawing.Size(93, 32);
             this.label9.TabIndex = 1;
             this.label9.Text = "Löschmitteleinheit";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,7 +246,7 @@
             this.label10.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(223, 0);
+            this.label10.Location = new System.Drawing.Point(222, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 32);
             this.label10.TabIndex = 2;
@@ -266,9 +266,9 @@
             // listBoxLE
             // 
             this.listBoxLE.FormattingEnabled = true;
-            this.listBoxLE.Location = new System.Drawing.Point(74, 37);
+            this.listBoxLE.Location = new System.Drawing.Point(75, 37);
             this.listBoxLE.Name = "listBoxLE";
-            this.listBoxLE.Size = new System.Drawing.Size(95, 225);
+            this.listBoxLE.Size = new System.Drawing.Size(93, 225);
             this.listBoxLE.TabIndex = 5;
             this.listBoxLE.SelectedIndexChanged += new System.EventHandler(this.listBoxLE_SelectedIndexChanged);
             this.listBoxLE.DoubleClick += new System.EventHandler(this.buttonFeuerloescherDetails_Click);
@@ -276,7 +276,7 @@
             // listBoxCountFeuerloescher
             // 
             this.listBoxCountFeuerloescher.FormattingEnabled = true;
-            this.listBoxCountFeuerloescher.Location = new System.Drawing.Point(175, 37);
+            this.listBoxCountFeuerloescher.Location = new System.Drawing.Point(174, 37);
             this.listBoxCountFeuerloescher.Name = "listBoxCountFeuerloescher";
             this.listBoxCountFeuerloescher.Size = new System.Drawing.Size(42, 225);
             this.listBoxCountFeuerloescher.TabIndex = 6;
@@ -286,7 +286,7 @@
             // listBoxPreisFeuerloescher
             // 
             this.listBoxPreisFeuerloescher.FormattingEnabled = true;
-            this.listBoxPreisFeuerloescher.Location = new System.Drawing.Point(223, 37);
+            this.listBoxPreisFeuerloescher.Location = new System.Drawing.Point(222, 37);
             this.listBoxPreisFeuerloescher.Name = "listBoxPreisFeuerloescher";
             this.listBoxPreisFeuerloescher.Size = new System.Drawing.Size(71, 225);
             this.listBoxPreisFeuerloescher.TabIndex = 7;
@@ -301,7 +301,7 @@
             this.Feuerlocher.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Feuerlocher.Location = new System.Drawing.Point(3, 0);
             this.Feuerlocher.Name = "Feuerlocher";
-            this.Feuerlocher.Size = new System.Drawing.Size(65, 34);
+            this.Feuerlocher.Size = new System.Drawing.Size(66, 34);
             this.Feuerlocher.TabIndex = 0;
             this.Feuerlocher.Text = "Feuerlocher";
             this.Feuerlocher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -411,7 +411,7 @@
             // 
             this.buttonabbrechen.Location = new System.Drawing.Point(644, 281);
             this.buttonabbrechen.Name = "buttonabbrechen";
-            this.buttonabbrechen.Size = new System.Drawing.Size(114, 28);
+            this.buttonabbrechen.Size = new System.Drawing.Size(114, 32);
             this.buttonabbrechen.TabIndex = 42;
             this.buttonabbrechen.Text = "Schliessen";
             this.buttonabbrechen.UseVisualStyleBackColor = true;

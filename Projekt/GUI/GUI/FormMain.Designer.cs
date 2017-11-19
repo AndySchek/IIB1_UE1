@@ -69,7 +69,7 @@
             // 
             // buttonRaumDetail
             // 
-            this.buttonRaumDetail.Location = new System.Drawing.Point(248, 50);
+            this.buttonRaumDetail.Location = new System.Drawing.Point(248, 79);
             this.buttonRaumDetail.Name = "buttonRaumDetail";
             this.buttonRaumDetail.Size = new System.Drawing.Size(119, 23);
             this.buttonRaumDetail.TabIndex = 7;
@@ -147,7 +147,7 @@
             // 
             // buttonLoeschenRaum
             // 
-            this.buttonLoeschenRaum.Location = new System.Drawing.Point(248, 108);
+            this.buttonLoeschenRaum.Location = new System.Drawing.Point(248, 137);
             this.buttonLoeschenRaum.Name = "buttonLoeschenRaum";
             this.buttonLoeschenRaum.Size = new System.Drawing.Size(119, 23);
             this.buttonLoeschenRaum.TabIndex = 11;
@@ -157,7 +157,7 @@
             // 
             // buttonErstellenRaum
             // 
-            this.buttonErstellenRaum.Location = new System.Drawing.Point(248, 79);
+            this.buttonErstellenRaum.Location = new System.Drawing.Point(248, 108);
             this.buttonErstellenRaum.Name = "buttonErstellenRaum";
             this.buttonErstellenRaum.Size = new System.Drawing.Size(119, 23);
             this.buttonErstellenRaum.TabIndex = 12;
@@ -167,7 +167,7 @@
             // 
             // labelGesamptpreis
             // 
-            this.labelGesamptpreis.Location = new System.Drawing.Point(248, 143);
+            this.labelGesamptpreis.Location = new System.Drawing.Point(248, 172);
             this.labelGesamptpreis.Name = "labelGesamptpreis";
             this.labelGesamptpreis.Size = new System.Drawing.Size(119, 60);
             this.labelGesamptpreis.TabIndex = 13;
@@ -176,8 +176,9 @@
             // 
             // textBoxGesamptpreis
             // 
-            this.textBoxGesamptpreis.Location = new System.Drawing.Point(248, 206);
+            this.textBoxGesamptpreis.Location = new System.Drawing.Point(248, 235);
             this.textBoxGesamptpreis.Name = "textBoxGesamptpreis";
+            this.textBoxGesamptpreis.ReadOnly = true;
             this.textBoxGesamptpreis.Size = new System.Drawing.Size(119, 20);
             this.textBoxGesamptpreis.TabIndex = 14;
             this.textBoxGesamptpreis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

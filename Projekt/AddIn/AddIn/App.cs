@@ -127,14 +127,8 @@ namespace AddIn
             PushButton myButton = (PushButton)ribbonBrandschutzPanel.AddItem(new PushButtonData("RevitApp", "Brandschutz Tools",
                 AddInPath, "AddIn.StartApp"));
 
-
-            //Hier werden dem Button Bilder zugefügt (max 32 x 32 Pixel)
-            //myButton.LargeImage = new BitmapImage(new Uri(Path.Combine(ButtonIconsFolder, ".jpg"), UriKind.Absolute));
-
-            //Beschreibung, die erscheint, wenn man über den Button hovert. Beim längeren Verbleib der Maus über dem Button erscheint außerdem
-            //das BitMapImage (beliebig groß).
+            //Beschreibung, die erscheint, wenn man über den Button hovert.
             myButton.ToolTip = "Öffnet ein Tool, in dem erforderliche Feuerlöscher bestimmt werden können.";
-            //myButton.ToolTipImage = new BitmapImage(new Uri(Path.Combine(ButtonIconsFolder, ".png"), UriKind.Absolute));
         }
         #endregion
 

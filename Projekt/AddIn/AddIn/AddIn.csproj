@@ -30,19 +30,50 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Reference Include="GUI">
       <HintPath>..\..\GUI\GUI\bin\Debug\GUI.exe</HintPath>
     </Reference>
     <Reference Include="Klassen">
+=======
+    <Reference Include="AdWindows">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\AdWindows.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="GUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\GUI\GUI\bin\Debug\GUI.exe</HintPath>
+    </Reference>
+    <Reference Include="Klassen, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+>>>>>>> e807b9846292f728cdf28aea09aa917aa9db667d
       <HintPath>..\..\Klassen\Klassen\bin\Debug\Klassen.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPI.dll</HintPath>
+<<<<<<< HEAD
+=======
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIIFC">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIIFC.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIMacros">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIMacros.dll</HintPath>
+>>>>>>> e807b9846292f728cdf28aea09aa917aa9db667d
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
       <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIUI.dll</HintPath>
+<<<<<<< HEAD
+=======
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RevitAPIUIMacros">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIUIMacros.dll</HintPath>
+>>>>>>> e807b9846292f728cdf28aea09aa917aa9db667d
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />

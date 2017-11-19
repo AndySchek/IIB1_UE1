@@ -16,7 +16,6 @@ namespace GUI
         private Raum raum;
         private BindingList<Feuerloescher> feuerloescherList;
         String gesamptpreis = "0";
-        //private Material material;
         public FormRaum(Raum _raum, BindingList<Feuerloescher> _feuerloescherList, FormMain _parent)
         {
             InitializeComponent();
@@ -27,7 +26,8 @@ namespace GUI
         }
 
         private void fuelleBoxen()
-        {
+        {   
+            //Die Boxen werden gefüllt
             comboBoxMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBoxRaumNutzungsart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 
@@ -77,13 +77,14 @@ namespace GUI
 
             }
             
-            brandlastUpdate();
-            feuerloescherUpdate(0);
+            brandlastUpdate(); //Rechnung Brandlast
+            feuerloescherUpdate(0); //Aktulisierung Feuerlöschern
 
         }
 
         private void feuerloescherUpdate(int index)
         {
+            //Aktulisierung Feuerlöschern
             listBoxFeuerlocher.Items.Clear();
             listBoxLE.Items.Clear();
             listBoxPreisFeuerloescher.Items.Clear();
@@ -151,6 +152,7 @@ namespace GUI
 
         private void buttonAenderungsSpeichern_Click(object sender, EventArgs e)
         {
+            //Speichern Änderung des Raum
             String typ = comboBoxRaumNutzungsart.Text;
             raum.TypRaume = typ;
             switch (typ)
@@ -188,9 +190,8 @@ namespace GUI
 
         private void textBoxRaumFlaeche_TextChanged(object sender, EventArgs e)
         {
-            
+            //textBox Fläche des Raum
             int max = 2147483632;
-            //textBoxRaumFlaeche.Text = textBoxRaumFlaeche.Text.Trim('0');
             try
             {
                 if (textBoxRaumFlaeche.Text != "")
@@ -261,61 +262,47 @@ namespace GUI
             }
         }
 
-        private void FormRaum_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void buttonFeuerloescherDetails_Click(object sender, EventArgs e)
         {
+            //Rufe FormFeuerlöscher Details auf
             rufeFormFeuerloescherAuf(f: (Feuerloescher)listBoxFeuerlocher.SelectedItem);
         }
 
         private void rufeFormFeuerloescherAuf(Feuerloescher f = null)
         {
+            //FormFeuerlöscher - Details ausgewählte Feuerlöscher oder neuer Feruerlöscher
             FormFeuerloescher fNewFeuerloescher = new FormFeuerloescher(f, raum, feuerloescherList, this);
             fNewFeuerloescher.ShowDialog();
         }
 
         private void buttonNeuerFeuerloescherhinzufuegen_Click(object sender, EventArgs e)
         {
+            //rufe neuer Feuerlöscher auf
             rufeFormFeuerloescherAuf();
         }
 
         private void buttonFeuerloescherloeschen_Click(object sender, EventArgs e)
         {
+            //Feuerlöscher löschen
             feuerloescheLoeschen();
         }
 
         public void feuerloescheLoeschen(Feuerloescher f = null)
         {
+            //Feuerlöscher löschen
             if (f==null)
                 raum.FeuerloescherList.Remove((Feuerloescher)listBoxFeuerlocher.SelectedItem);
             else raum.FeuerloescherList.Remove(f);
             feuerloescherUpdate(0);
         }
 
-        public void feuerloescherAenderung(Feuerloescher feuerloescher)
-        {
-            feuerloescherList[listBoxFeuerlocher.SelectedIndex].Anzahl = feuerloescher.Anzahl;
-            feuerloescherUpdate(listBoxFeuerlocher.SelectedIndex);
-        }
-
         public void feuerloescherHinzufuegen(Feuerloescher feuerloescher)
         {
+            //Feuerlöscher hinzufügen oder ändern
             if (raum.FeuerloescherList.IndexOf(feuerloescher) == -1)
             {
                 raum.FeuerloescherList.Add(feuerloescher);
+                feuerloescherUpdate(raum.FeuerloescherList.Count-1);
             }
             else
             {
@@ -324,17 +311,200 @@ namespace GUI
                     if (f == feuerloescher)
                     {
                         f.Anzahl = feuerloescher.Anzahl;
+                        listBoxFeuerlocher.SelectedItem = f;
+                        feuerloescherUpdate(listBoxFeuerlocher.SelectedIndex);
+                        break;
                     }
                 }
             }
-            feuerloescherUpdate(0);
+            
         }
 
         public int returnSelectedFeuerloscher()
         {
+            //Rückgabe ausgewählte Feuerlöscher
             return listBoxFeuerlocher.SelectedIndex;
         }
 
+        private void buttonabbrechen_Click(object sender, EventArgs e)
+        {
+            //Forn schliessen
+            this.Close();
+        }
+
+        private void textBoxLoeschmeiiteleinheiten_TextChanged(object sender, EventArgs e)
+        {
+            progressBarBrandschutzplanung.Maximum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
+            progressBarBrandschutz();
+            raum.Loeschmitteleinheiten = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
+        }
+
+        private void textBoxLESumme_TextChanged(object sender, EventArgs e)
+        {
+            progressBarBrandschutz();
+        }
+
+        private void progressBarBrandschutz()
+        {
+            //ProgressBar und Information über Brandschunzplanung
+            int LEFeuerloeschern = 0, LERaum = 0, prozent = 0;
+            if (textBoxLoeschmeiiteleinheiten.Text != "")
+                LERaum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
+            if (textBoxLESumme.Text != "")
+                LEFeuerloeschern = Convert.ToInt32(textBoxLESumme.Text);
+            progressBarBrandschutzplanung.Maximum = LERaum;
+
+            if (LEFeuerloeschern <= LERaum)
+            {
+                progressBarBrandschutzplanung.Value = LEFeuerloeschern;
+            }
+            else
+            {
+                progressBarBrandschutzplanung.Value = LERaum;
+            }
+            if (LERaum!=0)
+                prozent = LEFeuerloeschern * 100 / LERaum;
+            if (prozent >= 100)
+            {
+                labelProgressBar.ForeColor = Color.FromName("ForestGreen");
+                textBoxInfoBrandschutz.ForeColor = Color.FromName("ForestGreen");
+                textBoxInfoBrandschutz.Text = Convert.ToString("Sehr geehrter Nutzer," + Environment.NewLine + Environment.NewLine + "Ihre Planung an dem Brandschutz wurde erfolgreich erfüllt. Die Anzahl der Feuerlöschern ist genug für den Raum." + Environment.NewLine + Environment.NewLine + "Die Kosten für Brandschutz betragen " + gesamptpreis + "€.");
+            }
+            else
+            {
+                labelProgressBar.ForeColor = Color.FromName("Red");
+                textBoxInfoBrandschutz.ForeColor = Color.FromName("Red");
+                textBoxInfoBrandschutz.Text = Convert.ToString("Sehr geehrter Nutzer," + Environment.NewLine + Environment.NewLine + "Ihre Planung an dem Brandschutz wurde nicht erfolgreich erfüllt. Die Anzahl der Feuerlöschern ist nicht genug für den Raum. Sie sollen mehr die Feuerlöschern zur Verbesserung des Brandschutz hinzufügen.");
+
+            }
+            if (prozent > 100) prozent = 100;
+            if (LERaum > 0)
+                labelProgressBar.Text = Convert.ToString("Löschmitteleinheit " + LEFeuerloeschern + " aus " + LERaum + " | " + prozent + "% Brandschutz");
+            else labelProgressBar.Text = "Raumfläche muss meahr als 0 sein";
+        }
+
+        private void textBoxGesamptpreis_TextChanged(object sender, EventArgs e)
+        {
+            gesamptpreis = textBoxGesamptpreis.Text;
+        }
+
+        private void comboBoxRaumNutzungsart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //ComboBox Nutzungsart
+            String typ = comboBoxRaumNutzungsart.Text;
+            raum.Heizwert = ((FormMain)Owner).returnHeizwert(typ);
+            textBoxHeizwertRaum.Text = Convert.ToString(raum.Heizwert);
+            brandlastUpdate();
+        }
+
+        private void comboBoxMaterial_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            brandlastUpdate();
+        }
+
+        public void brandlastUpdate()
+        {
+            //Aktulisierung Brandlast
+            String bezeichnung = comboBoxMaterial.Text;
+            textBoxMaterialDichte.Text = Convert.ToString(raum.Materialien.Dichte);
+            textBoxGesamptdickeMaterial.Text = Convert.ToString(raum.Materialien.Gesamtdicke);
+            textBoxFlaecheMaterial.Text = Convert.ToString(raum.Materialien.Flaeche);
+            raum.Materialien.BrandbareMasse = raum.Materialien.Dichte * raum.Materialien.Gesamtdicke * raum.Materialien.Flaeche;
+            textBoxBrandbareMasse.Text = Convert.ToString(raum.Materialien.BrandbareMasse);
+            raum.Brandlast = raum.Materialien.BrandbareMasse * raum.Heizwert;
+            textBoxBrandlastRaum.Text = Convert.ToString(raum.Brandlast);
+        }
+
+
+        //textBoxen für BrandLast
+        private void textBoxMaterialDichte_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                String dichte = textBoxMaterialDichte.Text;
+                if (dichte != "")
+                {
+                    if (dichte == "00") textBoxMaterialDichte.Text = "0";
+                    raum.Materialien.Dichte = Convert.ToDouble(dichte);
+                }
+                else raum.Materialien.Dichte = 0;
+                brandlastUpdate();
+            }
+            catch
+            {
+                raum.Materialien.Dichte = 0;
+                brandlastUpdate();
+            }
+        }
+
+        private void textBoxGesamptdickeMaterial_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                String gesamptDicke = textBoxGesamptdickeMaterial.Text;
+                if (gesamptDicke != "")
+                {
+                    if (gesamptDicke == "00") textBoxGesamptdickeMaterial.Text = "0";
+                    raum.Materialien.Gesamtdicke = Convert.ToDouble(gesamptDicke);
+                }
+                else raum.Materialien.Gesamtdicke = 0;
+                brandlastUpdate();
+            }
+            catch
+            {
+                raum.Materialien.Gesamtdicke = 0;
+                brandlastUpdate();
+            }
+        }
+
+        private void textBoxFlaecheMaterial_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                String flaeche = textBoxFlaecheMaterial.Text;
+                if (flaeche != "")
+                {
+                    if (flaeche == "00") textBoxFlaecheMaterial.Text = "0";
+                    raum.Materialien.Flaeche = Convert.ToDouble(flaeche);
+                }
+                else raum.Materialien.Flaeche = 0;
+                brandlastUpdate();
+            }
+            catch {
+                raum.Materialien.Flaeche = 0;
+                brandlastUpdate();
+            }
+        }
+
+        private void textBoxMaterialDichte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxGesamptdickeMaterial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxFlaecheMaterial_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+            if (!Char.IsDigit(number) && number != 8 && number != 44)
+            {
+                e.Handled = true;
+            }
+        }
+
+        //Element in ListBoxen mit den Feuerlöschern wird abhängig von dem Auswahl geändert
         private void listBoxFeuerlocher_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = listBoxFeuerlocher.SelectedIndex;
@@ -379,208 +549,6 @@ namespace GUI
             listBoxLE.SelectedIndex = index;
             listBoxCountFeuerloescher.SelectedIndex = index;
             listBoxPreisSummaFeuerloscher.SelectedIndex = index;
-        }
-
-
-
-        private void buttonabbrechen_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void textBoxLoeschmeiiteleinheiten_TextChanged(object sender, EventArgs e)
-        {
-            progressBarBrandschutzplanung.Maximum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
-            progressBarBrandschutz();
-            raum.Loeschmitteleinheiten = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
-        }
-
-        private void textBoxLESumme_TextChanged(object sender, EventArgs e)
-        {
-            progressBarBrandschutz();
-
-        }
-
-        private void progressBarBrandschutz()
-        {
-            int LEFeuerloeschern = 0, LERaum = 0, prozent = 0;
-            if (textBoxLoeschmeiiteleinheiten.Text != "")
-                LERaum = Convert.ToInt32(textBoxLoeschmeiiteleinheiten.Text);
-            if (textBoxLESumme.Text != "")
-                LEFeuerloeschern = Convert.ToInt32(textBoxLESumme.Text);
-            progressBarBrandschutzplanung.Maximum = LERaum;
-
-            if (LEFeuerloeschern <= LERaum)
-            {
-                progressBarBrandschutzplanung.Value = LEFeuerloeschern;
-            }
-            else
-            {
-                progressBarBrandschutzplanung.Value = LERaum;
-            }
-            if (LERaum!=0)
-                prozent = LEFeuerloeschern * 100 / LERaum;
-            if (prozent >= 100)
-            {
-                labelProgressBar.ForeColor = Color.FromName("ForestGreen");
-                textBoxInfoBrandschutz.ForeColor = Color.FromName("ForestGreen");
-                textBoxInfoBrandschutz.Text = Convert.ToString("Sehr geehrter Nutzer," + Environment.NewLine + Environment.NewLine + "Ihre Planung an dem Brandschutz wurde erfolgreich erfüllt. Die Anzahl der Feuerlöschern ist genug für den Raum." + Environment.NewLine + Environment.NewLine + "Die Kosten für Brandschutz betragen " + gesamptpreis + "€.");
-            }
-            else
-            {
-                labelProgressBar.ForeColor = Color.FromName("Red");
-                textBoxInfoBrandschutz.ForeColor = Color.FromName("Red");
-                textBoxInfoBrandschutz.Text = Convert.ToString("Sehr geehrter Nutzer," + Environment.NewLine + Environment.NewLine + "Ihre Planung an dem Brandschutz wurde nicht erfolgreich erfüllt. Die Anzahl der Feuerlöschern ist nicht genug für den Raum. Sie sollen mehr die Feuerlöschern zur Verbesserung des Brandschutz hinzufügen.");
-
-            }
-            if (prozent > 100) prozent = 100;
-            if (LERaum > 0)
-                labelProgressBar.Text = Convert.ToString("Löschmitteleinheit " + LEFeuerloeschern + " aus " + LERaum + " | " + prozent + "% Brandschutz");
-            else labelProgressBar.Text = "Raumfläche muss meahr als 0 sein";
-        }
-
-        private void textBoxGesamptpreis_TextChanged(object sender, EventArgs e)
-        {
-            gesamptpreis = textBoxGesamptpreis.Text;
-        }
-
-        private void comboBoxRaumNutzungsart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            String typ = comboBoxRaumNutzungsart.Text;
-            raum.Heizwert = ((FormMain)Owner).returnHeizwert(typ);
-            textBoxHeizwertRaum.Text = Convert.ToString(raum.Heizwert);
-            brandlastUpdate();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxMaterial_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            brandlastUpdate();
-            brandlastUpdateTextBox();
-        }
-
-        public void brandlastUpdate()
-        {
-            String bezeichnung = comboBoxMaterial.Text;
-            textBoxMaterialDichte.Text = Convert.ToString(raum.Materialien.Dichte);
-            textBoxGesamptdickeMaterial.Text = Convert.ToString(raum.Materialien.Gesamtdicke);
-            textBoxFlaecheMaterial.Text = Convert.ToString(raum.Materialien.Flaeche);
-            raum.Materialien.BrandbareMasse = raum.Materialien.Dichte * raum.Materialien.Gesamtdicke * raum.Materialien.Flaeche;
-            textBoxBrandbareMasse.Text = Convert.ToString(raum.Materialien.BrandbareMasse);
-            raum.Brandlast = raum.Materialien.BrandbareMasse * raum.Heizwert;
-            textBoxBrandlastRaum.Text = Convert.ToString(raum.Brandlast);
-        }
-
-
-        public void brandlastUpdateTextBox()
-        {
-
-            raum.Materialien.BrandbareMasse = raum.Materialien.Dichte * raum.Materialien.Gesamtdicke * raum.Materialien.Flaeche;
-            textBoxBrandbareMasse.Text = Convert.ToString(raum.Materialien.BrandbareMasse);
-            raum.Brandlast = raum.Materialien.BrandbareMasse * raum.Heizwert;
-            textBoxBrandlastRaum.Text = Convert.ToString(raum.Brandlast);
-        }
-
-        private void textBoxMaterialDichte_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                String dichte = textBoxMaterialDichte.Text;
-                if (dichte != "")
-                {
-                    if (dichte == "00") textBoxMaterialDichte.Text = "0";
-                    raum.Materialien.Dichte = Convert.ToDouble(dichte);
-                }
-                else raum.Materialien.Dichte = 0;
-                brandlastUpdateTextBox();
-            }
-            catch
-            {
-                raum.Materialien.Dichte = 0;
-                brandlastUpdate();
-            }
-        }
-
-        private void textBoxGesamptdickeMaterial_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                String gesamptDicke = textBoxGesamptdickeMaterial.Text;
-                if (gesamptDicke != "")
-                {
-                    if (gesamptDicke == "00") textBoxGesamptdickeMaterial.Text = "0";
-                    raum.Materialien.Gesamtdicke = Convert.ToDouble(gesamptDicke);
-                }
-                else raum.Materialien.Gesamtdicke = 0;
-                brandlastUpdateTextBox();
-            }
-            catch
-            {
-                raum.Materialien.Gesamtdicke = 0;
-                brandlastUpdate();
-            }
-        }
-
-        private void textBoxFlaecheMaterial_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                
-                String flaeche = textBoxFlaecheMaterial.Text;
-                if (flaeche != "")
-                {
-                    if (flaeche == "00") textBoxFlaecheMaterial.Text = "0";
-                    raum.Materialien.Flaeche = Convert.ToDouble(flaeche);
-                }
-                else raum.Materialien.Flaeche = 0;
-                brandlastUpdateTextBox();
-            }
-            catch {
-                raum.Materialien.Flaeche = 0;
-                brandlastUpdate();
-            }
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxBrandlastRaum_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxMaterialDichte_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
-            if (!Char.IsDigit(number) && number != 8 && number != 44)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void textBoxGesamptdickeMaterial_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
-            if (!Char.IsDigit(number) && number != 8 && number != 44)
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void textBoxFlaecheMaterial_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char number = e.KeyChar;
-            if (!Char.IsDigit(number) && number != 8 && number != 44)
-            {
-                e.Handled = true;
-            }
         }
 
     }

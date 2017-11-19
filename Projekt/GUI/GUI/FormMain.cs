@@ -17,19 +17,19 @@ namespace GUI
     {
         private BindingList<Raum> raeume;
         private BindingList<Feuerloescher> feuerloescherList;
-        //public BindingList<Material> materialien;
         private listBoxRaumItems item;
-        public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList)//, BindingList<Material> _materialien)
+        public FormMain(BindingList<Raum> _raeume, BindingList<Feuerloescher> _feuerloescherList)
         {
             InitializeComponent();
             this.raeume = _raeume;
             this.feuerloescherList = _feuerloescherList;
-            //this.materialien = _materialien;
             fuelleListe();
         }
 
+        //Die Boxen werden gefüllt
         private void fuelleListe()
         {
+            //In comboBox alle Räume oder abhähgig von Nutzungsart
             comboBoxTypRaum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             if (comboBoxTypRaum.Items.IndexOf("Alle") == -1)
                 comboBoxTypRaum.Items.Add("Alle");
@@ -44,23 +44,9 @@ namespace GUI
             
         }
 
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxTypRaum_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listBoxUpdate();
-        }
-
-        private void buttonabbrechen_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         public void raumErstellen(Raum raum)
         {
+            //Neuer Raum hinzufügen
             raeume.Add(raum);
             comboBoxTypRaum.SelectedItem = raum.TypRaume;
             listBoxUpdate();
@@ -72,9 +58,9 @@ namespace GUI
 
         public void raumAenderung(Raum raum)
         {
+            //Raum wird ändert
             item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
             raeume.Remove(item.Raum);
-            //listBoxUpdate();
             raeume.Add(raum);
             comboBoxTypRaum.SelectedItem = raum.TypRaume;
             listBoxUpdate();
@@ -82,15 +68,9 @@ namespace GUI
         }
 
 
-        private void buttonLoeschenRaum_Click(object sender, EventArgs e)
-        {
-            item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
-            raeume.Remove(item.Raum);
-            listBoxUpdate();
-        }
-
         private void listBoxRaum_DrawItem(object sender, DrawItemEventArgs e)
         {
+            
             item = listBoxRaum.Items[e.Index] as listBoxRaumItems;
 
             if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
@@ -108,6 +88,7 @@ namespace GUI
         }
         private void listBoxUpdate()
         {
+            //Aktulisierung ListBox mit deb Räume
             listBoxRaum.Items.Clear();
             listBoxRaum.DrawMode = DrawMode.OwnerDrawFixed;
             listBoxRaum.DrawItem += listBoxRaum_DrawItem;
@@ -123,9 +104,9 @@ namespace GUI
                     foreach(Feuerloescher f in r.FeuerloescherList)
                     {
                         LEFeurloescher += f.Anzahl * f.Loescheinheit;
-                        gesamptpreis += f.Anzahl * f.Preis;
+                        gesamptpreis += f.Anzahl * f.Preis; //Gesamptpreis Brandschutzplanung für alle Räume
                     }
-                    if (LEFeurloescher>=r.Loeschmitteleinheiten)
+                    if (LEFeurloescher>=r.Loeschmitteleinheiten) //Die Farbe für Raum abhängig von Branschutzplanung (Grün oder Red)
                         listBoxRaum.Items.Add(new listBoxRaumItems(Color.Green, r));
                     else listBoxRaum.Items.Add(new listBoxRaumItems(Color.Red, r));
                 }
@@ -145,9 +126,9 @@ namespace GUI
                     foreach(Feuerloescher f in r.FeuerloescherList)
                     {
                         LEFeurloescher += f.Anzahl * f.Loescheinheit;
-                        gesamptpreis += f.Anzahl * f.Preis;
+                        gesamptpreis += f.Anzahl * f.Preis; //Gesamptpreis Brandschutzplanung abhängig von Nutzungsart
                     }
-                    if (LEFeurloescher>=r.Loeschmitteleinheiten)
+                    if (LEFeurloescher>=r.Loeschmitteleinheiten) //Die Farbe für Raum abhängig von Branschutzplanung (Grün oder Red)
                         listBoxRaum.Items.Add(new listBoxRaumItems(Color.Green, r));
                     else listBoxRaum.Items.Add(new listBoxRaumItems(Color.Red, r));
                     }
@@ -168,22 +149,31 @@ namespace GUI
                 buttonRaumDetail.Enabled = false;
                 buttonLoeschenRaum.Enabled = false;
             }
-
-
-
             
+        }
+        private void comboBoxTypRaum_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBoxUpdate();
         }
 
         private void buttonRaumDetail_Click(object sender, EventArgs e)
         {
+            //FormRaum - Details Raum
             item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
             FormRaum formRaum = new FormRaum(item.Raum, feuerloescherList, this);
             formRaum.ShowDialog();
         }
 
+        private void buttonErstellenRaum_Click(object sender, EventArgs e)
+        {
+            //FormNeuerRaum - Neuer Raum hinzufügen
+            FormNeuerRaum formNeuerRaum = new FormNeuerRaum(comboBoxTypRaum.SelectedIndex - 1, this);
+            formNeuerRaum.ShowDialog();
+        }
+
         private void speichernToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            //Menu speichern Datei
             SaveFileDialog sfd = new SaveFileDialog();
             if (sfd.ShowDialog() == DialogResult.OK)
             {
@@ -196,6 +186,7 @@ namespace GUI
 
         private void ladenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
+            //Menu laden Datei
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
             {
@@ -208,19 +199,9 @@ namespace GUI
             listBoxUpdate();
         }
 
-        private void buttonErstellenRaum_Click(object sender, EventArgs e)
-        {
-            FormNeuerRaum formNeuerRaum = new FormNeuerRaum(comboBoxTypRaum.SelectedIndex-1, this);
-            formNeuerRaum.ShowDialog();
-        }
-
-        public static implicit operator int(FormMain v)
-        {
-            throw new NotImplementedException();
-        }
-
         public double returnHeizwert(String typ)
         {
+            //Die Funktion für die Rückgabe Heizwert des Raum
             double heizwert = 0;
             foreach (Raum r in raeume)
             {
@@ -232,24 +213,19 @@ namespace GUI
             }
             return heizwert;
         }
-        /*
-        public Material returnMaterial(String bezeichnung)
+
+        private void buttonLoeschenRaum_Click(object sender, EventArgs e)
         {
-            
-            Material material = new Material();
-            foreach(Material m in materialien)
-            {
-                if (m.Bezeichnung.Equals(bezeichnung))
-                {
-                    return m;
-                    break;
-                }
-            }
-            return material;
+            //Raum löschen
+            item = listBoxRaum.Items[listBoxRaum.SelectedIndex] as listBoxRaumItems;
+            raeume.Remove(item.Raum);
+            listBoxUpdate();
+        }
 
-        }*/
-        
-
-
+        private void buttonabbrechen_Click(object sender, EventArgs e)
+        {
+            //Form schliessen
+            this.Close();
+        }
     }
 }

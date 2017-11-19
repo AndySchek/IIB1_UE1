@@ -10,6 +10,7 @@ namespace GUI
 {
     public class listBoxRaumItems
     {
+        //Klass benötigt für die Farbe der Räume
         private Color raumColor;
         private Raum raum;
         public listBoxRaumItems(Color _color, Raum _raum)

@@ -122,7 +122,6 @@
             this.label4.Size = new System.Drawing.Size(59, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Nutzungart";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // comboBoxRaumNutzungsart
             // 
@@ -175,7 +174,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.89474F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.tableLayoutPanel1.Controls.Add(this.listBoxPreisSummaFeuerloscher, 4, 1);
             this.tableLayoutPanel1.Controls.Add(this.label11, 4, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 2, 0);
@@ -193,12 +192,11 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(372, 268);
             this.tableLayoutPanel1.TabIndex = 19;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint_1);
             // 
             // listBoxPreisSummaFeuerloscher
             // 
             this.listBoxPreisSummaFeuerloscher.FormattingEnabled = true;
-            this.listBoxPreisSummaFeuerloscher.Location = new System.Drawing.Point(299, 37);
+            this.listBoxPreisSummaFeuerloscher.Location = new System.Drawing.Point(297, 37);
             this.listBoxPreisSummaFeuerloscher.Name = "listBoxPreisSummaFeuerloscher";
             this.listBoxPreisSummaFeuerloscher.Size = new System.Drawing.Size(65, 225);
             this.listBoxPreisSummaFeuerloscher.TabIndex = 20;
@@ -210,7 +208,7 @@
             this.label11.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(299, 0);
+            this.label11.Location = new System.Drawing.Point(297, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 32);
             this.label11.TabIndex = 20;
@@ -222,7 +220,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(174, 0);
+            this.label2.Location = new System.Drawing.Point(172, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 32);
             this.label2.TabIndex = 3;
@@ -234,9 +232,9 @@
             this.label9.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(75, 0);
+            this.label9.Location = new System.Drawing.Point(74, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(93, 32);
+            this.label9.Size = new System.Drawing.Size(92, 32);
             this.label9.TabIndex = 1;
             this.label9.Text = "Löschmitteleinheit";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -246,7 +244,7 @@
             this.label10.BackColor = System.Drawing.SystemColors.ControlLight;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(222, 0);
+            this.label10.Location = new System.Drawing.Point(220, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(71, 32);
             this.label10.TabIndex = 2;
@@ -266,9 +264,9 @@
             // listBoxLE
             // 
             this.listBoxLE.FormattingEnabled = true;
-            this.listBoxLE.Location = new System.Drawing.Point(75, 37);
+            this.listBoxLE.Location = new System.Drawing.Point(74, 37);
             this.listBoxLE.Name = "listBoxLE";
-            this.listBoxLE.Size = new System.Drawing.Size(93, 225);
+            this.listBoxLE.Size = new System.Drawing.Size(92, 225);
             this.listBoxLE.TabIndex = 5;
             this.listBoxLE.SelectedIndexChanged += new System.EventHandler(this.listBoxLE_SelectedIndexChanged);
             this.listBoxLE.DoubleClick += new System.EventHandler(this.buttonFeuerloescherDetails_Click);
@@ -276,7 +274,7 @@
             // listBoxCountFeuerloescher
             // 
             this.listBoxCountFeuerloescher.FormattingEnabled = true;
-            this.listBoxCountFeuerloescher.Location = new System.Drawing.Point(174, 37);
+            this.listBoxCountFeuerloescher.Location = new System.Drawing.Point(172, 37);
             this.listBoxCountFeuerloescher.Name = "listBoxCountFeuerloescher";
             this.listBoxCountFeuerloescher.Size = new System.Drawing.Size(42, 225);
             this.listBoxCountFeuerloescher.TabIndex = 6;
@@ -286,7 +284,7 @@
             // listBoxPreisFeuerloescher
             // 
             this.listBoxPreisFeuerloescher.FormattingEnabled = true;
-            this.listBoxPreisFeuerloescher.Location = new System.Drawing.Point(222, 37);
+            this.listBoxPreisFeuerloescher.Location = new System.Drawing.Point(220, 37);
             this.listBoxPreisFeuerloescher.Name = "listBoxPreisFeuerloescher";
             this.listBoxPreisFeuerloescher.Size = new System.Drawing.Size(71, 225);
             this.listBoxPreisFeuerloescher.TabIndex = 7;
@@ -301,7 +299,7 @@
             this.Feuerlocher.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Feuerlocher.Location = new System.Drawing.Point(3, 0);
             this.Feuerlocher.Name = "Feuerlocher";
-            this.Feuerlocher.Size = new System.Drawing.Size(66, 34);
+            this.Feuerlocher.Size = new System.Drawing.Size(65, 34);
             this.Feuerlocher.TabIndex = 0;
             this.Feuerlocher.Text = "Feuerlocher";
             this.Feuerlocher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -454,7 +452,6 @@
             this.label12.Size = new System.Drawing.Size(136, 16);
             this.label12.TabIndex = 46;
             this.label12.Text = "Brandlast Raum  (MJ)";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // label13
             // 
@@ -559,7 +556,6 @@
             this.textBoxBrandlastRaum.ReadOnly = true;
             this.textBoxBrandlastRaum.Size = new System.Drawing.Size(99, 22);
             this.textBoxBrandlastRaum.TabIndex = 57;
-            this.textBoxBrandlastRaum.TextChanged += new System.EventHandler(this.textBoxBrandlastRaum_TextChanged);
             // 
             // textBoxBrandbareMasse
             // 
@@ -582,7 +578,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 379);
+            this.ClientSize = new System.Drawing.Size(1044, 369);
             this.Controls.Add(this.textBoxBrandbareMasse);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.textBoxBrandlastRaum);
@@ -622,8 +618,7 @@
             this.Controls.Add(this.textBoxRaumBezeichnung);
             this.Controls.Add(this.labelBezeichnung);
             this.Name = "FormRaum";
-            this.Text = "Brandschutyplanung";
-            this.Load += new System.EventHandler(this.FormRaum_Load);
+            this.Text = "Brandschutzplanung";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

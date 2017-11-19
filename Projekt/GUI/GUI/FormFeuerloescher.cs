@@ -13,11 +13,9 @@ namespace GUI
 {
     public partial class FormFeuerloescher : Form
     {
-        //private Raum raum;
         private Raum raum;
         private BindingList<Feuerloescher> feuerloescherList;
         Feuerloescher feuerloescher = new Feuerloescher();
-        private double leRaum;
         private Boolean neuer = false;
 
         public FormFeuerloescher(Feuerloescher f, Raum _raum, BindingList<Feuerloescher> _feuerloescherList, FormRaum _parent)
@@ -26,17 +24,17 @@ namespace GUI
             this.raum = _raum;
             this.feuerloescherList = _feuerloescherList;
             this.Owner = _parent;
-            this.leRaum = raum.Loeschmitteleinheiten;
             this.feuerloescher = f;
             fuelleBoxen();
         }
 
+        //Die Boxen werden gefüllt
         private void fuelleBoxen()
         {
             comboBoxBezeichnungFeuerloescher.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             comboBoxBezeichnungFeuerloescher.Items.Clear();
 
-            if (feuerloescher!=null)
+            if (feuerloescher!=null) //Wenn Änderung Feuerlöscher
             {
                 this.Text = "Details Feuerlöschern";
                 if (raum.FeuerloescherList.Count > 0)
@@ -66,7 +64,7 @@ namespace GUI
                     trackBarAnzahlFeuerloescher.Enabled = false;
                 }
             }
-            else
+            else  //Oder wenn Neuer Feuerlöscher
             {
                 buttonFeuerloescherloeschen.Visible = false;
                 if (raum.FeuerloescherList.Count == feuerloescherList.Count)
@@ -91,11 +89,13 @@ namespace GUI
 
             labelAnzahlFeuerloescher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value);
             textBoxLERaum.Text = Convert.ToString(raum.Loeschmitteleinheiten);
-            changedTextBoxen();
+
+            changedTextBoxen(); //Die Funktion, die alle Boxen füllt.
         }
 
         private void comboBoxBezeichnungFeuerloescher_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        {   
+            //Wenn man Feuerlöscher wechselt 
             if (feuerloescher == null)
             {
                 trackBarAnzahlFeuerloescher.Value = 1;
@@ -104,37 +104,28 @@ namespace GUI
             }
 
             feuerloescher = (Feuerloescher)comboBoxBezeichnungFeuerloescher.SelectedItem;
-            textBoxLEFeuerloescher.Text = Convert.ToString(feuerloescher.Loescheinheit);
-            textBoxGesamptpreisFeuerloscher.Text = Convert.ToString(feuerloescher.Preis);
-            labelAnzahlFeuerloescher.Text = Convert.ToString(trackBarAnzahlFeuerloescher.Value);
             if (!neuer) trackBarAnzahlFeuerloescher.Value = feuerloescher.Anzahl;
             changedTextBoxen();
         }
 
         private void trackBarAnzahlFeuerloescher_ValueChanged(object sender, EventArgs e)
         {
-
+            //Wenn man Anzahl der Feuerlöschern verändert
             changedTextBoxen();
-
         }
 
-        private void buttonNeuerFeuerloescherSpeichern_Click(object sender, EventArgs e)
-        {
-            feuerloescher.Anzahl = trackBarAnzahlFeuerloescher.Value;
-            feuerloescher.Bezeichnung = comboBoxBezeichnungFeuerloescher.Text;
-            ((FormRaum)Owner).feuerloescherHinzufuegen(feuerloescher);
-            if (neuer) feuerloescher = null;
-            fuelleBoxen();
-        }
-
-        private void buttonabbrechen_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void textBoxLEFeuerloescher_TextChanged(object sender, EventArgs e)
         {
             changedTextBoxen();
+        }
+
+        private void textBoxBenoetigeLE_TextChanged(object sender, EventArgs e)
+        {
+            //label mit Anzahl der Feuerlöschern Grün oder Red, abhängig von Löschmitteleinheiten 
+            int bLE = Convert.ToInt32(textBoxBenoetigeLE.Text);
+            if (bLE == 0) labelAnzahlFeuerloescher.ForeColor = Color.Green;
+            else labelAnzahlFeuerloescher.ForeColor = Color.Red;
         }
 
         private void changedTextBoxen()
@@ -147,9 +138,9 @@ namespace GUI
             try
             {
                 
-                foreach (Feuerloescher f in raum.FeuerloescherList)
+                foreach (Feuerloescher f in raum.FeuerloescherList) //Alle Feuerlöschern, die sich im Raum befinden
                 {
-                    if (f != feuerloescher)
+                    if (f != feuerloescher) //außer dem, den man verändert
                     {
                         countFeuerloescher += f.Anzahl;
                         leFeuerloeschen += f.Anzahl * f.Loescheinheit;
@@ -174,17 +165,27 @@ namespace GUI
             }
         }
 
-        private void textBoxBenoetigeLE_TextChanged(object sender, EventArgs e)
+        private void buttonNeuerFeuerloescherSpeichern_Click(object sender, EventArgs e)
         {
-            int bLE = Convert.ToInt32(textBoxBenoetigeLE.Text);
-            if (bLE==0) labelAnzahlFeuerloescher.ForeColor = Color.Green;
-            else labelAnzahlFeuerloescher.ForeColor = Color.Red;
+            //Speichern Feuerlöscher
+            feuerloescher.Anzahl = trackBarAnzahlFeuerloescher.Value;
+            feuerloescher.Bezeichnung = comboBoxBezeichnungFeuerloescher.Text;
+            ((FormRaum)Owner).feuerloescherHinzufuegen(feuerloescher);
+            if (neuer) feuerloescher = null;
+            fuelleBoxen();
         }
 
         private void buttonFeuerloescherloeschen_Click(object sender, EventArgs e)
         {
+            //Löschen Feuerlöscher aus dem Raum
             ((FormRaum)Owner).feuerloescheLoeschen(f: (Feuerloescher)comboBoxBezeichnungFeuerloescher.SelectedItem);
             fuelleBoxen();
+        }
+
+        private void buttonabbrechen_Click(object sender, EventArgs e)
+        {
+            //Schliessen Form
+            this.Close();
         }
     }
 }

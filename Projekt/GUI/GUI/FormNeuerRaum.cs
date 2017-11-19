@@ -14,7 +14,6 @@ namespace GUI
     public partial class FormNeuerRaum : Form
     {
         
-        //private Raum raum;
         public FormNeuerRaum(int _index, FormMain _parent)
         {
             InitializeComponent();
@@ -25,16 +24,14 @@ namespace GUI
             comboBoxRaumNutzungsart.SelectedIndex = _index;
             buttonNeuerRaum.Enabled = true;
             comboBoxRaumNutzungsart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-
-
         }
 
         private void buttonNeuerRaum_Click(object sender, EventArgs e)
         {
-            
+            //Neuer Raum wird hinzugefügt
             int t = comboBoxRaumNutzungsart.SelectedIndex;
             
-            switch (t)
+            switch (t) //Abhängig von Nutzungsart wird einen Konstruktor aufgerufen.
             {
                 case 0:
                     Buero newBuero = new Buero();
@@ -104,6 +101,7 @@ namespace GUI
 
         private void textBoxRaumFlaeche_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //Man darf nur Zahlen und comma einschreiben
             char number = e.KeyChar;
             if (!Char.IsDigit(number) && number != 8 && number != 44)
             {

@@ -107,7 +107,7 @@
             // 
             // buttonAbbrechen
             // 
-            this.buttonAbbrechen.Location = new System.Drawing.Point(15, 114);
+            this.buttonAbbrechen.Location = new System.Drawing.Point(12, 114);
             this.buttonAbbrechen.Name = "buttonAbbrechen";
             this.buttonAbbrechen.Size = new System.Drawing.Size(223, 23);
             this.buttonAbbrechen.TabIndex = 17;
@@ -129,7 +129,7 @@
             this.Controls.Add(this.textBoxRaumBezeichnung);
             this.Controls.Add(this.label2);
             this.Name = "FormNeuerRaum";
-            this.Text = "Neuer Raum erstellen";
+            this.Text = "Neuer Raum";
             this.ResumeLayout(false);
             this.PerformLayout();
 

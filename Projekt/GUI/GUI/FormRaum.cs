@@ -368,19 +368,19 @@ namespace GUI
             {
                 labelProgressBar.ForeColor = Color.FromName("ForestGreen");
                 textBoxInfoBrandschutz.ForeColor = Color.FromName("ForestGreen");
-                textBoxInfoBrandschutz.Text = Convert.ToString("Sehr geehrter Nutzer," + Environment.NewLine + Environment.NewLine + "Ihre Planung an dem Brandschutz wurde erfolgreich erfüllt. Die Anzahl der Feuerlöschern ist genug für den Raum." + Environment.NewLine + Environment.NewLine + "Die Kosten für Brandschutz betragen " + gesamptpreis + "€.");
+                textBoxInfoBrandschutz.Text = Convert.ToString("Die Brandschutzplanung erfüllt alle erforderlichen Vorgaben. Dem Raum wurden genügend Feuerlöscher hinzugefügt." + Environment.NewLine + Environment.NewLine + "Die Kosten für die Feuermelder betragen zusammen " + gesamptpreis + "€.");
             }
             else
             {
                 labelProgressBar.ForeColor = Color.FromName("Red");
                 textBoxInfoBrandschutz.ForeColor = Color.FromName("Red");
-                textBoxInfoBrandschutz.Text = Convert.ToString("Sehr geehrter Nutzer," + Environment.NewLine + Environment.NewLine + "Ihre Planung an dem Brandschutz wurde nicht erfolgreich erfüllt. Die Anzahl der Feuerlöschern ist nicht genug für den Raum. Sie sollen mehr die Feuerlöschern zur Verbesserung des Brandschutz hinzufügen.");
+                textBoxInfoBrandschutz.Text = Convert.ToString("Die Brandschutzplanung erfüllt nicht alle erforderlichen Vorgaben, dem Raum wurden nicht genügend Feuerlöscher hinzugefügt. Um die Brandschutvorgaben zu erfüllen, fügen Sie weitere Feuerlöscher hinzu");
 
             }
             if (prozent > 100) prozent = 100;
             if (LERaum > 0)
                 labelProgressBar.Text = Convert.ToString("Löschmitteleinheit " + LEFeuerloeschern + " aus " + LERaum + " | " + prozent + "% Brandschutz");
-            else labelProgressBar.Text = "Raumfläche muss meahr als 0 sein";
+            else labelProgressBar.Text = "Raumfläche darf nicht null sein";
         }
 
         private void textBoxGesamptpreis_TextChanged(object sender, EventArgs e)

@@ -111,7 +111,7 @@ namespace GUI
                     else listBoxRaum.Items.Add(new listBoxRaumItems(Color.Red, r));
                 }
 
-                labelGesamptpreis.Text = "Gesamptpreis des Brandschutz für alle Räume";
+                labelGesamptpreis.Text = "Gesamtpreis der Feuerlöscher für alle Räume";
                 textBoxGesamptpreis.Text = Convert.ToString(gesamptpreis);
             }
 
@@ -134,7 +134,7 @@ namespace GUI
                     }
                 }
 
-                labelGesamptpreis.Text = "Gesamptpreis des Brandschutz für den Nutzungsart " + typ;
+                labelGesamptpreis.Text = "Gesamtpreis der Feuerlöscher für die Räume mit der Nutzungsart " + typ;
                 textBoxGesamptpreis.Text = Convert.ToString(gesamptpreis);
             }
 

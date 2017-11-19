@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 using Klassen;
 using GUI;
 
-namespace IIB1_UE1AddIn
+namespace AddIn
 {
-	class Util
-	{
-		#region Attribute
+    class Util
+    {
+        #region Attribute
         private static Document doc = null;
         private static IList<Element> alleBoeden = new List<Element>();
 
@@ -33,37 +33,37 @@ namespace IIB1_UE1AddIn
         /// </summary>
         /// <param name="room">Raum, der geparst werden soll.</param>
         /// <returns>Den Raum als Instanz der Klasse Raum</returns>
-     
+
         public static Raum parseRaum(Room room)
         {
             /*List<FamilyInstance> revitFensterListe = findeAlleRaumFenster(room);
             BindingList<Fenster> fensterListe = parseFenster(revitFensterListe);*/
             BindingList<Feuerloescher> feuerloescherListe = new BindingList<Feuerloescher>();
-            Klassen.Material material = new Klassen.Material(); 
+            Klassen.Material material = new Klassen.Material();
             double flaeche = squarefeetToQuadratmeter(room.Area);
-            string raumtyp = room.GetParameters("Nutzungsgruppe DIN 277-2")[0].AsString();
-            if (raumtyp == "2-Büroarbeit")
+            string raumtyp = room.GetParameters("Raumschlüssel")[0].AsValueString();
+            if (raumtyp == "2")
             {
                 Buero buero = new Buero(flaeche, room.Number, feuerloescherListe, material);
                 return buero;
             }
-            else if (raumtyp == "5-Bildung, Unterricht und Kultur")
+            else if (raumtyp == "5")
             {
                 Seminarraum seminarraum = new Seminarraum(flaeche, room.Number, feuerloescherListe, material);
                 return seminarraum;
             }
-            else if (raumtyp == "7-Sonstige Nutzungen")
+            else if (raumtyp == "7")
             {
                 Sanitaerraum sanitaerraum = new Sanitaerraum(flaeche, room.Number, feuerloescherListe, material);
                 return sanitaerraum;
             }
-            else if (raumtyp == "9-Verkehrserschließung und -sicherung")
+            else if (raumtyp == "9")
             {
                 Flur flur = new Flur(flaeche, room.Number, feuerloescherListe, material);
                 return flur;
             }
             return null;
-        } 
+        }
 
         public static double squarefeetToQuadratmeter(double squarefeet)
         {
@@ -72,5 +72,5 @@ namespace IIB1_UE1AddIn
         }
         #endregion
 
-	}
+    }
 }

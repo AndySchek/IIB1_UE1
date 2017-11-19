@@ -31,18 +31,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GUI">
-      <HintPath>..\..\..\..\Documents\GitHub\IIB1_UE1\Projekt\GUI\GUI\bin\Debug\GUI.exe</HintPath>
+      <HintPath>..\..\GUI\GUI\bin\Debug\GUI.exe</HintPath>
     </Reference>
     <Reference Include="Klassen">
-      <HintPath>..\..\..\..\Documents\GitHub\IIB1_UE1\Projekt\Klassen\Klassen\bin\Debug\Klassen.dll</HintPath>
+      <HintPath>..\..\Klassen\Klassen\bin\Debug\Klassen.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="RevitAPI">
-      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="RevitAPIUI">
-      <HintPath>..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIUI.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files\Autodesk\Revit 2017\RevitAPIUI.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
